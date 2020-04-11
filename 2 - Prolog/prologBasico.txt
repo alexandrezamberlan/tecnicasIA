@@ -1,0 +1,65 @@
+PROLOG
+
+Conjunto de (predicados/proposição):
+	* Fatos - verdades
+	* Regras - condições
+
+	pessoa(jose).
+	pessoa(maria).
+	pessoa(jesus).
+	homem(jose).
+	homem(jesus).
+	mulher(maria).
+	progenitor(jose, jesus).
+	progenitor(maria, jesus).
+
+	mae(Quem, Filho) :- mulher(Quem), 
+	                    progenitor(Quem, Filho). 
+	
+	eh_pai(Pessoa) :- homem(Pessoa), 
+	                  progenitor(Pessoa, X).
+
+	* Negação (negar algo): not(proposição).
+	
+	homem(X) :- not(mulher(X)), pessoa(X).
+
+	* Operadores Lógico Matemáticos
+
+		> e => 
+			4 >= 3.
+			3 > 4.
+
+		< e =< 
+			4 < 3.
+			3 <= 4.
+
+		=:=     
+			1+2 =:= 2+1
+
+	* Funções úteis
+		Escrever no console
+			write(aqui).
+			writeln(aqui).
+
+		Próximo número
+			succ(1, X).
+
+	* Recursão - uma regra que pode invocar a si mesma. 
+	
+	
+	ancestral(Qual, Quem) :- progenitor(Qual, Quem). %criterio de parada
+	ancestral(Qual, Quem) :- ancestral(Qual, Prog),
+	                         progenitor(Prog, Quem).
+
+
+
+arco(a,b).
+arco(a,c).
+arco(b,d).
+arco(d,e).
+arco(c,e).
+
+conexao(Origem,Destino) :- arco(Origem,Destino).
+conexao(Origem, Destino) :- ancestral(Origem, Prog),
+	                        arco(Prog, Destino).
+

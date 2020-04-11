@@ -1,0 +1,38 @@
+PROLOG EXERCÍCIOS
+
+1) Escrever um contador que vai de 0 até 10 e escreve FIM na tela.
+
+2) Criar a árvore genealógica com os fatos (progenitor, homem, mulher) e as regras (ancestral, pai, mae, avo, primo).
+
+3) As cidades de Santa Maria e Porto Alegre estão localizadas no Rio Grande do Sul. Salvador na Bahia. Grenoble e Paris na França, que está na Europa. O Rio Grande do Sul e Bahia estão localizados no Brasil.
+O Andre nasceu em Santa Maria. José em Salvador. Marc nasceu na cidade de Grenoble e a Maria em Porto Alegre.
+Atualmente, André mora em Paris, José em Grenoble, Marc em Porto Alegre, Maria em Salvador.
+As idades são as seguintes: André - 25; José - 30; Marc - 28; e Maria - 32 anos.
+
+A partir dessa descrição monte uma base de fatos em Prolog que represente fielmente essas afirmações. Faça também regras de inferência (para consultas) para saber se uma pessoa 
+- "nasceu_em" 
+- "mora_em"
+
+Em um determinado estado, país ou continente, independente de isso estar explícito nos fatos descritos. 
+
+4) “Frajola é um gato, Piupiu é um pássaro, Goldie é um peixe e Squiggly é uma minhoca. Pássaros gostam de minhoca. A dona de Frajola é Joana. Gatos gostam de peixe. Gatos gostam de pássaros. Amigos se gostam. O gato de Joana é amigo dela. Os gatos comem tudo que eles gostam”. Utilizando Prolog, crie a base de conhecimento para o relato acima. Crie também uma regra que descubra de que se alimenta Frajola.
+
+5) Suponha os seguintes fatos para registrar a média destes alunos: 
+nota(joao, 5, 3).
+nota(maria, 6, 6). 
+nota(joana, 8, 2). 
+nota(mariana, 9, 10). 
+nota(cleuza, 10, 0). 
+nota(jose, 7, 4). 
+nota(jaoquim, 6, 4).
+
+Construa regras para identificar o estado dos alunos, somando as duas notas e divindo por 2, quanto a: aprovado (de 7.0 a 10.0), recuperação (de 5.0 até menor que 7.0), reprovado (de 0.0 a menor que 5.0) e erro se nenhuma das faixas anteriores.
+
+6) Traduzir em Prolog os seguintes fatos: 
+João gosta de Maria. 
+Paulo gosta de Antônio. 
+Antônio gosta de Claudia. 
+Fernando gosta de Claudia. 
+Claudia gosta de quem gosta dela. 
+Ninguém gosta de Paulo. 
+Duas pessoas de sexos diferentes que gostam deles mutualmente são talvez namorados.

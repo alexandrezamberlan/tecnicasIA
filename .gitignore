@@ -3,5 +3,9 @@
 *.class
 *.pyc
 env
-.DStore
+.exe
+.obj
+.DS_Store
+.vs_code
 .vscode
+.vs

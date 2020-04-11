@@ -1,0 +1,13 @@
+MAS almoxarifado {
+
+	infrastructure: Centralised
+
+	environment: Entrada
+
+	agents:
+		r2;
+		r1;
+
+	aslSourcePath:
+		"src/asl";
+}

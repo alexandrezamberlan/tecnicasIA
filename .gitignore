@@ -1,2 +1,7 @@
 /metodosBusca/metodosBusca/nbproject/private/
 /metodosBusca/metodosBusca/build/
+*.class
+*.pyc
+env
+.DStore
+.vscode

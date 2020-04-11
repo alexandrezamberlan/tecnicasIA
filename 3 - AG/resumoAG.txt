@@ -1,0 +1,52 @@
+AG
+	- método de busca
+	- tipo de problema com muitas restrições e sem o conhecimento do estado final
+
+Problema: Geração de palavras em evolução até chegar numa palavra estado final
+
+Entradas:
+	- tamanhoPopulacao
+	- quantidadeGeracoes
+	- taxaSelecao / taxaReproducao
+	- taxaMutacao
+	- neste caso em especial, palavraFinal
+
+1) Pensar Orientado a Objetos
+	- Criar a classe Cromossomo
+		- atributos
+		- construtor
+		- cálculo de aptidão
+
+	- Criar uma classe Util como métodos utilitários ao problema
+
+	- Criar uma classe para aplicar o AG
+		- tamanhoPopulacao
+		- quantidadeGeracoes
+		- taxaSelecao / taxaReproducao
+		- taxaMutacao
+		- neste caso em especial, palavraFinal	
+
+		inicializarPopulacao(populacao,tamanhoPopulacao,palavraFinal)
+		ordenarPopulacao(populacao) //decrescente pela aptidao
+		exibirPopulacao(populacao)
+
+		laço 1 até quantidadeGeracoes
+			selecionarPopulacao(populacao,novaPopulacao,taxaSelecao)
+			reproduzirPopulacao(populacao,novaPopulacao,taxaReproducao,palavraFinal)
+			
+			mutarPopulacao(novaPopulacao,palavraFinal) //verificar a taxa ou a frequencia
+			ordenarPopulacao(novaPopulacao)
+			exibirPopulacao(novaPopulacao)
+
+			apagar(populacao)
+			mover(novaPopulacao,populacao)
+			apagar(novaPopulacao)
+
+			
+
+
+
+
+
+
+

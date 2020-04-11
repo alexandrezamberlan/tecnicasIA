@@ -1,0 +1,31 @@
+SISTEMAS MULTIAGENTES
+    - Parte da IA que tenta implementar o comportamento 
+      humano literalmente
+        - baseado no comportamento coletivo dos animais
+            - Swarm Intelligence
+        - Mecanismos de percepção/sensores
+        - Mecanismos de atuação/motores
+        - Técnicas de planejamento
+        Sensorear X Planejar X Atuar
+    - Unidade básica é o AGENTE
+        - sensores
+        - conjunto de planos
+        - atuadores 
+        - Características fundamentais:
+            - Autonomia - threads
+            - Proatividade - planos/métodos sobrecarregados
+            - Adaptação ou flexibilidade - tratamento de exceções
+            - Comunicação - socket
+                - enviar um fato/crença
+                - enviar um questionamento/pergunta
+                - enviar uma solicitação de plano/ações
+
+
+MODELAGEM DO AGENTE
+    1) evento ativador (trigger)
+    2) contexto ou condição
+    3) plano ou planos contigenciais
+    4) atualização da base de conhecimento (faots/crenças)
+
+Vídeo no Youtube sobre modelagem de Agentes
+    - https://youtu.be/IBNh7j_F4yc    

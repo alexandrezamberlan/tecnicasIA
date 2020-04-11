@@ -1,0 +1,36 @@
+Jason  - três tipos de arquivo
+
+.mas2j 
+	-> descrição do projeto do SMA
+
+
+.java 
+	-> código java que implementa o ambiente em que os agentes estão inseridos
+	-> principais métodos: 
+               init() -> inicialização do SMA -> com percepções iniciais
+               executeAction() -> tratamento das ações solicitadas pelos agentes
+
+        -> métodos secundários: 
+                addPercept() -> ambiente avisando todos os agentes de uma percepção
+                removePercep() -> ambiente retirando uma percepção gerada
+
+
+.asl
+	-> código AgentSpeak(L), que é um Prolog melhorado, contendo:
+	       - crenças ou fatos do ambiente (base de conhecimento de um agente)
+               - planos ou regras (conjunto de ações que são disparadas quando um evento
+                  ocorre no ambiente - evento externo)
+               - subplano (conjunto de ações que são disparadas quando um evento interno
+                  ocorre)
+	-> alguns comandos de apoio que são do Jason
+	       - .print() -> exibe alguma coisa no terminal de verbose
+               - .send() -> diretiva de comunicação entre agentes
+		       .send(agente,tell,crença/fato)
+                       .send(agente,achieve,plano)
+                       .send(agente,untell,crença/fato)
+
+               - .broadcast -> diretiva de comunicação de um agente para muitos agentes
+			.broadcast(tell,crença/fato)
+                      	.broadcast(untell,crença/fato)
+
+                - .wait(milissegundos)

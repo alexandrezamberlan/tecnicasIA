@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="*.asl" kind="src" path="src/asl" />
+	<classpathentry kind="src" path="src/java" />
+	<classpathentry kind="lib" path="/C:/Users/usrlab06/Downloads/jason-2.4/libs/jason-2.4.jar"/>
+<classpathentry kind="output" path="bin/classes"/></classpath>

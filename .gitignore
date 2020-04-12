@@ -2,7 +2,7 @@
 /metodosBusca/metodosBusca/build/
 *.class
 *.pyc
-env
+venv
 .exe
 .obj
 .DS_Store

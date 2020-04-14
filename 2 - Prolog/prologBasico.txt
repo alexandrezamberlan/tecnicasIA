@@ -53,13 +53,3 @@ Conjunto de (predicados/proposição):
 
 
 
-arco(a,b).
-arco(a,c).
-arco(b,d).
-arco(d,e).
-arco(c,e).
-
-conexao(Origem,Destino) :- arco(Origem,Destino).
-conexao(Origem, Destino) :- ancestral(Origem, Prog),
-	                        arco(Prog, Destino).
-

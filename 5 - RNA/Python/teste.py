@@ -1,11 +1,9 @@
-
 def sortear(titulo):
     print(titulo)
     import random
     x = random.random()
     print("Um número sorteado entre 0 e 1: ",x)
-
-
+    
 def repetir(titulo,inicio,fim):
     print(titulo)
     for i in range(inicio,fim):
@@ -31,6 +29,12 @@ def lista_orientacao_a_objetos(titulo,quantidade):
         print(i.matricula)
         print(i.nome)
         print('===================')
+
+    matricula = input('Qual matrícula procura? ')
+    if lista_alunos.__contains__(matricula):
+        print("Encontrado")
+    else:
+        print("Não encontrado")
     
 class Aluno:
     def __init__(self, matricula, nome):

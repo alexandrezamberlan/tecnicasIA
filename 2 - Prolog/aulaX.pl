@@ -81,11 +81,37 @@ arco(b,c,50).
 arco(c,d,60).
 arco(d,e,50).
 caminho(O,D,Custo) :- arco(O,D,Custo). %criterio de parada
-caminho(O,D,Custo) :- arco(O,I,_),
-                     caminho(I,D,_).
+caminho(O,D,Custo) :- arco(O,I,Custo1),
+                      caminho(I,D,Custo2),
+                      Custo is Custo1 + Custo2.
                       
-
-
-
 %a b c d e = 100+50+60+50
 %a e = 400
+
+eh_um(frajola,gato).
+eh_um(piupiu,passaro).
+eh_um(goldie,peixe).
+eh_um(squiggly,minhoca).
+
+gosta(passaro,minhoca).
+gosta(gato,peixe).
+gosta(gato,passaro).
+
+eh_dona(joana,frajola).
+
+amigo(A,B) :- gosta(A,B),
+              gosta(B,A),
+              A \== B.
+
+amigo(frajola,joana).
+
+
+come(gato,Tudo) :- gosta(gato,Tudo).
+
+comeFrajola(X) :- eh_um(frajola,Bicho),
+                  gosta(Bicho,OutroBicho),
+                  eh_um(X, OutroBicho).
+
+comeFrajola(X) :- eh_um(frajola,Bicho),
+                  gosta(Bicho,X).
+                  

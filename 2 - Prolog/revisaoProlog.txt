@@ -1,0 +1,22 @@
+Sistemas de Comportamento Inteligente
+    - BASE DE CONHECIMENTO - prolog, ontologia, ifs 
+    - RACIOCÍNIO - métodos de busca - prolog
+    - APRENDIZAGEM DE MÁQUINA - reconhecimento de padrões
+
+BASE DE CONHECIMENTO/RACIOCÍNIO EM PROLOG
+    - fatos  - verdades em forma de sentença ou proposição ou declaração ou predicado
+    - regras - consultas ou hipóteses em forma de sentença ou proposição ou declaração ou predicado
+
+    - Prolog e seus principais recursos
+     - lógica simbólica
+     - programação simples
+
+     - recursão - é a aplicação do busca de forma efetiva
+     - listas
+
+    - APIs Prolog para outras linguagens
+        - JProlog
+        - Pylog
+
+    
+

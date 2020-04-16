@@ -38,6 +38,34 @@ O gato de Joana é amigo dela. Os gatos comem tudo que eles gostam”.
 Utilizando Prolog, crie a base de conhecimento para o relato acima. 
 Crie também uma regra que descubra de que se alimenta Frajola.
 
+eh_um(frajola,gato).
+eh_um(piupiu,passaro).
+eh_um(goldie,peixe).
+eh_um(squiggly,minhoca).
+
+gosta(passaro,minhoca).
+gosta(gato,peixe).
+gosta(gato,passaro).
+
+eh_dona(joana,frajola).
+
+amigo(A,B) :- gosta(A,B),
+              gosta(B,A),
+              A \== B.
+
+amigo(frajola,joana).
+
+
+come(gato,Tudo) :- gosta(gato,Tudo).
+
+comeFrajola(X) :- eh_um(frajola,Bicho),
+                  gosta(Bicho,X).
+comeFrajola(X) :- eh_um(frajola,Bicho),
+                  gosta(Bicho,OutroBicho),
+                  eh_um(X, OutroBicho).
+
+
+
 
 6) Traduzir em Prolog os seguintes fatos: 
 João gosta de Maria. 
@@ -47,3 +75,25 @@ Fernando gosta de Claudia.
 Claudia gosta de quem gosta dela. 
 Ninguém gosta de Paulo. 
 Duas pessoas de sexos diferentes que gostam deles mutualmente são talvez namorados.
+
+homem(joao).
+homem(paulo).
+homem(antonio).
+homem(fernando).
+mulher(maria).
+mulher(claudia).
+gosta(joao,maria).
+gosta(paulo,antonio).
+gosta(antonio,claudia).
+gosta(fernando,claudia).
+gosta(claudia, Alguem) :- gosta(Alguem,claudia).
+gosta(ninguem,paulo).
+namorado(A,B) :- homem(A),
+                 mulher(B),
+                 gosta(A,B),
+                 gosta(B,A).
+
+namorado(A,B) :- homem(B),
+                 mulher(A),
+                 gosta(A,B),
+                 gosta(B,A).

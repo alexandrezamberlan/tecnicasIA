@@ -1,4 +1,4 @@
-LISTAS EM PROLOG
+LISTAS EM PROLOG - []
 
 * Estruturas de dados suportadas nativamente em Prolog
 * Sequência de qualquer número de itens
@@ -44,10 +44,9 @@ Predicados úteis com listas Notação dos argumentos
 
 Predicados
 * length(?List, ?Int): verdadeiro se Int representa o número de elementos da lista List
-
 * member(?Elem, ?List): verdadeiro se Elem é membro da lista List
-* sort(+List, -Sorted): verdadeiro se Sorted é equivalente à lista List
-ordenada; elementos duplicados são removidos do resultado
+* sort(+List, -Sorted): verdadeiro se Sorted é equivalente à lista List ordenada; 
+                        elementos duplicados são removidos do resultado
 * append(?List1, ?List2, ?List1AndList2): verdadeiro se List1AndList2 é a concatenação de List1 e List2
 * nextto(?X, ?Y, ?List): verdadeiro se Y segue X em List
 * nth0(?N, ?List, ?Elem): verdadeiro se Elem é o N-ésimo elemento de List (índices começando em 0)

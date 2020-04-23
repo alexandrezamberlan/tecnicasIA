@@ -1,0 +1,11 @@
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/bin/Debug/netcoreapp2.1/2-jogos.deps.json
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/bin/Debug/netcoreapp2.1/2-jogos.runtimeconfig.json
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/bin/Debug/netcoreapp2.1/2-jogos.runtimeconfig.dev.json
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/bin/Debug/netcoreapp2.1/2-jogos.dll
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/bin/Debug/netcoreapp2.1/2-jogos.pdb
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/obj/Debug/netcoreapp2.1/2-jogos.csprojAssemblyReference.cache
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/obj/Debug/netcoreapp2.1/2-jogos.csproj.CoreCompileInputs.cache
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/obj/Debug/netcoreapp2.1/2-jogos.AssemblyInfoInputs.cache
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/obj/Debug/netcoreapp2.1/2-jogos.AssemblyInfo.cs
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/obj/Debug/netcoreapp2.1/2-jogos.dll
+/Users/alexandrezamberlan/codigos/progC#/poo_jogosDigitais/2-jogos/obj/Debug/netcoreapp2.1/2-jogos.pdb

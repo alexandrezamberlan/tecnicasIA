@@ -1,0 +1,12 @@
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.csprojAssemblyReference.cache
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.csproj.CoreCompileInputs.cache
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.AssemblyInfoInputs.cache
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.AssemblyInfo.cs
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.deps.json
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.runtimeconfig.json
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.runtimeconfig.dev.json
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.dll
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.pdb
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.dll
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.pdb
+/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.genruntimeconfig.cache

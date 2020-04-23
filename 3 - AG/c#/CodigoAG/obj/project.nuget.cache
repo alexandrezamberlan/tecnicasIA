@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "fJMrkkNItsyGRaFeJp7eKqwtiTNxPp8CklaTtFhn275rvRt0FTN2aZgvAnY0G4kVHSVcWzTcGaMsPy896fFFWQ==",
+  "success": true,
+  "projectFilePath": "/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/codigoAG.csproj",
+  "expectedPackageFiles": [
+    "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.app/2.1.0/microsoft.netcore.app.2.1.0.nupkg.sha512",
+    "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.dotnetapphost/2.1.0/microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
+    "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.dotnethostpolicy/2.1.0/microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
+    "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.dotnethostresolver/2.1.0/microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.platforms/2.1.0/microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.targets/2.1.0/microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "/Users/alexandrezamberlan/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

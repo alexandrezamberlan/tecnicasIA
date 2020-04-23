@@ -1,9 +1,9 @@
-
 class Cromossomo implements Comparable<Cromossomo> {
 
     StringBuffer valor;
+    
     int aptidao;
-    int porcentagemAptidao;
+    int porcentagemAptidao; //para o método de seleção roleta
 
     public Cromossomo(StringBuffer valor, String estadoFinal) {
         this.valor = valor;
@@ -24,6 +24,7 @@ class Cromossomo implements Comparable<Cromossomo> {
         return nota;
     }
 
+    @Override
     public int compareTo(Cromossomo cromossomo) {
         if (this.aptidao > cromossomo.aptidao) {
             return -1;

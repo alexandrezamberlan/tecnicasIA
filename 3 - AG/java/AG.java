@@ -100,46 +100,41 @@ public class AG {
                 populacao.get(i).porcentagemAptidao = 1;
             }
         }
-
-
-        System.out.println("exibindo a porcentagemAptidao");
-        exibir(populacao);
-
-        // List<Cromossomo> sorteio = new ArrayList<>();
-        // for (int i = 0; i < populacao.size(); i++) {
-        //     for (int j = 0; j < populacao.get(i).porcentagemAptidao; j++) {
-        //         sorteio.add(populacao.get(i));
-        //     }
-        // }
-
-
-        // System.out.println("Tamanho da lista sorteio: " + sorteio.size());
-
-        // Random gerador = new Random();
-        // int posicaoSorteio;
         
-        // //populacao.size()	->	100
-        // //qtdSelecionados	-> 	taxaSelecao
-        // int qtdSelecionados = taxaSelecao * populacao.size() / 100;
+        List<Cromossomo> sorteio = new ArrayList<>();
+        for (int i = 0; i < populacao.size(); i++) {
+            for (int j = 0; j < populacao.get(i).porcentagemAptidao; j++) {
+                sorteio.add(populacao.get(i));
+            }
+        }
+
+        System.out.println("Tamanho da lista sorteio: " + sorteio.size());
+
+        Random gerador = new Random();
+        int posicaoSorteio;
         
-        // //elitismo
-        // novaPopulacao.add(populacao.get(0));
-        // Cromossomo selecionado;
+        //populacao.size()	->	100
+        //qtdSelecionados	-> 	taxaSelecao
+        int qtdSelecionados = taxaSelecao * populacao.size() / 100;
+        
+        //elitismo
+        novaPopulacao.add(populacao.get(0));
+        Cromossomo selecionado;
 
-        // for (int i = 1; i <= qtdSelecionados; i++) {
-        //     posicaoSorteio = gerador.nextInt(sorteio.size());
+        for (int i = 1; i <= qtdSelecionados; i++) {
+            posicaoSorteio = gerador.nextInt(sorteio.size());
             
-        //     try {
-        //         selecionado = sorteio.get(posicaoSorteio);
+            try {
+                selecionado = sorteio.get(posicaoSorteio);
 
-        //         novaPopulacao.add(selecionado);
+                novaPopulacao.add(selecionado);
 
-        //         while (sorteio.remove(selecionado)){} //controle dos visitados
-        //     } catch (Exception e) {
-        //         System.out.println("Tentou pegar uma posição inválida do sorteio");
-        //     }
+                while (sorteio.remove(selecionado)){} //controle dos visitados
+            } catch (Exception e) {
+                System.out.println("Tentou pegar uma posição inválida do sorteio");
+            }
             
-        // }
+        }
     }
 
     public static void main(String[] args) {

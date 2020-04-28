@@ -78,8 +78,12 @@ public class AG {
             if (!novaPopulacao.contains(selecionado)) {
                 novaPopulacao.add(selecionado);
                 i++;
+                //System.out.println("selecionado.......... " + selecionado.valor );
             }
-        } while (i < qtdSelecionados);
+            
+            torneio.clear(); //FALTOU LIMPAR A LISTA torneio para a próxima rodada
+        
+        } while (i <= qtdSelecionados);
     }
 
     static void selecionarPorRoleta(List<Cromossomo> populacao, List<Cromossomo> novaPopulacao, int taxaSelecao) {
@@ -157,7 +161,7 @@ public class AG {
         for (int i = 1; i < 2; i++) {
             //selecionar
             
-            selecionarPorRoleta(populacao, novaPopulacao, taxaSelecao); //método que TENTA selecionar os mais aptos
+            selecionarPorTorneio(populacao, novaPopulacao, taxaSelecao); //método que TENTA selecionar os mais aptos
             
 
             //cruzar

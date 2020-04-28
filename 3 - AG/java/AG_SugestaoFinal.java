@@ -95,6 +95,9 @@ public class AG_SugestaoFinal {
     }
 
     static void gerarSelecao(List<Cromossomo> populacao, List<Cromossomo> novaPopulacao, int taxaSelecao) {
+        //método da roleta
+
+        //calcular a aptidao total
         int aptidaoTotal = 0;
         for (int i = 0; i < populacao.size(); i++) {
             aptidaoTotal += populacao.get(i).aptidao;
@@ -126,14 +129,15 @@ public class AG_SugestaoFinal {
         
         //elitismo
         novaPopulacao.add(populacao.get(0));
-        
+        Cromossomo selecionado;
+
         for (int i = 1; i <= qtdSelecionados; i++) {
             posicaoSorteio = gerador.nextInt(sorteio.size());
-            Cromossomo selecionado = sorteio.get(posicaoSorteio);
+            selecionado = sorteio.get(posicaoSorteio);
 
             novaPopulacao.add(selecionado);
 
-            while (sorteio.remove(selecionado)){}
+            while (sorteio.remove(selecionado)){} //controle dos visitados
         }
     }
 

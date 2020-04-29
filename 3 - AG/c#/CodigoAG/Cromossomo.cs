@@ -13,7 +13,7 @@ class Cromossomo
     {
         this.valor = valor;
         this.aptidao = calcularAptidao(palavraFinal);
-        this.aptidaoPorcentagem = 0;
+        this.aptidaoPorcentagem = 0; //usado na seleção, no método da roleta
     }
 
     public int calcularAptidao(String palavraFinal) //isso é a heurística dinâmcia do AG
@@ -31,5 +31,12 @@ class Cromossomo
             }
         }
         return nota;
+    }
+
+    public bool Equals(Cromossomo o)
+    {
+        if (o == null) 
+            return false;
+        return (this.valor.Equals(o.valor));
     }
 }

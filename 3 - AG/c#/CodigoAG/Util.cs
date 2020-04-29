@@ -18,4 +18,24 @@ class Util
         }
         return palavra.ToString();
     }
+
+    public static bool contem(List<Cromossomo> populacao, Cromossomo selecionado) 
+    {
+        for (int i = 0; i < populacao.Count; i++)
+        {
+            if (populacao[i].valor.Equals(selecionado.valor))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void adicionaTodos(List<Cromossomo> destino, List<Cromossomo> origem) 
+    {
+        for (int i = 0; i < origem.Count ; i++)
+        {
+            destino.Add(origem[i]);
+        }
+    }
 }

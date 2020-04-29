@@ -1,0 +1,22 @@
+AG - método de busca heurística
+    - heurística: cálculo da aptidão/fitness de forma dinâmica 
+    - regras de transição: seleção, reprodução e mutação
+
+    - ideal para problemas com muitas restrições e que não se conhece o estado final
+
+    - Geração de estados/indivíduos/cromossomos em 'paralelo' por meio de população
+
+    - Fluxo:
+    1) gerar populaçao inicial - totalmente aleatório
+    2) calcular a aptidão de cada estado/indivíduo/cromossomos 
+        2.1) pontuar se está perto da solução, ou quão perto da solução o indivíduo está
+        2.2) pontuar se fere alguma restrição, um bom indivíduo é aquele perto do ZERO
+    3) selecionar % (geralmente 70%)
+    4) reproduzir % (geralmente 30%) - é aqui que novos indivíduos são gerados (a solução pode estar aqui)
+    5) de tempos em tempos aplicar mutação (modificar possível estagnação)
+    6) voltar ao ponto 2
+
+
+    - Estrutura de um estado/indivíduo/cromossomo é um objeto com atributos
+
+

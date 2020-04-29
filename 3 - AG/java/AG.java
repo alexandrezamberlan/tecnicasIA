@@ -142,7 +142,7 @@ public class AG {
     }
 
     public static void main(String[] args) {
-        int tamanhoPopulacao = 10;
+        int tamanhoPopulacao = 100;
         String estadoFinal = "inteligencia";
         int taxaSelecao = 70;
         int taxaReproducao = 100 - taxaSelecao;

@@ -3,10 +3,11 @@ import java.util.Random;
 
 public class Util {
 
-    
+    public static String letras = "abcdefghijklmnopqrstuvxwyz";
+    public static int tamanho = letras.length();
+
     public static StringBuffer gerarPalavra(int n) {
-        String letras = "abcdefghijklmnopqrstuvxwyz";
-        int tamanho = letras.length();
+        
 
         StringBuffer palavra = new StringBuffer();
 

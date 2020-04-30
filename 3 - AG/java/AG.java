@@ -75,7 +75,7 @@ public class AG {
 
             selecionado = torneio.get(0);
 
-            if (!novaPopulacao.contains(selecionado)) {
+            if (!novaPopulacao.contains(selecionado)) { //controle de visitados
                 novaPopulacao.add(selecionado);
                 i++;
                 //System.out.println("selecionado.......... " + selecionado.valor );
@@ -141,13 +141,72 @@ public class AG {
         }
     }
 
+    public static void reproduzir(List<Cromossomo> populacao, List<Cromossomo> novaPopulacao, int taxaReproducao, String estadoFinal) {
+        String sPai,sMae,sFilho1,sFilho2;
+        Random gerador = new Random();
+        Cromossomo pai, mae;
+        
+        //calcular quantos devem ser reproduzidos a partir do tamanho da populacao com a taxaReproducao
+        //populacao.size()	->	100
+        //qtdReproduzido	-> 	taxaReproducao
+        int qtdReproduzidos = taxaReproducao * populacao.size() / 100;
+
+        //sFilho1 = Alexone - primeiraMetadeDoPai + segundaMetadeDaMae;
+        //sFilho2 = Simandre - primeiraMetadeDaMae + segundaMetadeDoPai;
+        int i = 0;
+        do {
+            pai = populacao.get( gerador.nextInt(populacao.size()) ); //futuramente, o pai pode ser um indivíduo bom
+            do {
+                mae = populacao.get( gerador.nextInt(populacao.size()) );
+            } while (mae.equals(pai));
+
+            sPai = pai.valor.toString();
+            sMae = mae.valor.toString();
+            
+            sFilho1 = sPai.substring(0, sPai.length() / 2) + sMae.substring(sMae.length() / 2, sMae.length());
+            sFilho2 = sMae.substring(0, sMae.length() / 2) + sPai.substring(sPai.length() / 2, sPai.length());
+
+            novaPopulacao.add(new Cromossomo(new StringBuffer(sFilho1), estadoFinal)); //estadoFinal é passado para calcular aptidao do filho
+            novaPopulacao.add(new Cromossomo(new StringBuffer(sFilho2), estadoFinal)); //estadoFinal é passado para calcular aptidao do filho
+            i = i + 2;
+
+        } while (i < qtdReproduzidos);
+        
+        //podar a novaPopulacao, retirando os excedentes do final
+        while(novaPopulacao.size() > populacao.size()) {
+            novaPopulacao.remove(novaPopulacao.size() - 1);
+        }
+    }
+
+    public static void mutar(List<Cromossomo> populacao, String estadoFinal) {
+        Random gerador = new Random();
+        int qtdMutantes = gerador.nextInt(populacao.size() / 5);
+        Cromossomo mutante;
+        int posicaoMutante;
+
+        for (; qtdMutantes > 0; qtdMutantes--) {
+            posicaoMutante = gerador.nextInt(populacao.size());
+            mutante = populacao.get(posicaoMutante);
+            System.out.println("vai mutar " + mutante.valor + "  " + mutante.aptidao);
+            //mudando
+            String valorMutado = mutante.valor.toString();
+            char caracterMutante = mutante.valor.charAt(gerador.nextInt(mutante.valor.length()));
+            char caracterSorteado = Util.letras.charAt(gerador.nextInt(Util.tamanho));
+            valorMutado = valorMutado.replace(caracterMutante, caracterSorteado);          
+            mutante = new Cromossomo(new StringBuffer(valorMutado), estadoFinal);
+            //JOptionPane.showMessageDialog(null, "mudado " + mutante.valor + "  " + mutante.aptidao);
+            //recalculando sua aptidao
+            populacao.set(posicaoMutante, mutante);
+        }
+    }
+
     public static void main(String[] args) {
-        int tamanhoPopulacao = 100;
+        int tamanhoPopulacao = 50;
         String estadoFinal = "inteligencia";
         int taxaSelecao = 70;
         int taxaReproducao = 100 - taxaSelecao;
-        int taxaMutacao;
-        int qtdGeracoes;
+        int taxaMutacao = 5;
+        int qtdGeracoes = 1000;
 
         List<Cromossomo> populacao = new ArrayList<Cromossomo>();
         List<Cromossomo> novaPopulacao = new ArrayList<Cromossomo>();
@@ -158,19 +217,18 @@ public class AG {
         exibir(populacao);
 
         //gerações
-        for (int i = 1; i < 2; i++) {
+        for (int i = 1; i < qtdGeracoes; i++) {
             //selecionar
-            
             selecionarPorTorneio(populacao, novaPopulacao, taxaSelecao); //método que TENTA selecionar os mais aptos
             
-
             //cruzar
-            //reproduzir(novaPopulacao, populacao, taxaReproducao, estadoFinal);
+            reproduzir(populacao, novaPopulacao, taxaReproducao, estadoFinal);//método que cria novos indivíduos
             
             //mutacao
             //definir o momento da mutacao
-            //mutacao(novaPopulacao);
-            
+            if (i % (populacao.size() / taxaMutacao) == 0) {
+                mutar(novaPopulacao, estadoFinal); //estadoFinal é passado, pq indivíduos mutados devem ter suas aptidões recalculadas
+            }
             
             populacao.clear();
             populacao.addAll(novaPopulacao);

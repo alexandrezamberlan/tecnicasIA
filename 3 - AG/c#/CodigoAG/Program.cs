@@ -52,7 +52,6 @@ static class Program
         //100          -  populacao.count
         //taxaSelecao  - qtdSelecionados
         int qtdSelecionados = (taxaSelecao * populacao.Count) / 100;
-        // Console.WriteLine("Quantidade de selecionados: " + qtdSelecionados);
         
         Cromossomo c1, c2, c3;
         Random gerador = new Random();
@@ -74,24 +73,30 @@ static class Program
             torneio.Add(c1);
             torneio.Add(c2);
             torneio.Add(c3);
+            
 
             ordenar(torneio); //ordena de forma decrescente do mais apto ao menos apto
             selecionado = torneio[0];
-            
-            if (!Util.contem(novaPopulacao, selecionado))
+            Console.WriteLine(torneio[0].valor + "   " + torneio[1].valor + "   " + torneio[2].valor);
+
+            if (!novaPopulacao.Contains(selecionado))
             {
                 novaPopulacao.Add(selecionado);
                 i++;
-                //Console.WriteLine("selecionado.... " + selecionado.valor);
-            }
+                Console.WriteLine("selecionado.... " + selecionado.valor);
+            } else Console.WriteLine("Já existe");
             torneio.Clear();
+            Console.ReadKey();
+            
         } while (i < qtdSelecionados);
+        Console.WriteLine("Fim seleção. Quantidade de selecionados: " + qtdSelecionados);
     }
 
     static public void reproduzir(List<Cromossomo> populacao,
                                   List<Cromossomo> novaPopulacao,
                                   int taxaReproducao, String estadoFinal)
     {
+        
         //100             -  populacao.count
         //taxaReproducao  - qtdReproduzidos == qtdGeradosNovos
         int qtdReproduzidos = (taxaReproducao * populacao.Count) / 100;
@@ -129,7 +134,9 @@ static class Program
 
             novaPopulacao.Add(new Cromossomo(sFilho1, estadoFinal));
             novaPopulacao.Add(new Cromossomo(sFilho2, estadoFinal));
-            i = i + 2;
+            //novaPopulacao.Add(new Cromossomo(sPai, estadoFinal));
+            //novaPopulacao.Add(new Cromossomo(sMae, estadoFinal));
+            i += 2;
 
         } while (i < qtdReproduzidos);
 
@@ -138,6 +145,7 @@ static class Program
             //podar o fim da novaPopulacao
             novaPopulacao.RemoveAt(novaPopulacao.Count-1);
         }
+        Console.WriteLine("Fim da reprodução. Foram reproduzidos: " + qtdReproduzidos + "  " + novaPopulacao.Count);
     }
 
     static void Main()
@@ -153,25 +161,31 @@ static class Program
         int taxaMutacao;
         int tamanhoPopulacao;
 
-        Console.Write("Qual a palavra ou frase que quer testar como estado final? ");
-        estadoFinal = Console.ReadLine();
+        //Console.Write("Qual a palavra ou frase que quer testar como estado final? ");
+        //estadoFinal = Console.ReadLine();
+        estadoFinal = "inteligencia";
 
-        Console.Write("Quantas gerações pretende executar? "); //serve para o for
-        quantidadeGeracoes = Int32.Parse( Console.ReadLine() );
+        //Console.Write("Quantas gerações pretende executar? "); //serve para o for
+        //quantidadeGeracoes = Int32.Parse( Console.ReadLine() );
+        quantidadeGeracoes = 100;
 
-        do {
-            Console.Write("Taxa de seleção (10-90): ");
-            taxaSelecao = Int32.Parse( Console.ReadLine() );
-            taxaReproducao = 100 - taxaSelecao;
-        } while (taxaSelecao <= 10 || taxaSelecao > 90);
+        //do {
+        //    Console.Write("Taxa de seleção (10-90): ");
+        //    taxaSelecao = Int32.Parse( Console.ReadLine() );
+        //    taxaReproducao = 100 - taxaSelecao;
+        //} while (taxaSelecao <= 10 || taxaSelecao > 90);
 
-        do {
-            Console.Write("Taxa de mutação (1-5%): ");
-            taxaMutacao = Int32.Parse( Console.ReadLine() );
-        } while (taxaMutacao <= 0 || taxaMutacao > 5);
+        taxaSelecao = 70;
+        taxaReproducao = 100 - taxaSelecao;
 
-        Console.Write("Tamanho da população: ");
-        tamanhoPopulacao = Int32.Parse( Console.ReadLine() );
+        //do {
+        //    Console.Write("Taxa de mutação (1-5%): ");
+        //    taxaMutacao = Int32.Parse( Console.ReadLine() );
+        //} while (taxaMutacao <= 0 || taxaMutacao > 5);
+
+        //Console.Write("Tamanho da população: ");
+        //tamanhoPopulacao = Int32.Parse( Console.ReadLine() );
+        tamanhoPopulacao = 10;
 
         //gerar população inicial
         //calcular aptidao para cada estado/indivíduo/cromossomo da população
@@ -183,6 +197,7 @@ static class Program
         
         for (int i = 1; i < quantidadeGeracoes; i++)
         {
+            Console.WriteLine("inicio de um for para nova poulação");
             selecionarPorTorneio(populacao,novaPopulacao,taxaSelecao);
             //estadoFinal é passado, pq são gerados novos cromossomos, logo é preciso 
             //calcular a aptidao desses novos cromossomos

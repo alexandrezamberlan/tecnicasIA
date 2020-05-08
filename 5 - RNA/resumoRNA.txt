@@ -1,0 +1,48 @@
+
+REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕES
+        -> vários algoritmos (tipo de treinamento, topologia (quantas camadas),
+                              tipo propagação (feedforward ou feedback propagations))
+
+            -> redes recorrente (feedback propagation - retroalimentação para ajudar no
+                                 treinamento não supervisionado)
+
+            -> redes famosas (perceptron (treinamento supervisionado, feedforward propagation))
+
+            -> redes convolucionais (google em veículos autônomos, tradução de textos)
+                                    (feedback propagation, multicamadas, 
+                                     treinamento não supervisionado)
+
+        -> USAR: classificar, agrupar, diagnosticar, predizer, prever
+            -> MINERAÇÃO (dados, texto, web, imagem)
+
+        Aprendizagem:
+            - observação
+            - escuta
+            - experimentação
+            - leitura
+    
+        Itens a observar/escutar/experimentar/ler
+            - atributos massivos
+            - pesos respectivos ()
+
+        trabalha/exercita atributos e seus pesos => TREINAMENTO => APRENDIZADO DA MÁQUINA
+
+
+        Treinamento (não supervisionada / supervisionada / híbrida)    
+            - é dependente da capacidade de armazenar, raciocinar e aprender
+            - é dependente de um conceito de LIMIAR (threshold) ou função objetivo
+            - trabalha a relação de atributos e seus pesos (ajustes dessa combinação)
+
+
+        Projetar uma RNA envolve:
+            - identificar a área em que se deseja RECONHECER PADRÕES ou realizar DIAGNÓSTICO
+            - identificar atributos e pesos;             
+            - separar atributos (conjunto) em categorias, ou seja, em diferentes neurônios
+            - definir as funções objetivos (limiar de treinamento) de cada neurônio
+            - mecanismo de treinamento (supervisionado ou não ou pesos fixos)
+                - se supervisionado: usar base de teste 
+
+        TIPOS DE TREINAMENTO:
+            - supervisionado
+            - não supervisionado
+            - pesos fixo (matemática) -> trabalhar sempre com um par (entrada x saída)

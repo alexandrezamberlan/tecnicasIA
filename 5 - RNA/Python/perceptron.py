@@ -2,7 +2,6 @@ import sys
 import random
  
 class Perceptron:
- 
 	## Primeira função de uma classe (método construtor de objetos)
 	## self é um parâmetro obrigatório que receberá a instância criada
 	def __init__(self, amostras, saidas, taxa_aprendizado=0.1, epocas=1000, limiar=1):
@@ -30,8 +29,8 @@ class Perceptron:
 		# Inserir o valor do limiar na posição "0" do vetor de pesos
 		self.pesos.insert(0, self.limiar)
 		
-		# Inicializar contador de épocas
-		n_epocas = 0
+		# Inicializar contador de gerações
+		geracoes = 0
  
 		while True:
 			# Inicializar variável erro
@@ -61,12 +60,12 @@ class Perceptron:
 					# Atualizar variável erro, já que erro é diferente de zero (existe)
 					erro = True
  
-			# Atualizar contador de épocas
-			n_epocas += 1
+			# Atualizar contador de gerações
+			geracoes += 1
  
-			# Critérios de parada do loop: erro inexistente ou o número de épocas ultrapassar limite pré-estabelecido
-			if not erro or n_epocas > self.epocas:
-				print('Foram necessarias epocas de treinamento: ', n_epocas)
+			# Critérios de parada do loop: erro inexistente ou o número de gerações ultrapassar limite pré-estabelecido
+			if not erro or geracoes > self.epocas:
+				print('Foram necessarias gerações de treinamento: ', geracoes)
 				break
  
 	## Testes para "novas" amostras

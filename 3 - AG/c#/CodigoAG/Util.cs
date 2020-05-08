@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 class Util
 {
     public static string letras = " abcdefghijklmnopqrstuvwxyz";
+    public static int tamanho = letras.Length;
 
     public static string gerarPalavras(int quantidadeCaracteres)
     {

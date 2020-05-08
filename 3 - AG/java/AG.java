@@ -201,12 +201,12 @@ public class AG {
     }
 
     public static void main(String[] args) {
-        int tamanhoPopulacao = 50;
+        int tamanhoPopulacao = 200;
         String estadoFinal = "inteligencia";
         int taxaSelecao = 70;
         int taxaReproducao = 100 - taxaSelecao;
         int taxaMutacao = 5;
-        int qtdGeracoes = 1000;
+        int qtdGeracoes = 4000;
 
         List<Cromossomo> populacao = new ArrayList<Cromossomo>();
         List<Cromossomo> novaPopulacao = new ArrayList<Cromossomo>();

@@ -4,10 +4,10 @@
  * @author Dimas Kastibergue <k45t1b@gmail.com>;
  */
  
-public class Perceptron_And {
+public class Perceptron_And {//RNA mais simples... feedforward .... uma camada... supervisionado
  
     // pesos sinápticos [0] entrada 1, [1] entrada 2, [3]BIAS
-    double[] pesos = new double[3];
+    double[] pesos = new double[3];//vetor que vai receber treinamento
  
     // variável responsável pelo somatório(rede).
     double SOMATORIO_REDE = 0;
@@ -16,13 +16,18 @@ public class Perceptron_And {
     final int geracoesMax = 100000;
  
     // variável responsável pela contagem das gerações durante o treinamento
-    int conta = 0;
+    int contaGeracoes = 0;
  
     // declara o vetor da matriz de aprendizado
     int[][] matrizAprendizado = new int[4][3];
  
 	// metodo de inicialização inicia o vetor da matriz de aprendizado
 	Perceptron_And() {
+        //tabela verdade
+        //0 e 0 = 0 - Primeiro Valor
+        //1 e 0 = 0 - Segundo Valor
+        //0 e 1 = 0 - Terceiro Valor
+        //1 e 1 = 1 - Quarto Valor
  
 		// Primeiro valor
 		this.matrizAprendizado[0][0] = 0; // entrada 1
@@ -52,14 +57,13 @@ public class Perceptron_And {
 		pesos[1] = 0;
 		// Peso sináptico para o BIAS
 		pesos[2]= 0;
- 
 	}
  
-	// Método responsávelpelo somatório e a função de ativação.
-    int executar(int x1, int x2) {
+	// Método responsável pelo somatório e a função de ativação.
+    int executar(int entrada1, int entrada2) {
  
         // Somatório (SOMATORIO_REDE)
-        SOMATORIO_REDE = (x1 * pesos[0]) + (x2 * pesos[1]) + ((-1) * pesos[2]);
+        SOMATORIO_REDE = (entrada1 * pesos[0]) + (entrada2 * pesos[1]) + ((-1) * pesos[2]);
  
         // Função de Ativação tipo STEP
         if (SOMATORIO_REDE >= 0) {
@@ -71,8 +75,8 @@ public class Perceptron_And {
     // Método para treinamento da rede
     public void treinar() {
  
-        // variavel utilizada responsável pelo controlede treinamento recebefalso
-        boolean treinou;
+        // variavel utilizada responsável pelo controle do treinamento recebe falso
+        boolean treinou; //aprendeu
         // varável responsável para receber o valor da saída (y)
         int saida;
         do {
@@ -88,28 +92,27 @@ public class Perceptron_And {
                     // os pesos sinápticos serão corrigidos, ou seja, calibrados
                     corrigirPeso(i, saida); 
                     // a variavél responsável pelo controlede treinamento recebe falso
-                    treinou = false;
-    
+                    treinou = false; //nao aprendeu
                 }
             }
             // acrescenta uma época
-            this.conta++;
+            this.contaGeracoes++;
     
             // teste se houve algum erro duranteo treinamento e o número de geracoes
             //é menor qe o definido
-        } while (!treinou && this.conta < this.geracoesMax);
+        } while (!treinou && this.contaGeracoes < this.geracoesMax);
     }    // fim do método para treinamento
  
-    // Método para a correção de pesos
+    // Método para a correção de pesos, conhecido como HEURÍSTICA
     void corrigirPeso(int i, int saida) {
- 
+        //esta parte é realmente o treinamento ou a calibragem
         pesos[0] = pesos[0] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][0]);
         pesos[1] = pesos[1] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][1]);
         pesos[2] = pesos[2] + (1 * (matrizAprendizado[i][2] - saida) * (-1));
  
     }
  
-    void testar() {
+    void testar() { //colocar em prática o modelo rna treinado para reconhecer
 
         System.out.println(" Teste 01 para 0 and 0 " + executar(0, 0));
  
@@ -123,13 +126,13 @@ public class Perceptron_And {
  
     public static void main(String[] arguments) {
  
-        Perceptron_And p = new Perceptron_And();
+        Perceptron_And perceptron = new Perceptron_And();
  
-        p.treinar();
+        perceptron.treinar();
  
-        System.out.println("Para aprender o algoritmo treinou " + p.conta + " geracoes! \n ");
+        System.out.println("Para aprender o algoritmo treinou " + perceptron.contaGeracoes + " geracoes! \n ");
  
-        p.testar();
+        perceptron.testar();
  
     }
 }

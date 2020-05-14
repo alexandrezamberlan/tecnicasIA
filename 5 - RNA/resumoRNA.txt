@@ -43,6 +43,27 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
                 - se supervisionado: usar base de teste 
 
         TIPOS DE TREINAMENTO:
-            - supervisionado
-            - não supervisionado
+            - supervisionado: classificação (talvez o mais aplicado), regressão
+
+            - não supervisionado: associação, agrupamento, detecção de desvios,
+                                  padrões sequenciais, sumarização
+
             - pesos fixo (matemática) -> trabalhar sempre com um par (entrada x saída)
+
+            - reforço: ....
+
+        TREINAMENTO/APRENDIZAGEM SUPERVISIONADA (CLASSIFICAÇÃO):
+            1) extrair características
+            2) aplicar algoritmmo de treinamento/Aprendizagem (presença de supervisor)
+                2.1) entradas vs pesos
+                2.2) função somatório
+                2.3) função ativação (step, sign ou sigmoide)
+            3) finalizar o modelo (modelo treinado/aprendido)
+
+
+        FUNCIONAMENTO DO SISTEMA TREINADO/APRENDIDO
+            1) extrair características
+            2) aplicar modelo treinado/aprendido
+            3) reconhecer o desejado
+
+        

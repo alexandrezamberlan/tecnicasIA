@@ -1,6 +1,7 @@
+import random
+
 def sortear(titulo):
     print(titulo)
-    import random
     x = random.random()
     print("Um número sorteado entre 0 e 1: ",x)
     

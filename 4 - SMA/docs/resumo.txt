@@ -1,16 +1,19 @@
 SISTEMAS MULTIAGENTES
-    - Parte da IA que tenta implementar o comportamento 
-      humano literalmente
+    - Parte da IA que tenta implementar o comportamento humano literalmente
+
         - baseado no comportamento coletivo dos animais
             - Swarm Intelligence
+      
         - Mecanismos de percepção/sensores
         - Mecanismos de atuação/motores
         - Técnicas de planejamento
+      
         Sensorear X Planejar X Atuar
-    - Unidade básica é o AGENTE
-        - sensores
+    
+    - Unidade básica é o AGENTE 
+        - sensores (na camada de software é um tratador de evento)
         - conjunto de planos
-        - atuadores 
+        - atuadores (na camada de software é um método em execução)
         - Características fundamentais:
             - Autonomia - threads
             - Proatividade - planos/métodos sobrecarregados

@@ -1,0 +1,12 @@
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.deps.json
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.runtimeconfig.json
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.runtimeconfig.dev.json
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.dll
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.pdb
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.csprojAssemblyReference.cache
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.csproj.CoreCompileInputs.cache
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.AssemblyInfoInputs.cache
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.AssemblyInfo.cs
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.dll
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.pdb
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.genruntimeconfig.cache

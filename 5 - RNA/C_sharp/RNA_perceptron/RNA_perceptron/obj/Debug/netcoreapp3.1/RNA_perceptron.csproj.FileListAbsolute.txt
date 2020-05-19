@@ -1,0 +1,12 @@
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/obj/Debug/netcoreapp3.1/RNA_perceptron.csprojAssemblyReference.cache
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/obj/Debug/netcoreapp3.1/RNA_perceptron.csproj.CoreCompileInputs.cache
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/obj/Debug/netcoreapp3.1/RNA_perceptron.AssemblyInfoInputs.cache
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/obj/Debug/netcoreapp3.1/RNA_perceptron.AssemblyInfo.cs
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/bin/Debug/netcoreapp3.1/RNA_perceptron.deps.json
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/bin/Debug/netcoreapp3.1/RNA_perceptron.runtimeconfig.json
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/bin/Debug/netcoreapp3.1/RNA_perceptron.runtimeconfig.dev.json
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/bin/Debug/netcoreapp3.1/RNA_perceptron.dll
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/bin/Debug/netcoreapp3.1/RNA_perceptron.pdb
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/obj/Debug/netcoreapp3.1/RNA_perceptron.dll
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/obj/Debug/netcoreapp3.1/RNA_perceptron.pdb
+/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_perceptron/RNA_perceptron/obj/Debug/netcoreapp3.1/RNA_perceptron.genruntimeconfig.cache

@@ -44,13 +44,21 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
 
         TIPOS DE TREINAMENTO:
             - supervisionado: classificação (talvez o mais aplicado), regressão
+                              Presença de um supervisor que informe a saída desejada
+
+                              Ex.: classificar categorias parafusos, identificar pela
+                              regra da vizinhança de que time/grupo um indivíduo pertence
 
             - não supervisionado: associação, agrupamento, detecção de desvios,
                                   padrões sequenciais, sumarização
+                              Ex.: identificar porções ou elementos em imagens sem que se  
+                                   saiba de fato a saída
 
             - pesos fixo (matemática) -> trabalhar sempre com um par (entrada x saída)
 
-            - reforço: ....
+            - reforço: 
+                      Ex.: Sistemas Multiagentes (agentes aprendem pelas interações - 
+                                                   penalizações)
 
         TREINAMENTO/APRENDIZAGEM SUPERVISIONADA (CLASSIFICAÇÃO):
             1) extrair características
@@ -66,4 +74,15 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
             2) aplicar modelo treinado/aprendido
             3) reconhecer o desejado
 
+
+        TRATAMENTO DO ERRO EM TREINAMENTO SUPERVISIONADO (mais usado, mas não é o único)
+        - erro = saidaEsperada - saidaCalculadaGerada
+        - peso = peso + (taxaAprendizagem * entrada * erro)
         
+            IDEIA DO ALGORITMO DE TREINAMENTO   
+                enquanto (saida_gerada != saida_esperada)                   //erro existir
+                    para cada registro                                      //conjunto de entradas
+                        calcular a saída com os pesos atuais
+                        comparar a saida_esperada com a saida_gerada        //calculo erro
+                        para cada peso da rede
+                            peso = peso + (taxa_aprendizagem * entrada * erro)  //ajuste pesos

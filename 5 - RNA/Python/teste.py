@@ -1,4 +1,5 @@
 import random
+import numpy
 
 def sortear(titulo):
     print(titulo)
@@ -7,7 +8,11 @@ def sortear(titulo):
     
 def repetir(titulo,inicio,fim):
     print(titulo)
-    for i in range(inicio,fim):
+    # for i in range(inicio,fim):
+    #     print(i)
+
+
+    for i in range(4):
         print(i)
 
 def orientacao_a_objetos(titulo):
@@ -45,9 +50,9 @@ class Aluno:
 def main():
     print("Aqui é processo principal")
     # sortear('Método para testar o random:')
-    # repetir('Método para testar repetição com for',2,7)
+    repetir('Método para testar repetição com for',2,7)
     # orientacao_a_objetos('Método para testar OO:')
-    lista_orientacao_a_objetos('Método para testar lista com objetos:',3)
+    # lista_orientacao_a_objetos('Método para testar lista com objetos:',3)
 
 if __name__ == "__main__":
     main()

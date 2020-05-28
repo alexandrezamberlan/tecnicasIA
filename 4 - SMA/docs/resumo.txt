@@ -1,14 +1,19 @@
 SISTEMAS MULTIAGENTES
     - Parte da IA que tenta implementar o comportamento humano literalmente
+         Sensorear X Planejar X Atuar
+            - Mecanismos de percepção/sensores
+            - Mecanismos de atuação/motores
+            - Técnicas de planejamento
 
         - baseado no comportamento coletivo dos animais
             - Swarm Intelligence
+            - dividir para conquistar
+            - sistemas distribuídos com conhecimento e habilidades específicos
+                - grid de computacional
       
-        - Mecanismos de percepção/sensores
-        - Mecanismos de atuação/motores
-        - Técnicas de planejamento
-      
-        Sensorear X Planejar X Atuar
+    - Arquiteturas
+        - Reativas
+        - Cognitivas/Deliberativas/Racionais
     
     - Unidade básica é o AGENTE 
         - sensores (na camada de software é um tratador de evento)
@@ -19,9 +24,9 @@ SISTEMAS MULTIAGENTES
             - Proatividade - planos/métodos sobrecarregados
             - Adaptação ou flexibilidade - tratamento de exceções
             - Comunicação - socket
-                - enviar um fato/crença
-                - enviar um questionamento/pergunta
-                - enviar uma solicitação de plano/ações
+                - enviar um fato/crença                   .tell / .untell
+                - enviar um questionamento/pergunta       .ask
+                - enviar uma solicitação de plano/ações   .send
 
 
 MODELAGEM DO AGENTE
@@ -30,5 +35,28 @@ MODELAGEM DO AGENTE
     3) plano ou planos contigenciais
     4) atualização da base de conhecimento (faots/crenças)
 
+
+    Fluxo de modelagem
+    1) plano e o conjunto de ações (funcionalidades)
+    2) eventos ativadores de cada plano (triggers)
+    3) contexto de cada evento ativador
+    4) atualização da base de crença 
+
 Vídeo no Youtube sobre modelagem de Agentes
     - https://youtu.be/IBNh7j_F4yc    
+
+
+NA FERRAMENTA JASON (interpretador da linguagem AgentSpeak - baseada em Prolog)
+    - .mas2j - arquivo que contém o projeto do SMA (informa o tipo de distribuição, 
+                                                    quais e quantos agentes, o ambiente)
+
+    - .asl - arquivo com planos e crenças de um tipo de agente (representa a cabeça/pensar)
+
+    - .java - arquivo Java que implementa a simulação do ambiente (é nele que os 
+               eventos ativadores são produzidos)
+
+
+
+
+
+

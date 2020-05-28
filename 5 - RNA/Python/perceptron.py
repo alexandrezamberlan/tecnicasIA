@@ -14,60 +14,48 @@ class Perceptron:
 		self.n_atributos = len(amostras[0]) # número de colunas (atributos)
 		self.pesos = []
  
-	## Treinamento para amostras "antigas"
+	## Realizar o treinamento com conjunto de amostras fornecidas: relação entrada x saída
 	def treinar(self):
- 
 		# Inserir o valor do limiar na posição "0" para cada amostra da lista "amostras"
 		# Ex.: [[0.72, 0.82], ...] vira [[1, 0.72, 0.82], ...]
 		for amostra in self.amostras:
 			amostra.insert(0, self.limiar)
- 
-		# Gerar valores randômicos entre 0 e 1 (pesos) conforme o número de atributos
+		# Gerar valores aleatórios entre 0 e 1 (pesos) conforme o número de atributos
 		# a lista de pesos tem tamanho da quantidade de atributos de uma amostra
 		for i in range(self.n_atributos):
 			self.pesos.append(random.random())
-		
 		# Inserir o valor do limiar na posição "0" do vetor de pesos
 		# Ex.: [0.8, 0.1] vira [1, 0.8, 0.1]
 		self.pesos.insert(0, self.limiar)
-		
 		# Inicializar contador de gerações
 		geracoes = 0
 		while True:
-			# Inicializar variável erro
-			# (quando terminar loop e erro continuar False, é pq não 
-			# tem mais diferença entre valor calculado e desejado)
-			erro = False
- 
-			# Para cada amostra...
+			# Assume-se que o treinamento vai ser eficiente e numa geração o algoritmo possa aprender
+			aprendeu = True 
+			# Para cada amostra
 			for i in range(self.n_amostras):
 				# Inicializar potencial de ativação
 				soma = 0
-				# Para cada atributo...
+				# Para cada atributo
 				for j in range(self.n_atributos + 1):
 					# Multiplicar amostra e seu peso e também somar com o potencial que já tinha
 					soma += self.pesos[j] * self.amostras[i][j]
-				
 				# Obter a saída da rede considerando a função sinal
 				saida_gerada = self.funcao_ativacao_signal(soma)
- 
 				# Verificar se a saída da rede é diferente da saída desejada
 				# se sim, calibrar ou treinar ou ajustar ou fazer aprender
 				if saida_gerada != self.saidas[i]:
 					# Calcular o erro
-					erro_aux = self.saidas[i] - saida_gerada
+					erro = self.saidas[i] - saida_gerada
 					# Fazer o ajuste dos pesos para cada elemento da amostra
 					for j in range(self.n_atributos + 1):
-						self.pesos[j] = self.pesos[j] + self.taxa_aprendizado * erro_aux * self.amostras[i][j]
-					# Atualizar variável erro, já que erro é diferente de zero (existe)
-					erro = True
- 
-			# Atualizar contador de gerações
+						self.pesos[j] = self.pesos[j] + self.taxa_aprendizado * erro * self.amostras[i][j]
+					
+					# se entrou no if é porque ainda não aprendeu
+					aprendeu = False
 			geracoes += 1
- 
-			# Critérios de parada do loop: erro inexistente ou o número de gerações ultrapassar limite pré-estabelecido
-			if not erro or geracoes > self.geracoes:
-				print('Foram necessarias gerações de treinamento: ', geracoes)
+			if aprendeu or geracoes > self.geracoes:
+				print('Quantidade de gerações para aprender: %d\n' % geracoes)
 				break
  
 	## Testes para "novas" amostras

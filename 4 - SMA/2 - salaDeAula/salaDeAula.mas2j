@@ -1,0 +1,15 @@
+/* Jason Project */
+
+MAS salaDeAula {
+
+    infrastructure: Centralised
+
+    environment: Cidade
+
+    agents:
+        professor;
+
+        aloisio;
+
+}
+

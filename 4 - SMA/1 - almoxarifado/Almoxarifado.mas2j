@@ -1,0 +1,15 @@
+/* Jason Project */
+
+MAS almoxarifado {
+
+    infrastructure: Centralised
+
+    environment: Entrada
+
+    agents:
+        r1;
+
+        r2;
+
+}
+

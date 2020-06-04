@@ -11,6 +11,3 @@
 	   .print("entrei na sala......");
 	   .broadcast(tell,bomDia).
 
-+chamando(aloisio)[source(Agente)] : Agente == professor
-	<- .print("presente");
-	   .broadcast(tell,presente(aloisio)).

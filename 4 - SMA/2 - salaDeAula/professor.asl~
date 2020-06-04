@@ -14,11 +14,9 @@ aula(quarta,tarde,jd,poo).
 
 
 turma(ia,aloisio).
-turma(ia,bruno).
+turma(ia,luiz).
 turma(ia,iago).
 turma(ia,pierre).
-turma(ia,joao).
-turma(ia,mariano).
 
 /* Initial goals */
 
@@ -48,13 +46,10 @@ turma(ia,mariano).
 	<- .print("atençao pessoal... vou fazer a chamada ....");
 	   !fazerChamada.
 
-	   
 +!fazerChamada : turma(ia,Aluno) & not jaChamei(Aluno)
 	<- .print("chamando ....", Aluno);
-	   .broadcast(tell,chamando(Aluno));
 	   //paramos aqui
 	   +jaChamei(Aluno);
-	   .wait(2000);
 	   !fazerChamada.
 	   
 +!fazerChamada.	  	   

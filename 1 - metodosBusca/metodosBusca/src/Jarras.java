@@ -5,6 +5,7 @@ import busca.BuscaLargura;
 import busca.BuscaProfundidade;
 import busca.Estado;
 import busca.Nodo;
+import busca.MostraStatusConsole;
 
 public class Jarras implements Estado {
     
@@ -12,8 +13,8 @@ public class Jarras implements Estado {
     public String getDescricao() {
         return " Problema das Jarras.... ";
     }
-    final int TAM1 = 7;
-    final int TAM2 = 3;
+    final int TAM1 = 3; //capacidade da jarra1
+    final int TAM2 = 4; //capacidade da jarra2
     
     final int jarra1, jarra2;
     final String op; // operacao que gerou o estado
@@ -82,7 +83,7 @@ public class Jarras implements Estado {
     
     private void despejarJarra1EmJarra2(List<Estado> visitados) {
         int j1 = this.jarra1;  //clone
-        int j2 = this.jarra2; //clone para gerar novo estado
+        int j2 = this.jarra2;  //clone para gerar novo estado
         
         if (j1 > (TAM2 - j2)){
             j1 = j1 - (TAM2 - j2);
@@ -129,7 +130,7 @@ public class Jarras implements Estado {
      * (usado para poda, conjunto de fechados)
      */
     @Override
-    public int hashCode() {
+    public int hashCode() { 
         return (""+this.jarra1 + this.jarra2).hashCode();
     }
     
@@ -144,7 +145,7 @@ public class Jarras implements Estado {
         
         // chama busca em largura
         System.out.println("busca em ....");
-        Nodo n = new BuscaLargura().busca(estadoInicial);
+        Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
         if (n == null) {
             System.out.println("sem solucao!");
         } else {

@@ -139,7 +139,6 @@ public class Jarras implements Estado {
         return "(" + this.jarra1 + "," + this.jarra2 + ") "  + op + "\n";
     }
     
-    
     public static void main(String[] a) {
         Jarras estadoInicial = new Jarras(0,0, "estado inicial");
         

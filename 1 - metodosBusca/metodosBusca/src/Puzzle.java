@@ -162,11 +162,11 @@ public class Puzzle implements Estado {
         
         Puzzle estadoInicial;
         System.out.println("busca em ...");
-//        Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
-//        if (n == null) {
-//            System.out.println("sem solucao!");
-//        } else {
-//            System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
-//        }
+        Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
+        if (n == null) {
+            System.out.println("sem solucao!");
+        } else {
+            System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
+        }
     }
 }

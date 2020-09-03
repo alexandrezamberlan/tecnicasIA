@@ -1,0 +1,39 @@
+Há 3 torres com N discos (no nosso caso, 3 discos)
+Um disco maior que outro (3 é maior que 2, que é maior que um, por exemplo)
+Inicialmente os discos estão na torre1, sendo que o objetivo do jogo é transportar os discos,
+um a um, para a última torre, obedecendo a seguinte restrição: um disco maior não pode ficar em cima
+de um disco menor.
+
+Cálculo de movimentação para o desafio da Torre de Hannoi
+Qtd de movimentos = (2 elevado N) - 1
+QtdMovimentos = (2 elevado 3) - 1 = 7 movimentos
+QtdMovimentos = (2 elevado 10) - 1 = 1023 movimentos
+
+Características do problema:
+1) espaço de busca dependente do N (árvore gerada), o espaço cresce, o consumo de memória aumenta conforme N
+2) o estado final é conhecido
+3) com restrições 
+4) tem heurística ou dica de atalho (sem alguma informação que ajude a ir para um estado específico)
+
+Estados do Problema das Jarras
+    Classe; atributos; tipos
+    Hannoi; 3 Pilhas (Stack) de inteiros; torre1, torre2, torre3 (push, pop, peak, isEmpty)
+    Estado inicial: N discos na torre1, torre2 vazia, torre3 vazia
+    Estados finais: N discos na torre3
+
+Regras de transição do Problema das Jarras 
+    Métodos da Classe
+    1) mover torre1 para torre2 -> torre2.push(torre1.pop())
+    2) mover torre1 para torre3 -> torre3.push(torre1.pop())
+    3) mover torre2 para torre1 -> torre1.push(torre2.pop())
+    4) mover torre2 para torre3 -> torre3.push(torre2.pop())
+    5) mover torre3 para torre1 -> torre1.push(torre3.pop())
+    6) mover torre3 para torre2 -> torre.push(torre3.pop())
+    
+
+Como tratar os visitados ou objetos ou estados já produzidos
+    Lista encadeada ou HashSet com coersão dos atributos em string
+    "[321][][]" "[32][1][]" "[][][321]""
+
+Mapear as restrições do Problema
+topoDaOrigem < topoDoDestino

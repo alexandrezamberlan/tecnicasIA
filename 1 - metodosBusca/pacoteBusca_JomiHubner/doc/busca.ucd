@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="916,806" id="busca" metadata="uml2-1.0" initialized="true" zoom="1.5" scrolledY="349" tag="1000" key="32303035303731382062757363612F6A6F6D69">
+  <children xsi:type="editmodel:ClassEditModel" name="BuscaRecursiva" location="40,620" size="193,139" id="busca/BuscaRecursiva" runTimeClassModel="BuscaRecursiva(Lbusca.MostraStatusConsole;),toString(),busca(Lbusca.Estado;),BuscaRecursiva(),buscaR(Lbusca.Nodo;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="170,90">
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaRecursiva" id="busca/BuscaRecursiva#BuscaRecursiva()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaRecursiva" id="busca/BuscaRecursiva#BuscaRecursiva(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/BuscaRecursiva#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="buscaR" id="busca/BuscaRecursiva#buscaR(Lbusca.Nodo;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/BuscaRecursiva#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="busca/BuscaProfundidade&lt;-busca/BuscaRecursiva" source="//@children.0" target="//@children.4/@sourceConnections.0" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="96,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="BuscaBidirecional" location="260,365" size="198,139" id="busca/BuscaBidirecional" runTimeClassModel="toString(),busca(Lbusca.Estado;),busca(Lbusca.Estado;Lbusca.Estado;),BuscaBidirecional(),BuscaBidirecional(Lbusca.MostraStatusConsole;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="175,90">
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaBidirecional" id="busca/BuscaBidirecional#BuscaBidirecional()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaBidirecional" id="busca/BuscaBidirecional#BuscaBidirecional(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/BuscaBidirecional#busca(Lbusca.Estado;Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/BuscaBidirecional#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/BuscaBidirecional#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.8/@sourceConnections.0 //@children.3/@sourceConnections.0" autoLocated="true" id="busca/Busca&lt;-busca/BuscaBidirecional" source="//@children.1" target="//@children.5" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="98,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="83,192" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AEstrela" location="406,554" size="166,229" id="busca/AEstrela" runTimeClassModel="AEstrela(),toString(),busca(Lbusca.Estado;),AEstrela(Lbusca.MostraStatusConsole;),getTheBest(),maxF,maxAbertos,setMaxF(I),theBest,setMaxAbertos(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="72,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="maxF" id="busca/AEstrela#maxF"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="maxAbertos" id="busca/AEstrela#maxAbertos"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="theBest" id="busca/AEstrela#theBest"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="143,126">
+      <children xsi:type="editmodel:MethodEditModel" name="AEstrela" id="busca/AEstrela#AEstrela()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="AEstrela" id="busca/AEstrela#AEstrela(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setMaxF" id="busca/AEstrela#setMaxF(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setMaxAbertos" id="busca/AEstrela#setMaxAbertos(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTheBest" id="busca/AEstrela#getTheBest()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/AEstrela#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/AEstrela#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.6/@sourceConnections.0" autoLocated="true" id="busca/BuscaHeuristica&lt;-busca/AEstrela" source="//@children.2" target="//@children.8" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="81,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="95,120" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="BuscaLargura" location="721,365" size="184,121" id="busca/BuscaLargura" runTimeClassModel="BuscaLargura(Lbusca.MostraStatusConsole;),toString(),busca(Lbusca.Estado;),BuscaLargura()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="161,72">
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaLargura" id="busca/BuscaLargura#BuscaLargura()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaLargura" id="busca/BuscaLargura#BuscaLargura(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/BuscaLargura#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/BuscaLargura#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="busca/Busca&lt;-busca/BuscaLargura" source="//@children.3" target="//@children.1/@sourceConnections.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="BuscaIterativo" location="220,620" size="185,139" id="busca/BuscaIterativo" runTimeClassModel="setMostra(Lbusca.MostraStatusConsole;),toString(),busca(Lbusca.Estado;),BuscaIterativo(Lbusca.MostraStatusConsole;),BuscaIterativo()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,90">
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaIterativo" id="busca/BuscaIterativo#BuscaIterativo()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaIterativo" id="busca/BuscaIterativo#BuscaIterativo(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setMostra" id="busca/BuscaIterativo#setMostra(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/BuscaIterativo#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/BuscaIterativo#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.0/@sourceConnections.0" autoLocated="true" id="busca/BuscaProfundidade&lt;-busca/BuscaIterativo" source="//@children.4" target="//@children.7" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="109,193" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="busca/BuscaIterativo->busca/BuscaProfundidade" source="//@children.4" target="//@children.7" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«access»" size="32,9" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="27,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="197,193"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="Busca" location="370,45" size="171,193" id="busca/Busca" runTimeClassModel="setMostra(Lbusca.MostraStatusConsole;),getStatus(),toString(),busca(Lbusca.Estado;),para(),status,Busca(),Busca(Lbusca.MostraStatusConsole;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="status" id="busca/Busca#status"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="150,162">
+      <children xsi:type="editmodel:MethodEditModel" name="Busca" id="busca/Busca#Busca()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Busca" id="busca/Busca#Busca(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getStatus" id="busca/Busca#getStatus()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setMostra" id="busca/Busca#setMostra(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/Busca#toString()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/Busca#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="para" id="busca/Busca#para()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SubidaMontanha" location="584,554" size="193,121" id="busca/SubidaMontanha" runTimeClassModel="toString(),busca(Lbusca.Estado;),SubidaMontanha(),SubidaMontanha(Lbusca.MostraStatusConsole;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="170,72">
+      <children xsi:type="editmodel:MethodEditModel" name="SubidaMontanha" id="busca/SubidaMontanha#SubidaMontanha()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SubidaMontanha" id="busca/SubidaMontanha#SubidaMontanha(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/SubidaMontanha#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/SubidaMontanha#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="busca/BuscaHeuristica&lt;-busca/SubidaMontanha" source="//@children.6" target="//@children.2/@sourceConnections.0" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="94,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.4/@sourceConnections.1" name="BuscaProfundidade" location="50,365" size="225,193" id="busca/BuscaProfundidade" runTimeClassModel="BuscaProfundidade(Lbusca.MostraStatusConsole;),toString(),BuscaProfundidade(),busca(Lbusca.Estado;),BuscaProfundidade(I),setProfMax(I),BuscaProfundidade(ILbusca.MostraStatusConsole;),profMax">
+    <children xsi:type="editmodel:CompartmentEditModel" size="59,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="profMax" id="busca/BuscaProfundidade#profMax"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="202,126">
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaProfundidade" id="busca/BuscaProfundidade#BuscaProfundidade()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaProfundidade" id="busca/BuscaProfundidade#BuscaProfundidade(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaProfundidade" id="busca/BuscaProfundidade#BuscaProfundidade(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaProfundidade" id="busca/BuscaProfundidade#BuscaProfundidade(ILbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setProfMax" id="busca/BuscaProfundidade#setProfMax(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="busca" id="busca/BuscaProfundidade#busca(Lbusca.Estado;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="busca/BuscaProfundidade#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="busca/Busca&lt;-busca/BuscaProfundidade" source="//@children.7" target="//@children.1/@sourceConnections.0" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="109,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="BuscaHeuristica" location="464,365" size="193,121" id="busca/BuscaHeuristica" runTimeClassModel="getEstadoComparatorH(),BuscaHeuristica(Lbusca.MostraStatusConsole;),BuscaHeuristica(),getNodoComparatorF()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="204,72">
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaHeuristica" id="busca/BuscaHeuristica#BuscaHeuristica()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="BuscaHeuristica" id="busca/BuscaHeuristica#BuscaHeuristica(Lbusca.MostraStatusConsole;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNodoComparatorF" id="busca/BuscaHeuristica#getNodoComparatorF()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEstadoComparatorH" id="busca/BuscaHeuristica#getEstadoComparatorH()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="busca/Busca&lt;-busca/BuscaHeuristica" source="//@children.8" target="//@children.1/@sourceConnections.0" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="95,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=5" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

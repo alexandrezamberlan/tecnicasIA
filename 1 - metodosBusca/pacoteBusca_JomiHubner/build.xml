@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="all" name="buscaJava">
+
+    <target name="init">
+    	<mkdir dir="${basedir}/classes" />
+    </target>
+
+    <target name="compile" depends="init" >
+        <javac debug="true" destdir="${basedir}/classes" deprecation="true" srcdir="src" source="1.5" target="1.5" encoding="Latin1"/>
+    </target>
+
+    <target name="jar" depends="init,compile" >
+        <jar basedir="${basedir}/classes"
+             compress="true"
+             jarfile="buscaJava.jar"
+             manifest="src/buscaJava.mf"/>
+    </target>
+
+    <target name="all" depends="init,javadoc,jar,clean">
+        <echo message="Tudo feito!"/>
+    </target>
+
+    <target name="run" depends="jar" >
+        <java classname="util.AppletDemoBusca" failonerror="true" fork="yes" >
+            <classpath>
+                <pathelement location="buscaJava.jar"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="run-puzzle" depends="jar" >
+        <nbprofiledirect>
+            <classpath>
+                <pathelement location="buscaJava.jar"/>
+            </classpath>
+        </nbprofiledirect>        
+        <java classname="exemplos.Estado8Puzzle" failonerror="true" fork="yes" >
+            <classpath>
+                <pathelement location="buscaJava.jar"/>
+            </classpath>
+            <jvmarg line="${profiler.info.jvmargs.agent}"/>
+<!-- -agentpath:/Applications/NetBeans.app/Contents/Resources/NetBeans/profiler1/lib/deployed/jdk15/mac/libprofilerinterface.jnilib=/Applications/NetBeans.app/Contents/Resources/NetBeans/profiler1/lib,5140" /-->
+        </java>
+    </target>
+
+    <target name="javadoc" depends="init">
+        <mkdir dir="doc/apidoc"/>
+        <javadoc destdir="doc/apidoc" packagenames="busca.*">
+            <sourcepath>
+                <pathelement location="src"/>
+            </sourcepath>
+        </javadoc>
+    </target>
+
+    <target name="publica" depends="all">
+        <property name="zipFileDir" location="/home/jomi/lci/public_html/ia/busca"/>
+        <property name="zipFile"    location="${zipFileDir}/buscaJava.zip"/>
+        <zip destfile="${zipFile}"
+             basedir=".."
+             includes="buscaJava/**" />
+        <delete dir="${zipFileDir}/buscaJava"/>
+        <unzip src="${zipFile}" dest="${zipFileDir}"/>
+    </target>
+
+    <target name="clean" depends="init" >
+        <delete>
+            <fileset dir=".">
+                <include name="**/*.class"/>
+            </fileset>
+            <fileset dir=".">
+                <include name="**/.nbattrs"/>
+            </fileset>
+        </delete>
+        <delete dir="classes"/>
+    </target>
+
+</project>

@@ -1,10 +1,10 @@
-DESCOBERTA DE CONHECIMENTO - KDD
+DESCOBERTA DE CONHECIMENTO - Knowledgment Discovery
     - padrões, relações, tendências, ... PREVISÃO ou PREDIZER 
     - MUITOS dados para análise
 
     MINERAÇÃO DE DADOS
-        - banco de dados 
-        - texto (web)
+        - banco de dados * 
+        - texto (web) *
         - texto (plain)
 
 O que é mineração de dados?
@@ -13,10 +13,21 @@ O que é mineração de dados?
 
 Quando usar?
     - muitos dados não organizados
+    - por exemplo, no instagram: tipo de fotos ou vídeos curtidos; quanto tempo 
+                                assistiu o vídeo; ...
 
 Processo de minerar:
-    - definir a base de dados
-    - limpeza da base  (cria o armazem de dados)
-    - definir o algoritmo de mineração: associação, aglomerar, classificação, série temporais
+    - definir a base de dados (1%)
+    - limpeza da base  (cria o armazem de dados) - data warehouse (80%)
+    - definir o algoritmo de mineração: associação, aglomerar, classificação, série temporais (19%)
+
+Algoritmos
+    - categorização/classificação/rotulação - RNA, J48, Redes Bayseanas .....
+    - séries temporais (tempo) - 
+    - clustering/aglomeração - 
+
+
+Exemplo
+    - No excel há 15 tipos de gráficos - histogramas, pizza, barras, ...
 
 

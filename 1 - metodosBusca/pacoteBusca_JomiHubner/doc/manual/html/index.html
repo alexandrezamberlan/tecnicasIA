@@ -1,0 +1,638 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>manualBuscaJava</TITLE>
+<META NAME="description" CONTENT="manualBuscaJava">
+<META NAME="keywords" CONTENT="manualBuscaJava">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="http://www.inf.furb.br/%7Ejomi/labs.css">
+
+</HEAD>
+
+<BODY >
+
+<P>
+
+<P>
+
+<table style="vertical-align; top; width: 100%;" border="0" cellspacing="0" cellpadding="0">
+<td>
+
+<P>
+<A NAME="tex2html1"
+  HREF="http://www.furb.br">Universidade Regional de Blumenau</A>
+<BR>
+<A NAME="tex2html2"
+  HREF="http://www.furb.br">Centro de Ci&#234;ncias Exatas e Naturais</A>
+<BR>
+<A NAME="tex2html3"
+  HREF="http://www.inf.furb.br/dsc">Departamento de Sistemas e Computa&#231;&#227;o</A>
+<BR>
+<A NAME="tex2html4"
+  HREF="http://www.inf.furb.br/~jomi/ia"><SPAN  CLASS="textbf">Intelig&#234;ncia Artificial</SPAN></A>
+<BR>
+<A NAME="tex2html5"
+  HREF="http://www.inf.furb.br/~jomi">Professor: Jomi Fred H&#252;bner</A>
+<BR>
+<P>
+
+</td>
+<td style="text-align: right;">
+<a href="http://www.furb.br">
+<img
+style="border: 0px solid ; width: 123px; height: 76px;" alt="logo furb"
+src="http://www.inf.furb.br/%7Ejomi/logomarca-furb.jpg">
+</a>
+</td>
+</table>
+
+<P>
+
+<P>
+
+	<h0>
+        <SPAN  CLASS="textbf">Manual de utiliza&#231;&#227;o dos algoritmos de
+<BR>
+Busca em Java</SPAN>
+        
+        </h0>
+
+<P>
+
+<P>
+
+<H1><A NAME="SECTION00010000000000000000">
+Introdu&#231;&#227;o</A>
+</H1>
+
+<P>
+Este manual explica como utilizar o pacote de algoritmos de busca
+implementados em Java. Com este pacote &#233; poss&#237;vel resolver um problema
+de busca especificando-se apenas a classe que representa os estados,
+os algoritmos de busca
+
+<UL>
+<LI>largura,
+</LI>
+<LI>profundidade,
+</LI>
+<LI>profundidade iterativa,
+</LI>
+<LI>bi-direcional,
+</LI>
+<LI>heur&#237;stica e
+</LI>
+<LI>subida da montanha
+</LI>
+</UL>
+j&#225; est&#227;o implementados.
+
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+A interface Estado</A>
+</H1>
+
+<P>
+A classe que representa o "estado" para cada problema espec&#237;fico
+deve implementar a interface <TT>Estado</TT> que tem os seguintes
+m&#233;todos:
+
+<P>
+
+<UL>
+<LI>O m&#233;todo <TT>getDescricao()</TT> deve retornar uma string descrendo o
+  problema. Esse m&#233;todo &#233; eventualmente utilizado pela interface do
+  programa.
+
+<P>
+</LI>
+<LI>O m&#233;todo <TT>ehMeta()</TT> deve retornar <SPAN  CLASS="textit">true</SPAN> se o estado for o
+  estado meta.
+
+<P>
+</LI>
+<LI>O m&#233;todo <TT>custo()</TT> retorna o custo de gerar o estado (n&#227;o
+  o custo acumulado, este &#233; calculado no Nodo da &#225;rvore).
+
+<P>
+</LI>
+<LI>O m&#233;todo <TT>sucessores()</TT> deve retornar uma lista de
+  estados sucessores.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000">
+Exemplo</A>
+</H1>
+
+<P>
+Para demonstrar a utiliza&#231;&#227;o do pacote, ser&#225; resolvido o
+problema do <SPAN  CLASS="textit">O homem, o lobo, o carneiro e o cesto de alface</SPAN>,
+que tem o seguinte enunciado:
+
+<P>
+<BLOCKQUOTE>
+Uma pessoa, um lobo, um carneiro e um cesto de alface est&#227;o &#224; beira
+  de um rio. Dispondo de um barco no qual pode carregar apenas um dos
+  outros tr&#234;s, a pessoa deve transportar tudo para a outra margem.
+  Determine uma s&#233;rie de travessias que respeite a seguinte condi&#231;&#227;o:
+  em nenhum momento devem ser deixados juntos e sozinhos o lobo e o
+  carneiro ou o carneiro e o cesto de alface.
+
+</BLOCKQUOTE>
+
+<P>
+Para resolver este problema, os estados devem ter as seguintes
+informa&#231;&#245;es:
+
+<UL>
+<LI>Em que lado do rio est&#227;o cada um dos personagens (o homem, o
+  lobo, o carneiro e o cesto de alface).
+</LI>
+<LI>Estrutura de dados: quatro vari&#225;veis caracter onde 'd' representa lado direito e 'e' lado esquerdo.
+
+<P>
+<PRE>
+char homem, lobo, carneiro, alface;
+</PRE>
+
+<P>
+</LI>
+<LI>Estado inicial:
+<PRE>
+homem='e', lobo='e', carneiro='e', alface='e';
+</PRE>
+
+<P>
+</LI>
+<LI>Estado meta:
+<PRE>
+homem='d', lobo='d', carneiro='d', alface='d';
+</PRE>
+
+<P>
+</LI>
+</UL>
+
+<P>
+A gera&#231;&#227;o de sucessores pode ser resumida como
+
+<UL>
+<LI>"levar <SPAN  CLASS="textit">x</SPAN> da margem <SPAN  CLASS="textit">w</SPAN> para a margem <SPAN  CLASS="textit">z</SPAN>beginitemize
+</LI>
+<LI><SPAN  CLASS="textit">x</SPAN> &#233; uma das vari&#225;veis { carneiro, alface, lobo } ou
+    n&#227;o levar nada,
+</LI>
+<LI><SPAN  CLASS="textit">w</SPAN> &#233; 'd' ou 'e',
+</LI>
+<LI><SPAN  CLASS="textit">z</SPAN> &#233; 'd' ou 'e'.
+  
+</LI>
+</UL>
+Pr&#233;-condi&#231;&#245;es
+  
+<UL>
+<LI><SPAN  CLASS="textit">w</SPAN> &#233; diferente de <SPAN  CLASS="textit">z</SPAN>,
+</LI>
+<LI>o homem estar na margem <SPAN  CLASS="textit">w</SPAN>,
+</LI>
+<LI>o homem estar na mesma margem de <SPAN  CLASS="textit">x</SPAN>,
+</LI>
+<LI>n&#227;o ficar na mesma margem ((o lobo e o carneiro) ou (o carneiro
+    e o alface)) sem o homem.
+  
+</LI>
+</UL>
+
+<P>
+Efeitos
+  
+<UL>
+<LI>Se <SPAN  CLASS="textit">x</SPAN> &#233; 'd', vira 'e'.
+</LI>
+<LI>Se <SPAN  CLASS="textit">x</SPAN> &#233; 'e', vira 'd'.
+</LI>
+<LI>Se homem &#233; 'd', vira 'e'.
+</LI>
+<LI>Se homem &#233; 'e', vira 'd'.
+  
+</LI>
+</UL>
+
+<P>
+Segue a implementa&#231;&#227;o desta classe (<A NAME="tex2html6"
+  HREF="../HLAC.java">clique para
+  obter o fonte .java</A>):
+
+<P>
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter 5.0 [2006-02-26] by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="2" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">001</font>&nbsp;<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">exemplos;</font><br />
+<font color="#808080">002</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">003</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.util.LinkedList;</font><br />
+<font color="#808080">004</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.util.List;</font><br />
+<font color="#808080">005</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">006</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">busca.BuscaLargura;</font><br />
+<font color="#808080">007</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">busca.Estado;</font><br />
+<font color="#808080">008</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">busca.Nodo;</font><br />
+<font color="#808080">009</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">010</font>&nbsp;<font color="#3f5fbf">/**</font><br />
+<font color="#808080">011</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#3f5fbf">*&nbsp;Representa&nbsp;um&nbsp;estado&nbsp;do&nbsp;mundo:&nbsp;em&nbsp;que&nbsp;lado&nbsp;estao</font><br />
+<font color="#808080">012</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#3f5fbf">*&nbsp;o&nbsp;homem,&nbsp;o&nbsp;lobo,&nbsp;o&nbsp;alface&nbsp;e&nbsp;o&nbsp;carneiro</font><br />
+<font color="#808080">013</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">014</font>&nbsp;<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">HLAC&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">Estado&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">015</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">016</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;getDescricao</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">017</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return</b></font><br />
+<font color="#808080">018</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;Uma&nbsp;pessoa,&nbsp;um&nbsp;lobo,&nbsp;um&nbsp;carneiro&nbsp;e&nbsp;um&nbsp;cesto&nbsp;de&nbsp;alface&nbsp;estao&nbsp;a&nbsp;beira&nbsp;\n&#34;</font><font color="#000000">+</font><br />
+<font color="#808080">019</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;de&nbsp;um&nbsp;rio.&nbsp;Dispondo&nbsp;de&nbsp;um&nbsp;barco&nbsp;no&nbsp;qual&nbsp;pode&nbsp;carregar&nbsp;apenas&nbsp;um&nbsp;dos&nbsp;\n&#34;</font><font color="#000000">+</font><br />
+<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;outros&nbsp;tres,&nbsp;a&nbsp;pessoa&nbsp;deve&nbsp;transportar&nbsp;tudo&nbsp;para&nbsp;a&nbsp;outra&nbsp;margem.&nbsp;\n&#34;</font><font color="#000000">+</font><br />
+<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;Determine&nbsp;uma&nbsp;serie&nbsp;de&nbsp;travessias&nbsp;que&nbsp;respeite&nbsp;a&nbsp;seguinte&nbsp;condicao:&nbsp;\n&#34;</font><font color="#000000">+</font><br />
+<font color="#808080">022</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;em&nbsp;nenhum&nbsp;momento&nbsp;devem&nbsp;ser&nbsp;deixados&nbsp;juntos&nbsp;e&nbsp;sozinhos&nbsp;o&nbsp;lobo&nbsp;e&nbsp;o&nbsp;\n&#34;</font><font color="#000000">+</font><br />
+<font color="#808080">023</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">&#34;carneiro&nbsp;ou&nbsp;o&nbsp;carneiro&nbsp;e&nbsp;o&nbsp;cesto&nbsp;de&nbsp;alface.&nbsp;\n\n&#34;</font><font color="#000000">;</font><br />
+<font color="#808080">024</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">025</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">026</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">homem,&nbsp;lobo,&nbsp;carneiro,&nbsp;alface;&nbsp;</font><font color="#3f7f5f">//&nbsp;preferir&nbsp;&#34;immutable&nbsp;objects&#34;</font><br />
+<font color="#808080">027</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">String&nbsp;op;&nbsp;</font><font color="#3f7f5f">//&nbsp;operacao&nbsp;que&nbsp;gerou&nbsp;o&nbsp;estado</font><br />
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**&nbsp;construtor&nbsp;para&nbsp;o&nbsp;estado,&nbsp;recebe&nbsp;cada&nbsp;valor&nbsp;de&nbsp;atributo&nbsp;*/</font><br />
+<font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">HLAC</font><font color="#000000">(</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">h,&nbsp;</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">l,&nbsp;</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">c,&nbsp;</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">a,&nbsp;String&nbsp;o</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">homem&nbsp;=&nbsp;h;</font><br />
+<font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">lobo&nbsp;=&nbsp;l;</font><br />
+<font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">carneiro&nbsp;=&nbsp;c;</font><br />
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">alface&nbsp;=&nbsp;a;</font><br />
+<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">op&nbsp;=&nbsp;o;</font><br />
+<font color="#808080">036</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">037</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;verifica&nbsp;se&nbsp;o&nbsp;estado&nbsp;e&nbsp;meta</font><br />
+<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">041</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">ehMeta</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">042</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">homem==</font><font color="#990000">'d'&nbsp;</font><font color="#000000">&amp;&amp;&nbsp;lobo==</font><font color="#990000">'d'&nbsp;</font><font color="#000000">&amp;&amp;&nbsp;carneiro==</font><font color="#990000">'d'&nbsp;</font><font color="#000000">&amp;&amp;&nbsp;alface==</font><font color="#990000">'d'</font><font color="#000000">;</font><br />
+<font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;Custo&nbsp;para&nbsp;geracao&nbsp;do&nbsp;estado</font><br />
+<font color="#808080">047</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">custo</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">049</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#990000">1</font><font color="#000000">;</font><br />
+<font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">052</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">053</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;gera&nbsp;uma&nbsp;lista&nbsp;de&nbsp;sucessores&nbsp;do&nbsp;nodo.</font><br />
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">055</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">List&lt;Estado&gt;&nbsp;sucessores</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">056</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">List&lt;Estado&gt;&nbsp;suc&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">LinkedList&lt;Estado&gt;</font><font color="#000000">()</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;a&nbsp;lista&nbsp;de&nbsp;sucessores</font><br />
+<font color="#808080">057</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">058</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">levarCarneiro</font><font color="#000000">(</font><font color="#000000">suc</font><font color="#000000">)</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;tenta&nbsp;levar&nbsp;o&nbsp;carneiro</font><br />
+<font color="#808080">059</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">levarLobo</font><font color="#000000">(</font><font color="#000000">suc</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">060</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">levarAlface</font><font color="#000000">(</font><font color="#000000">suc</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">061</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">levarNada</font><font color="#000000">(</font><font color="#000000">suc</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">062</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">063</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">suc;</font><br />
+<font color="#808080">064</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">065</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">066</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">levarCarneiro</font><font color="#000000">(</font><font color="#000000">List&lt;Estado&gt;&nbsp;suc</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">067</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">carneiro&nbsp;==&nbsp;homem</font><font color="#000000">)&nbsp;{&nbsp;</font><font color="#3f7f5f">//&nbsp;homem&nbsp;e&nbsp;carneiro&nbsp;na&nbsp;mesma&nbsp;margem</font><br />
+<font color="#808080">068</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">novaMargem&nbsp;=&nbsp;ladoOposto</font><font color="#000000">(</font><font color="#000000">homem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">069</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HLAC&nbsp;novo&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HLAC</font><font color="#000000">(</font><font color="#000000">novaMargem,&nbsp;lobo,&nbsp;novaMargem,&nbsp;&nbsp;alface,&nbsp;</font><font color="#2a00ff">&#34;levarC-&#34;</font><font color="#000000">+carneiro+novaMargem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">070</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">novo.ehValido</font><font color="#000000">())&nbsp;{</font><br />
+<font color="#808080">071</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">suc.add</font><font color="#000000">(</font><font color="#000000">novo</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">072</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">073</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">074</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">075</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">076</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">levarLobo</font><font color="#000000">(</font><font color="#000000">List&lt;Estado&gt;&nbsp;suc</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">077</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">lobo&nbsp;==&nbsp;homem</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">078</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">novaMargem&nbsp;=&nbsp;ladoOposto</font><font color="#000000">(</font><font color="#000000">homem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">079</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HLAC&nbsp;novo&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HLAC</font><font color="#000000">(</font><font color="#000000">novaMargem,&nbsp;novaMargem,&nbsp;carneiro,&nbsp;&nbsp;alface,&nbsp;</font><font color="#2a00ff">&#34;levarL-&#34;</font><font color="#000000">+lobo+novaMargem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">080</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">novo.ehValido</font><font color="#000000">())&nbsp;{</font><br />
+<font color="#808080">081</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">suc.add</font><font color="#000000">(</font><font color="#000000">novo</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">082</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">083</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">084</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">085</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">086</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">levarAlface</font><font color="#000000">(</font><font color="#000000">List&lt;Estado&gt;&nbsp;suc</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">087</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">alface&nbsp;==&nbsp;homem</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">088</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">novaMargem&nbsp;=&nbsp;ladoOposto</font><font color="#000000">(</font><font color="#000000">homem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">089</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HLAC&nbsp;novo&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HLAC</font><font color="#000000">(</font><font color="#000000">novaMargem,&nbsp;lobo,&nbsp;carneiro,&nbsp;novaMargem,&nbsp;</font><font color="#2a00ff">&#34;levarA-&#34;</font><font color="#000000">+alface+novaMargem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">090</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">novo.ehValido</font><font color="#000000">())&nbsp;{</font><br />
+<font color="#808080">091</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">suc.add</font><font color="#000000">(</font><font color="#000000">novo</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">092</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">093</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">094</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">095</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">096</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">levarNada</font><font color="#000000">(</font><font color="#000000">List&lt;Estado&gt;&nbsp;suc</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">097</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">novaMargem&nbsp;=&nbsp;ladoOposto</font><font color="#000000">(</font><font color="#000000">homem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">098</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HLAC&nbsp;novo&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HLAC</font><font color="#000000">(</font><font color="#000000">novaMargem,&nbsp;lobo,&nbsp;carneiro,&nbsp;alface,&nbsp;</font><font color="#2a00ff">&#34;levarN-&#34;</font><font color="#000000">+homem+novaMargem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">099</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">novo.ehValido</font><font color="#000000">())&nbsp;{</font><br />
+<font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">suc.add</font><font color="#000000">(</font><font color="#000000">novo</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">102</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">103</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">ladoOposto</font><font color="#000000">(</font><font color="#7f0055"><b>char&nbsp;</b></font><font color="#000000">l</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">105</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">l&nbsp;==&nbsp;</font><font color="#990000">'e'</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">106</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#990000">'d'</font><font color="#000000">;</font><br />
+<font color="#808080">107</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">108</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#990000">'e'</font><font color="#000000">;</font><br />
+<font color="#808080">109</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">110</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">111</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">112</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">113</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**&nbsp;returna&nbsp;true&nbsp;se&nbsp;o&nbsp;estado&nbsp;e&nbsp;valido&nbsp;*/</font><br />
+<font color="#808080">114</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">ehValido</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">115</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">lobo&nbsp;==&nbsp;carneiro&nbsp;&amp;&amp;&nbsp;lobo&nbsp;!=&nbsp;homem</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">116</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;lobo&nbsp;e&nbsp;carneiro&nbsp;estao&nbsp;na&nbsp;mesma&nbsp;margem&nbsp;sem&nbsp;o&nbsp;homem</font><br />
+<font color="#808080">117</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;false</b></font><font color="#000000">;</font><br />
+<font color="#808080">118</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">119</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">carneiro&nbsp;==&nbsp;alface&nbsp;&amp;&amp;&nbsp;carneiro&nbsp;!=&nbsp;homem</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">120</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;lobo&nbsp;e&nbsp;carneiro&nbsp;estao&nbsp;na&nbsp;mesma&nbsp;margem&nbsp;sem&nbsp;o&nbsp;homem</font><br />
+<font color="#808080">121</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;false</b></font><font color="#000000">;</font><br />
+<font color="#808080">122</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">123</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;true</b></font><font color="#000000">;</font><br />
+<font color="#808080">124</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">125</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">126</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">127</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;verifica&nbsp;se&nbsp;um&nbsp;estado&nbsp;e&nbsp;igual&nbsp;a&nbsp;outro</font><br />
+<font color="#808080">128</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;(usado&nbsp;para&nbsp;poda)</font><br />
+<font color="#808080">129</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">130</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">equals</font><font color="#000000">(</font><font color="#000000">Object&nbsp;o</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">131</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">o&nbsp;</font><font color="#7f0055"><b>instanceof&nbsp;</b></font><font color="#000000">HLAC</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">132</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HLAC&nbsp;e&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">HLAC</font><font color="#000000">)</font><font color="#000000">o;</font><br />
+<font color="#808080">133</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">homem==e.homem&nbsp;&amp;&amp;&nbsp;lobo==e.lobo&nbsp;&amp;&amp;&nbsp;carneiro==e.carneiro&nbsp;&amp;&amp;&nbsp;alface==e.alface;</font><br />
+<font color="#808080">134</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">135</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;false</b></font><font color="#000000">;</font><br />
+<font color="#808080">136</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">137</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">138</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**&nbsp;</font><br />
+<font color="#808080">139</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;retorna&nbsp;o&nbsp;hashCode&nbsp;desse&nbsp;estado</font><br />
+<font color="#808080">140</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;(usado&nbsp;para&nbsp;poda,&nbsp;conjunto&nbsp;de&nbsp;fechados)</font><br />
+<font color="#808080">141</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">142</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">hashCode</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">143</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#2a00ff">&#34;&#34;</font><font color="#000000">+homem&nbsp;+&nbsp;lobo&nbsp;+&nbsp;carneiro&nbsp;+&nbsp;alface</font><font color="#000000">)</font><font color="#000000">.hashCode</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">144</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">145</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">146</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;toString</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">147</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;dir&nbsp;=&nbsp;</font><font color="#2a00ff">&#34;&#34;</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;quem&nbsp;esta&nbsp;na&nbsp;dir</font><br />
+<font color="#808080">148</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;esq&nbsp;=&nbsp;</font><font color="#2a00ff">&#34;&#34;</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;quem&nbsp;esta&nbsp;na&nbsp;esq</font><br />
+<font color="#808080">149</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">homem&nbsp;==&nbsp;</font><font color="#990000">'d'</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">150</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">dir&nbsp;+=&nbsp;</font><font color="#990000">'h'</font><font color="#000000">;</font><br />
+<font color="#808080">151</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">152</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">esq&nbsp;+=&nbsp;</font><font color="#990000">'h'</font><font color="#000000">;</font><br />
+<font color="#808080">153</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">154</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">lobo&nbsp;==&nbsp;</font><font color="#990000">'d'</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">155</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">dir&nbsp;+=&nbsp;</font><font color="#990000">'l'</font><font color="#000000">;</font><br />
+<font color="#808080">156</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">157</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">esq&nbsp;+=&nbsp;</font><font color="#990000">'l'</font><font color="#000000">;</font><br />
+<font color="#808080">158</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">159</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">carneiro&nbsp;==&nbsp;</font><font color="#990000">'d'</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">160</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">dir&nbsp;+=&nbsp;</font><font color="#990000">'c'</font><font color="#000000">;</font><br />
+<font color="#808080">161</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">162</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">esq&nbsp;+=&nbsp;</font><font color="#990000">'c'</font><font color="#000000">;</font><br />
+<font color="#808080">163</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">164</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">alface&nbsp;==&nbsp;</font><font color="#990000">'d'</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">165</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">dir&nbsp;+=&nbsp;</font><font color="#990000">'a'</font><font color="#000000">;</font><br />
+<font color="#808080">166</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">167</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">esq&nbsp;+=&nbsp;</font><font color="#990000">'a'</font><font color="#000000">;</font><br />
+<font color="#808080">168</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">169</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">esq&nbsp;+</font><font color="#2a00ff">&#34;|&#34;&nbsp;</font><font color="#000000">+&nbsp;dir&nbsp;+&nbsp;</font><font color="#2a00ff">&#34;&nbsp;(&#34;&nbsp;</font><font color="#000000">+&nbsp;op&nbsp;+&nbsp;</font><font color="#2a00ff">&#34;)\n&#34;</font><font color="#000000">;</font><br />
+<font color="#808080">170</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">171</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">172</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">173</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]&nbsp;</font><font color="#000000">a</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">174</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HLAC&nbsp;inicial&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">HLAC</font><font color="#000000">(</font><font color="#990000">'e'</font><font color="#000000">,&nbsp;</font><font color="#990000">'e'</font><font color="#000000">,&nbsp;</font><font color="#990000">'e'</font><font color="#000000">,&nbsp;</font><font color="#990000">'e'</font><font color="#000000">,&nbsp;</font><font color="#2a00ff">&#34;inicial&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">175</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">176</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;chama&nbsp;busca&nbsp;em&nbsp;largura</font><br />
+<font color="#808080">177</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#2a00ff">&#34;busca&nbsp;em&nbsp;largura&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">178</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Nodo&nbsp;n&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">BuscaLargura</font><font color="#000000">()</font><font color="#000000">.busca</font><font color="#000000">(</font><font color="#000000">inicial</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">179</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">n&nbsp;==&nbsp;</font><font color="#7f0055"><b>null</b></font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">180</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#2a00ff">&#34;sem&nbsp;solucao!&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">181</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">182</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#2a00ff">&#34;solucao:\n&#34;&nbsp;</font><font color="#000000">+&nbsp;n.montaCaminho</font><font color="#000000">()&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#2a00ff">&#34;\n\n&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">183</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">184</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">185</font>&nbsp;<font color="#000000">}</font><br />
+<font color="#ffffff"></font><font color="#ffffff">
+</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+  <!-- start Java2Html link -->
+   <tr>
+    <td align="right">
+<small>
+<a href="http://www.java2html.de" target="_blank">Java2html</a>
+</small>
+    </td>
+   </tr>
+  <!-- end Java2Html link -->
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+<P>
+
+<H2><A NAME="SECTION00031000000000000000">
+Compila&#231;&#227;o e execu&#231;&#227;o</A>
+</H2>
+
+<P>
+As classes do pacote est&#227;o no arquivo <TT>buscaJava.jar</TT>, portanto
+este arquivo deve estar no classpath.
+
+<P>
+Para windows:
+<PRE>
+  set CLASSPATH=C:\xxx\buscaJava.jar;.
+  javac HLAC.java
+  java HLAC
+</PRE>
+
+<P>
+Para unix:
+<PRE>
+  export CLASSPATH=/xxx/buscaJava.jar:.
+  javac HLAC.java
+  java HLAC
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION00040000000000000000">
+Utiliza&#231;&#227;o dos algoritmos de busca</A>
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION00041000000000000000">
+Largura, Profundidade e Profundidade Iterativo </A>
+</H2>
+
+<P>
+As classes que implementam a interface <TT>Estado</TT> podem utilizar
+os seguintes algoritmos de busca
+
+<UL>
+<LI><TT>new BuscaLargura().busca( Estado inicial )</TT>: recebe o estado
+  inicial e retorna o <TT>Nodo</TT> da &#225;rvore de busca que &#233; a solu&#231;&#227;o
+  do problema. Com o m&#233;todo <TT>montaCaminho()</TT> da classe
+  <TT>Nodo</TT>, pode-se imprimir a solu&#231;&#227;o. Retorna <TT>null</TT> se
+  n&#227;o encontrar a solu&#231;&#227;o.
+
+<P>
+No m&#233;todo <TT>main</TT> est&#225; exemplificada a utiliza&#231;&#227;o destes
+  algoritmos.
+
+<P>
+</LI>
+<LI><TT>new BuscaProfundidade(int max).busca( Estado inicial )</TT>:
+  recebe o estado inicial e a profundidade m&#225;xima e retorna o
+  <TT>Nodo</TT> solu&#231;&#227;o.
+
+<P>
+</LI>
+<LI><TT>new BuscaRecursiva(int max).busca( Estado inicial )</TT>:
+  implementa&#231;&#227;o recursiva (sem lista de abertos) para a busca em
+  profundidade.
+
+<P>
+</LI>
+<LI><TT>new BuscaIterativo().busca( Estado inicial )</TT>:
+  implementa&#231;&#227;o do busca em profundidade iterativo.
+
+<P>
+</LI>
+</UL>
+
+<P>
+Mais informa&#231;&#245;es sobre a classe Nodo e como ela pode ser utilizada
+podem ser obtidas na <A NAME="tex2html7"
+  HREF="../../apidoc/index.html">API do
+  pacote</A>
+e/ou nos programas exemplo
+(diret&#243;rio
+<A NAME="tex2html8"
+  HREF="../../../src/exemplos"><TT>src/exemplos</TT></A>).
+
+<P>
+
+<H2><A NAME="SECTION00042000000000000000">
+Busca Bi-Direcional</A>
+</H2>
+
+<P>
+Para a utiliza&#231;&#227;o do algoritmo de busca bi-direcional, invocado com
+<TT>new BuscaBidirecional().busca( Estado inicial, Estado meta )</TT>, a
+classe que representa o estado tamb&#233;m deve implementar a interface
+<TT>Antecessor</TT>. Esta interface tem apenas um m&#233;todo:
+
+<UL>
+<LI><TT>antecessores()</TT> que retorna uma lista de estados antecessores
+  de um determinado estado.
+</LI>
+</UL>
+
+<P>
+No exemplo
+<A NAME="tex2html9"
+  HREF="../../../src/exemplos/Estado8Puzzle.java">8-Puzzle</A>
+esta interface &#233; implementada.
+
+<P>
+
+<H2><A NAME="SECTION00043000000000000000">
+Busca A*</A>
+</H2>
+
+<P>
+Para a utiliza&#231;&#227;o do algoritmo de busca A*, invocado com
+<TT>new AEstrela().busca( Estado inicial )</TT>, a
+classe que representa o estado tamb&#233;m deve implementar a interface
+<TT>Heuristica</TT>. Esta interface tem o seguinte m&#233;todo:
+
+<UL>
+<LI><TT>h()</TT> retorna a estimativa de custo para transformar um
+  estado no estado meta;
+</LI>
+</UL>
+Nos seguintes exemplos essa interface &#233; implementada
+
+<UL>
+<LI><A NAME="tex2html10"
+  HREF="../../../src/exemplos/Estado8Puzzle.java">8-Puzzle</A>.
+</LI>
+<LI><A NAME="tex2html11"
+  HREF="../../../src/exemplos/EstadoRainhas.java">N-Rainhas</A>.
+</LI>
+<LI><A NAME="tex2html12"
+  HREF="../../../src/exemplos/QuadradoMagico.java">Quadrado
+
+m&#225;gico</A>.
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00044000000000000000">
+Busca Subida da Montanha</A>
+</H2>
+
+<P>
+Para a utiliza&#231;&#227;o do algoritmo de busca Subida da Montanha, invocado com
+<TT>new SubidaMontanha().busca( Estado inicial )</TT>, a
+classe que representa o estado tamb&#233;m deve implementar a interface
+<TT>Aleatorio</TT>. Esta interface tem o seguinte m&#233;todo:
+
+<UL>
+<LI><TT>geraAleatorio()</TT> que gera um estado aleat&#243;riamente.
+</LI>
+</UL>
+Nos seguintes exemplos essa interface &#233; implementada
+
+<UL>
+<LI><A NAME="tex2html13"
+  HREF="../../../src/exemplos/EstadoRainhas.java">N-Rainhas</A>.
+</LI>
+<LI><A NAME="tex2html14"
+  HREF="../../../src/exemplos/QuadradoMagico.java">Quadrado
+
+m&#225;gico</A>.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Jomi Fred Hubner
+2007-03-20
+</ADDRESS>
+</BODY>
+</HTML>

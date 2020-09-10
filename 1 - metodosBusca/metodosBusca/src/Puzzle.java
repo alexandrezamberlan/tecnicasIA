@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import busca.BuscaLargura;
@@ -27,7 +28,7 @@ public class Puzzle implements Estado {
         int destino[][] = new int[origem.length][origem.length];
         for (int i = 0; i < origem.length; i++) {
             for (int j = 0; j < origem.length; j++) {
-                destino[i][j] = 0;
+                destino[i][j] = origem[i][j];
             }
         }
         return destino;
@@ -37,7 +38,7 @@ public class Puzzle implements Estado {
      * construtor para o estado, recebe cada valor de atributo
      */
     public Puzzle(int m[][], int linha, int coluna, String o) {
-        this.matriz = m;
+        this.matriz = m; //ter certeza que m foi clonado antes de entrar no construtor
         this.linha = linha;
         this.coluna = coluna;
         this.op = o;
@@ -77,8 +78,8 @@ public class Puzzle implements Estado {
 
         paraCima(visitados);
         paraBaixo(visitados);
-//        paraEsquerda(visitados);
-//        paraDireita(visitados);
+        paraEsquerda(visitados);
+        paraDireita(visitados);
         
         return visitados;
     }
@@ -87,15 +88,13 @@ public class Puzzle implements Estado {
         if (this.linha == 0) return;
 
         int mTemp[][];
-        int linhaTemp = this.linha;
-        int colunaTemp = this.coluna;
         mTemp = clonar(this.matriz);
+        int linhaTemp = this.linha - 1;
+        int colunaTemp = this.coluna;
         
-        int aux = mTemp[linhaTemp][colunaTemp];
-        mTemp[linhaTemp][colunaTemp] = mTemp[linhaTemp - 1][colunaTemp];
-        mTemp[linhaTemp - 1][colunaTemp] = aux;
-        linhaTemp--;
-               
+        mTemp[this.linha][this.coluna] = mTemp[linhaTemp][colunaTemp];
+        mTemp[linhaTemp][colunaTemp] = 0;
+     
         Puzzle novo = new Puzzle(mTemp, linhaTemp, colunaTemp, "Movendo para cima");
         if (!visitados.contains(novo)) visitados.add(novo);
     }
@@ -104,16 +103,44 @@ public class Puzzle implements Estado {
         if (this.linha == this.matriz.length-1) return;
 
         int mTemp[][];
-        int linhaTemp = this.linha;
-        int colunaTemp = this.coluna;
         mTemp = clonar(this.matriz);
+        int linhaTemp = this.linha + 1;
+        int colunaTemp = this.coluna;
         
-        int aux = mTemp[linhaTemp][colunaTemp];
-        mTemp[linhaTemp][colunaTemp] = mTemp[linhaTemp + 1][colunaTemp];
-        mTemp[linhaTemp + 1][colunaTemp] = aux;
-        linhaTemp++;
+        mTemp[this.linha][this.coluna] = mTemp[linhaTemp][colunaTemp];
+        mTemp[linhaTemp][colunaTemp] = 0;
                
         Puzzle novo = new Puzzle(mTemp, linhaTemp, colunaTemp, "Movendo para baixo");
+        if (!visitados.contains(novo)) visitados.add(novo);
+    }
+
+    private void paraEsquerda(List<Estado> visitados) {
+        if (this.coluna == 0) return;
+
+        int mTemp[][];
+        mTemp = clonar(this.matriz);
+        int linhaTemp = this.linha;
+        int colunaTemp = this.coluna - 1;
+        
+        mTemp[this.linha][this.coluna] = mTemp[linhaTemp][colunaTemp];
+        mTemp[linhaTemp][colunaTemp] = 0;
+     
+        Puzzle novo = new Puzzle(mTemp, linhaTemp, colunaTemp, "Movendo para esquerda");
+        if (!visitados.contains(novo)) visitados.add(novo);
+    }
+
+    private void paraDireita(List<Estado> visitados) {
+        if (this.coluna == this.matriz.length-1) return;
+
+        int mTemp[][];
+        mTemp = clonar(this.matriz);
+        int linhaTemp = this.linha;
+        int colunaTemp = this.coluna + 1;
+        
+        mTemp[this.linha][this.coluna] = mTemp[linhaTemp][colunaTemp];
+        mTemp[linhaTemp][colunaTemp] = 0;
+               
+        Puzzle novo = new Puzzle(mTemp, linhaTemp, colunaTemp, "Movendo para direita");
         if (!visitados.contains(novo)) visitados.add(novo);
     }
 
@@ -155,18 +182,78 @@ public class Puzzle implements Estado {
 
     @Override
     public String toString() {
-        return "" + op + "\n";
+        StringBuffer resultado = new StringBuffer();
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                resultado.append(this.matriz[i][j] + "\t");
+            }
+            resultado.append("\n");
+        }
+        return "\n"+ op + "\n" + resultado + "\n\n";
+    }
+
+    private static int[][]geraMatrizInicial(int dimensao, Posicao p) {
+        LinkedList<Integer> sequencia = new LinkedList<Integer>();
+
+        for (int i = 0; i < dimensao*dimensao; i++){
+            sequencia.add(i);
+        }
+        Collections.shuffle(sequencia);
+        int matriz[][] = new int[dimensao][dimensao];
+        
+        int contador = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                matriz[i][j] = sequencia.get(contador);
+                if (matriz[i][j] == 0) {
+                    p.linha = i;
+                    p.coluna = j;
+                }
+                contador++;
+            }
+        }
+
+        return matriz;
+    }
+
+    private static void exibirMatriz(int [][]matriz){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 
     public static void main(String[] a) {
-        
-        Puzzle estadoInicial;
-        System.out.println("busca em ...");
-        Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
-        if (n == null) {
-            System.out.println("sem solucao!");
-        } else {
-            System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
+        try {
+            Posicao pos = new Posicao();
+            int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
+            int matriz[][] = geraMatrizInicial(dimensao, pos);
+            exibirMatriz(matriz);
+            System.out.println(pos.linha + "," + pos.coluna);
+            Puzzle estadoInicial = new Puzzle(matriz,pos.linha, pos.coluna, "estado inicial");
+            System.out.println("busca em ...");
+            Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
+            if (n == null) {
+                System.out.println("sem solucao!");
+            } else {
+                System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Problemas com a dimensão do Puzzle");
         }
+        System.exit(0);
+    }
+}
+
+
+class Posicao {
+    int linha;
+    int coluna;
+
+    public Posicao() {
+        this.linha = 0;
+        this.coluna = 0;
     }
 }

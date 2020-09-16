@@ -10,7 +10,7 @@ Métodos de busca:
           ou por um especialista (geralmente tem relação com tempo)
           - TABELA CRIADA EM TEMPO DE PROCESSAMENTO PARA AJUDAR NA ESCOLHA DE REGRAS DE TRANSIÇÃO
 
-    - Método de Subida de Encosta (Clim Hill)
+    - Método de Subida de Encosta (Climb Hill)
         - baseado no profundidade (sem backtracking) - PODE NÃO ATINGIR SOLUÇÃO
         - usa como heurística o CUSTO REAL
             - NA TEORIA, uma regra de transição é aplicada para atingir o estado mais próximo

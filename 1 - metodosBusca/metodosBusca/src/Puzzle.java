@@ -1,6 +1,8 @@
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import busca.AEstrela;
+import busca.Heuristica;
 import busca.BuscaLargura;
 import busca.BuscaProfundidade;
 import busca.Estado;
@@ -12,7 +14,7 @@ import javax.swing.JOptionPane;
 /**
  * Representa um estado do mundo
  */
-public class Puzzle implements Estado {
+public class Puzzle implements Estado, Heuristica {
     
     @Override
     public String getDescricao() {
@@ -62,11 +64,46 @@ public class Puzzle implements Estado {
     }
 
     /**
-     * Custo para geracao do estado
+     * Calcula a distancia de cada numero até seu lugar
+     *
+     * @return Distancia
      */
     @Override
     public int custo() {
+        // int nr = 0,
+        //     distancia = 0;
+
+        // for (int i = 0; i < this.matriz.length; i++) {
+        //     for (int j = 0; j < this.matriz.length; j++) {
+        //         if (this.matriz[i][j] <= nr++) {
+        //             distancia += nr - this.matriz[i][j];
+        //         } else {
+        //             distancia += this.matriz[i][j] - nr;
+        //         }
+        //     }
+        // }
+        // return distancia;
         return 1;
+    }
+
+    /**
+     * Quantidade de números fora do lugar (seqüencia)
+     *
+     * @return Quantidade
+     */
+    @Override 
+    public int h() {
+        int nr = 0,
+            qtd = 0;
+
+        for (int i = 0; i < this.matriz.length; i++) {
+            for (int j = 0; j < this.matriz.length; j++) {
+                if (this.matriz[i][j] != nr++) {
+                    qtd++;
+                }
+            }
+        }
+        return qtd;
     }
 
     /**
@@ -193,26 +230,29 @@ public class Puzzle implements Estado {
     }
 
     private static int[][]geraMatrizInicial(int dimensao, Posicao p) {
-        LinkedList<Integer> sequencia = new LinkedList<Integer>();
+        // LinkedList<Integer> sequencia = new LinkedList<Integer>();
 
-        for (int i = 0; i < dimensao*dimensao; i++){
-            sequencia.add(i);
-        }
-        Collections.shuffle(sequencia);
-        int matriz[][] = new int[dimensao][dimensao];
+        // for (int i = 0; i < dimensao*dimensao; i++){
+        //     sequencia.add(i);
+        // }
+        // Collections.shuffle(sequencia);
+        // int matriz[][] = new int[dimensao][dimensao];
         
-        int contador = 0;
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                matriz[i][j] = sequencia.get(contador);
-                if (matriz[i][j] == 0) {
-                    p.linha = i;
-                    p.coluna = j;
-                }
-                contador++;
-            }
-        }
-
+        // int contador = 0;
+        // for (int i = 0; i < matriz.length; i++) {
+        //     for (int j = 0; j < matriz.length; j++) {
+        //         matriz[i][j] = sequencia.get(contador);
+        //         if (matriz[i][j] == 0) {
+        //             p.linha = i;
+        //             p.coluna = j;
+        //         }
+        //         contador++;
+        //     }
+        // }
+        int matriz[][] = new int[][]{{3,6,1},{0,2,5},{7,4,8}};
+        p.linha = 1;
+        p.coluna = 0;
+        
         return matriz;
     }
 
@@ -228,12 +268,13 @@ public class Puzzle implements Estado {
     public static void main(String[] a) {
         try {
             Posicao pos = new Posicao();
-            int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
+            int dimensao = 0;//Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
             int matriz[][] = geraMatrizInicial(dimensao, pos);
             exibirMatriz(matriz);
             System.out.println(pos.linha + "," + pos.coluna);
             Puzzle estadoInicial = new Puzzle(matriz,pos.linha, pos.coluna, "estado inicial");
             System.out.println("busca em ...");
+            // Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
             Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
             if (n == null) {
                 System.out.println("sem solucao!");

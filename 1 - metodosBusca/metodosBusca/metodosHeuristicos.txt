@@ -23,4 +23,4 @@ Métodos de busca:
     - Método A*
         - baseado no largura/amplitude (com backtracking)
         - realiza testes na árvore (espaço de busca) para confirmar se o caminho escolhido é o melhor
-        - corrige o caminho somando o CUSTO REAL com CUSTO HEURÍSTICA
+        - corrige o caminho somando o CUSTO REAL (acumulado) com CUSTO HEURÍSTICO/Estimado

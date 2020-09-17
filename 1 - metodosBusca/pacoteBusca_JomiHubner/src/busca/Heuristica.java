@@ -2,7 +2,7 @@ package busca;
 
 
 /**
- * Interface para estados que implementam a função h()
+ * Interface para estados que implementam a funï¿½ï¿½o h()
  *
  * @author  jomi
  */
@@ -15,3 +15,6 @@ public interface Heuristica {
     public int h();
 
 }
+
+// custo real -> g(n)
+// custo heurÃ­stico -> g(h)

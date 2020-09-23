@@ -1,19 +1,12 @@
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import busca.AEstrela;
 import busca.Heuristica;
 import busca.BuscaLargura;
-import busca.BuscaProfundidade;
 import busca.Estado;
 import busca.MostraStatusConsole;
 import busca.Nodo;
-import java.util.Stack;
 import javax.swing.JOptionPane;
 
-/**
- * Representa um estado do mundo
- */
 public class Puzzle implements Estado, Heuristica {
     
     @Override
@@ -285,16 +278,5 @@ public class Puzzle implements Estado, Heuristica {
             JOptionPane.showMessageDialog(null,"Problemas com a dimensão do Puzzle");
         }
         System.exit(0);
-    }
-}
-
-
-class Posicao {
-    int linha;
-    int coluna;
-
-    public Posicao() {
-        this.linha = 0;
-        this.coluna = 0;
     }
 }

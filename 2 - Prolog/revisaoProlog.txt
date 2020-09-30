@@ -17,6 +17,7 @@ BASE DE CONHECIMENTO/RACIOCÍNIO EM PROLOG
     - APIs Prolog para outras linguagens
         - JProlog
         - Pylog
+        - SWI Prolog
 
     
 

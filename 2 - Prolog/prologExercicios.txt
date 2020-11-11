@@ -4,7 +4,8 @@ FEITO 1) Escrever um contador que vai de 0 até 10 e escreve FIM na tela.
 
 FEITO 2) Criar a árvore genealógica com os fatos (progenitor, homem, mulher) e as regras (ancestral, pai, mae, avo, primo).
 
-FEITO 3) As cidades de Santa Maria e Porto Alegre estão localizadas no Rio Grande do Sul. Salvador na Bahia. Grenoble e Paris na França, que está na Europa. O Rio Grande do Sul e Bahia estão localizados no Brasil.
+FEITO 3) As cidades de Santa Maria e Porto Alegre estão localizadas no Rio Grande do Sul. Salvador na Bahia. 
+Grenoble e Paris na França, que está na Europa. O Rio Grande do Sul e Bahia estão localizados no Brasil.
 O Andre nasceu em Santa Maria. José em Salvador. Marc nasceu na cidade de Grenoble e a Maria em Porto Alegre.
 Atualmente, André mora em Paris, José em Grenoble, Marc em Porto Alegre, Maria em Salvador.
 As idades são as seguintes: André - 25; José - 30; Marc - 28; e Maria - 32 anos.
@@ -63,8 +64,6 @@ comeFrajola(X) :- eh_um(frajola,Bicho),
 comeFrajola(X) :- eh_um(frajola,Bicho),
                   gosta(Bicho,OutroBicho),
                   eh_um(X, OutroBicho).
-
-
 
 
 6) Traduzir em Prolog os seguintes fatos: 

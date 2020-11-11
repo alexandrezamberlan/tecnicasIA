@@ -3,13 +3,29 @@ import java.util.Random;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Collections;
+
+/**
+ * Classe que executa um AG sobre o problema da palavra desejada
+ * @author alexandrezamberlan
+ */
 public class AG {
+    
+    /**
+     * Método de classe que gera a 1a população totalmente aleatória
+     * @param populacao lista para os indivíduos gerados
+     * @param tamanhoPopulacao quantos indivíduos/estados se quer colocar na lista
+     * @param estadoFinal palavra/valor desejado
+     */
     static void gerarPopulacao(List<Cromossomo> populacao, int tamanhoPopulacao, String estadoFinal){
         for (int i = 0; i < tamanhoPopulacao; i++) {
             populacao.add(new Cromossomo(Util.gerarPalavra(estadoFinal.length()), estadoFinal));
         }
     }
 
+    /**
+     * Método de classe que ordena uma lista contendo Cromossomos/Estados/Indivíduos
+     * @param populacao 
+     */
     static void ordenar(List<Cromossomo> populacao) {
         //Collections.sort(populacao);
         boolean houveTroca;
@@ -33,6 +49,10 @@ public class AG {
         } while (distancia > 1 || houveTroca);
     }
 
+    /**
+     * Método de classe que exibe os Cromossomos de uma lista
+     * @param populacao lista contendo todos os cromossomos/indivíduos/estados 
+     */
     static void exibir(List<Cromossomo> populacao){
         for (int i = 0; i < populacao.size(); i++) {
             System.out.println("Cromossomo: " + populacao.get(i).valor + 
@@ -41,8 +61,13 @@ public class AG {
         }
     }
 
+    /**
+     * Método de classe que seleciona elementos/cromossomos/indivíduos para a novaPopulacao a partir do algoritmo de sorteio
+     * @param populacao lista com os Cromossomos da população atual
+     * @param novaPopulacao lista para os Cromossomos selecionados
+     * @param taxaSelecao porcentagem (sobre 100) de quantos serão selecionados
+     */
     static void selecionarPorTorneio(List<Cromossomo> populacao, List<Cromossomo> novaPopulacao, int taxaSelecao) {
-        //hoje vamos tentar implementar a seleção por torneio ao invés da roleta
         //OBS.: a populacao nao pode ser pequena e nem a taxa de selecao ser muito alta
 
         Cromossomo c1, c2, c3; //elementos sorteados para o torneio
@@ -86,6 +111,12 @@ public class AG {
         } while (i <= qtdSelecionados);
     }
 
+    /**
+     * Método de classe que seleciona elementos/cromossomos/indivíduos para a novaPopulacao a partir do algoritmo da roleta
+     * @param populacao lista com os Cromossomos da população atual
+     * @param novaPopulacao lista para os Cromossomos selecionados
+     * @param taxaSelecao porcentagem (sobre 100) de quantos serão selecionados
+     */
     static void selecionarPorRoleta(List<Cromossomo> populacao, List<Cromossomo> novaPopulacao, int taxaSelecao) {
         //método da roleta
         //calcular a aptidao total
@@ -141,6 +172,13 @@ public class AG {
         }
     }
 
+    /**
+     * Método de classe que gera novos Cromossomos a partir de um cromossomo Pai e outro Mae
+     * @param populacao lista com os cromossomos vigentes
+     * @param novaPopulacao lista para os cromossomos gerados no cruzamento entre pai e uma mae
+     * @param taxaReproducao porcentagem (sobre 100) de quantos serão reproduzidos/criados/gerados
+     * @param estadoFinal palavra desejada que é utilizada para calcular a aptidão dos cromossomos gerados
+     */
     public static void reproduzir(List<Cromossomo> populacao, List<Cromossomo> novaPopulacao, int taxaReproducao, String estadoFinal) {
         String sPai,sMae,sFilho1,sFilho2;
         Random gerador = new Random();
@@ -178,6 +216,11 @@ public class AG {
         }
     }
 
+    /**
+     * Método de classe com a função de esporadicamente mutar elementos da populacao passada no parametro
+     * @param populacao lista de cromossomos vigentes
+     * @param estadoFinal palavra desejada, em que é utilizada para recalcular a aptidão dos cromossomos mutados
+     */
     public static void mutar(List<Cromossomo> populacao, String estadoFinal) {
         Random gerador = new Random();
         int qtdMutantes = gerador.nextInt(populacao.size() / 5);
@@ -201,16 +244,17 @@ public class AG {
     }
 
     public static void main(String[] args) {
-        int tamanhoPopulacao = 200;
-        String estadoFinal = "inteligencia";
-        int taxaSelecao = 70;
+        int tamanhoPopulacao = Integer.parseInt(JOptionPane.showInputDialog(null,"Tamanho da população"));
+        String estadoFinal = JOptionPane.showInputDialog(null,"Palavra desejada");
+        int taxaSelecao = Integer.parseInt(JOptionPane.showInputDialog(null,"Taxa de seleção (entre 20 a 40%)"));
         int taxaReproducao = 100 - taxaSelecao;
-        int taxaMutacao = 5;
-        int qtdGeracoes = 4000;
+        int taxaMutacao = Integer.parseInt(JOptionPane.showInputDialog(null,"Taxa de mutação (entre 5 a 10%)"));
+        int qtdGeracoes = Integer.parseInt(JOptionPane.showInputDialog(null,"Quantidade de gerações"));
 
-        List<Cromossomo> populacao = new ArrayList<Cromossomo>();
-        List<Cromossomo> novaPopulacao = new ArrayList<Cromossomo>();
+        List<Cromossomo> populacao = new ArrayList<>();
+        List<Cromossomo> novaPopulacao = new ArrayList<>();
 
+        //1a população que é 100% aleatória
         gerarPopulacao(populacao, tamanhoPopulacao, estadoFinal);
         ordenar(populacao);
         System.out.println("Geracao 0");

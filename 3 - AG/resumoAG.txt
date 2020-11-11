@@ -12,10 +12,10 @@ Entradas:
 	- neste caso em especial, palavraFinal
 
 1) Pensar Orientado a Objetos
-	- Criar a classe Cromossomo
+	- Criar a classe Cromossomo (representa um estado ou um indivíduo)
 		- atributos
 		- construtor
-		- cálculo de aptidão
+		- cálculo de aptidão (heurística)
 
 	- Criar uma classe Util como métodos utilitários ao problema
 
@@ -42,6 +42,11 @@ Entradas:
 			mover(novaPopulacao,populacao)
 			apagar(novaPopulacao)
 
+Curiosidades:
+	1) muita lista
+	2) muito Random -> AG é o maior algoritmo de aleatoriedade da PARÓQUIA, só que controlado
+	3) regra de 3
+	4) orientação a objetos
 			
 
 

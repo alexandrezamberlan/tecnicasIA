@@ -7,7 +7,8 @@ homem('Alexandre').
 homem('Luiz Friess').
 homem('Victor').
 
-mulher('Maria').
+mulher(M) :- jogador(M,_),
+             not(homem(M)).
 
 joga('Alexandre','RPG').
 joga('Luiz Friess', 'FPS').

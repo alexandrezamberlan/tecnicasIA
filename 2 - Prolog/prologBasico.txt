@@ -7,8 +7,7 @@ Conjunto de (predicados/proposição):
 	pessoa(jose).
 	pessoa(maria).
 	pessoa(jesus).
-	homem(jose).
-	homem(jesus).
+	
 	mulher(maria).
 	progenitor(jose, jesus).
 	progenitor(maria, jesus).
@@ -17,7 +16,7 @@ Conjunto de (predicados/proposição):
 	                    progenitor(Quem, Filho). 
 	
 	eh_pai(Pessoa) :- homem(Pessoa), 
-	                  progenitor(Pessoa, X).
+	                  progenitor(Pessoa, _).
 
 	* Negação (negar algo): not(proposição).
 	

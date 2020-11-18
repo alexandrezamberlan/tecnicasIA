@@ -11,8 +11,8 @@ AG - método de busca heurística
     2) calcular a aptidão de cada estado/indivíduo/cromossomos 
         2.1) pontuar se está perto da solução, ou quão perto da solução o indivíduo está
         2.2) pontuar se fere alguma restrição, um bom indivíduo é aquele perto do ZERO
-    3) selecionar % (geralmente 70%)
-    4) reproduzir % (geralmente 30%) - é aqui que novos indivíduos são gerados (a solução pode estar aqui)
+    3) selecionar % (geralmente 30%)
+    4) reproduzir % (geralmente 70%) - é aqui que novos indivíduos são gerados (a solução pode estar aqui)
     5) de tempos em tempos aplicar mutação (modificar possível estagnação)
     6) voltar ao ponto 2
 

@@ -22,3 +22,15 @@
 /Users/alexandrezamberlan/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.dll
 /Users/alexandrezamberlan/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.pdb
 /Users/alexandrezamberlan/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.genruntimeconfig.cache
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.deps.json
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.runtimeconfig.json
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.runtimeconfig.dev.json
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.dll
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/bin/Debug/netcoreapp2.1/codigoAG.pdb
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.csprojAssemblyReference.cache
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.AssemblyInfoInputs.cache
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.AssemblyInfo.cs
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.csproj.CoreCompileInputs.cache
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.dll
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.pdb
+/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/Debug/netcoreapp2.1/codigoAG.genruntimeconfig.cache

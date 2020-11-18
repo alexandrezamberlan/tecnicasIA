@@ -12,7 +12,7 @@ class Cromossomo
     public Cromossomo(String valor, String palavraFinal)
     {
         this.valor = valor;
-        this.aptidao = calcularAptidao(palavraFinal);
+        this.aptidao = calcularAptidao(palavraFinal); //é a heurística
         this.aptidaoPorcentagem = 0; //usado na seleção, no método da roleta
     }
 

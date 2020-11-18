@@ -73,23 +73,23 @@ static class Program
             torneio.Add(c1);
             torneio.Add(c2);
             torneio.Add(c3);
-            
 
-            ordenar(torneio); //ordena de forma decrescente do mais apto ao menos apto
+            torneio = torneio.OrderByDescending(c => c.aptidao).ToList();
+
             selecionado = torneio[0];
-            Console.WriteLine(torneio[0].valor + "   " + torneio[1].valor + "   " + torneio[2].valor);
+            //Console.WriteLine(torneio[0].valor + "   " + torneio[1].valor + "   " + torneio[2].valor);
 
             if (!novaPopulacao.Contains(selecionado))
             {
                 novaPopulacao.Add(selecionado);
                 i++;
-                Console.WriteLine("selecionado.... " + selecionado.valor);
-            } else Console.WriteLine("Já existe");
+                //Console.WriteLine("selecionado.... " + selecionado.valor);
+            }// else Console.WriteLine("Já existe");
             torneio.Clear();
-            Console.ReadKey();
+            //Console.ReadKey();
             
         } while (i < qtdSelecionados);
-        Console.WriteLine("Fim seleção. Quantidade de selecionados: " + qtdSelecionados);
+        //Console.WriteLine("Fim seleção. Quantidade de selecionados: " + qtdSelecionados);
     }
 
     static public void reproduzir(List<Cromossomo> populacao,
@@ -145,7 +145,7 @@ static class Program
             //podar o fim da novaPopulacao
             novaPopulacao.RemoveAt(novaPopulacao.Count-1);
         }
-        Console.WriteLine("Fim da reprodução. Foram reproduzidos: " + qtdReproduzidos + "  " + novaPopulacao.Count);
+        //Console.WriteLine("Fim da reprodução. Foram reproduzidos: " + qtdReproduzidos + "  " + novaPopulacao.Count);
     }
 
     static void Main()
@@ -161,60 +161,63 @@ static class Program
         int taxaMutacao;
         int tamanhoPopulacao;
 
-        //Console.Write("Qual a palavra ou frase que quer testar como estado final? ");
-        //estadoFinal = Console.ReadLine();
-        estadoFinal = "inteligencia";
+        Console.Write("Qual a palavra ou frase que quer testar como estado final? ");
+        estadoFinal = Console.ReadLine();
+        // estadoFinal = "inteligencia";
 
-        //Console.Write("Quantas gerações pretende executar? "); //serve para o for
-        //quantidadeGeracoes = Int32.Parse( Console.ReadLine() );
-        quantidadeGeracoes = 100;
+        Console.Write("Quantas gerações pretende executar? "); //serve para o for
+        quantidadeGeracoes = Int32.Parse( Console.ReadLine() );
+        // quantidadeGeracoes = 100;
 
-        //do {
-        //    Console.Write("Taxa de seleção (10-90): ");
-        //    taxaSelecao = Int32.Parse( Console.ReadLine() );
-        //    taxaReproducao = 100 - taxaSelecao;
-        //} while (taxaSelecao <= 10 || taxaSelecao > 90);
+        do {
+           Console.Write("Taxa de seleção (10-90): ");
+           taxaSelecao = Int32.Parse( Console.ReadLine() );
+           taxaReproducao = 100 - taxaSelecao;
+        } while (taxaSelecao <= 10 || taxaSelecao > 90);
 
-        taxaSelecao = 70;
+        // taxaSelecao = 70;
         taxaReproducao = 100 - taxaSelecao;
 
-        //do {
-        //    Console.Write("Taxa de mutação (1-5%): ");
-        //    taxaMutacao = Int32.Parse( Console.ReadLine() );
-        //} while (taxaMutacao <= 0 || taxaMutacao > 5);
+        do {
+           Console.Write("Taxa de mutação (1-5%): ");
+           taxaMutacao = Int32.Parse( Console.ReadLine() );
+        } while (taxaMutacao <= 0 || taxaMutacao > 5);
 
-        //Console.Write("Tamanho da população: ");
-        //tamanhoPopulacao = Int32.Parse( Console.ReadLine() );
-        tamanhoPopulacao = 10;
+        Console.Write("Tamanho da população: ");
+        tamanhoPopulacao = Int32.Parse( Console.ReadLine() );
+        // tamanhoPopulacao = 10; 
 
         //gerar população inicial
         //calcular aptidao para cada estado/indivíduo/cromossomo da população
-        gerar(populacao,tamanhoPopulacao,estadoFinal);
-        ordenar(populacao); //decrescente pela aptidao
+        gerar(populacao, tamanhoPopulacao, estadoFinal);
+        //aplicando o método de ordenação nativo do C#
+        populacao = populacao.OrderByDescending(c => c.aptidao).ToList();
         Console.WriteLine("Geração 1");
         exibir(populacao);
 
-        
+
         for (int i = 1; i < quantidadeGeracoes; i++)
         {
             Console.WriteLine("inicio de um for para nova poulação");
-            selecionarPorTorneio(populacao,novaPopulacao,taxaSelecao);
+            selecionarPorTorneio(populacao, novaPopulacao, taxaSelecao);
+
             //estadoFinal é passado, pq são gerados novos cromossomos, logo é preciso 
             //calcular a aptidao desses novos cromossomos
-            
-            reproduzir(populacao,novaPopulacao,taxaReproducao,estadoFinal);
+            reproduzir(populacao, novaPopulacao, taxaReproducao, estadoFinal);
+
             //testar se vai haver mutacao
             //mutar(novaPopulacao,taxaMutacao);
-            
-            ordenar(novaPopulacao); //decrescente pela aptidao
-            Console.WriteLine("Geração " + (i+1));
+
+            //aplicando o método de ordenação nativo do C#
+            novaPopulacao = novaPopulacao.OrderByDescending(c => c.aptidao).ToList();
+
+            Console.WriteLine("Geração " + (i + 1));
             exibir(novaPopulacao);
 
             populacao.Clear();
-            // Util.adicionaTodos(populacao,novaPopulacao);
-            populacao.AddRange( novaPopulacao ); 
-            novaPopulacao.Clear();    
+            populacao.AddRange(novaPopulacao);
+            novaPopulacao.Clear();
         }
-        
+
     }
 }

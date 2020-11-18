@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fJMrkkNItsyGRaFeJp7eKqwtiTNxPp8CklaTtFhn275rvRt0FTN2aZgvAnY0G4kVHSVcWzTcGaMsPy896fFFWQ==",
+  "dgSpecHash": "uel/mZoNyqx+EomM8NN17FzG+/xZAW3qxT8qJf2N70/EXsLSpjJVlYkbjfBrEFDGcsgnX0tFKnBi/Mo9x1uZJw==",
   "success": true,
-  "projectFilePath": "/Users/alexandrezamberlan/codigos/ia/ia_jogosDigitais/3 - AlgoritmosGeneticos/CodigoAG/codigoAG.csproj",
+  "projectFilePath": "/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/codigoAG.csproj",
   "expectedPackageFiles": [
     "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.app/2.1.0/microsoft.netcore.app.2.1.0.nupkg.sha512",
     "/Users/alexandrezamberlan/.nuget/packages/microsoft.netcore.dotnetapphost/2.1.0/microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",

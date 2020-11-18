@@ -693,11 +693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alexandrezamberlan/codigos/tecnicasIA/3 - AG/c#/CodigoAG/codigoAG.csproj",
+      "projectUniqueName": "/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/codigoAG.csproj",
       "projectName": "codigoAG",
-      "projectPath": "/Users/alexandrezamberlan/codigos/tecnicasIA/3 - AG/c#/CodigoAG/codigoAG.csproj",
+      "projectPath": "/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/codigoAG.csproj",
       "packagesPath": "/Users/alexandrezamberlan/.nuget/packages/",
-      "outputPath": "/Users/alexandrezamberlan/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/",
+      "outputPath": "/Volumes/HD16GB/codigos/tecnicasIA/3 - AG/c#/CodigoAG/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -713,6 +713,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "projectReferences": {}
         }
       },
@@ -724,6 +725,7 @@
     },
     "frameworks": {
       "netcoreapp2.1": {
+        "targetAlias": "netcoreapp2.1",
         "dependencies": {
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
@@ -742,7 +744,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

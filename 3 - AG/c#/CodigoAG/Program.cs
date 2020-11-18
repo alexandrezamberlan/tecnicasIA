@@ -148,6 +148,30 @@ static class Program
         //Console.WriteLine("Fim da reprodução. Foram reproduzidos: " + qtdReproduzidos + "  " + novaPopulacao.Count);
     }
 
+    static void mutar(List<Cromossomo> populacao, String estadoFinal)
+    {
+        Random gerador = new Random();
+        int qtdMutantes = gerador.Next(populacao.Count / 5) + 1;
+        Cromossomo mutante;
+        int posicaoMutante;
+
+        for (; qtdMutantes > 0; qtdMutantes--)
+        {
+            posicaoMutante = gerador.Next(populacao.Count);
+            mutante = populacao[posicaoMutante];
+            Console.WriteLine("vai mutar " + mutante.valor + "  " + mutante.aptidao);
+            //mudando
+            String valorMutado = mutante.valor;
+            char caracterMutante = mutante.valor[gerador.Next(mutante.valor.Length)];
+            char caracterSorteado = Util.letras[gerador.Next(Util.tamanho) ];
+            valorMutado = valorMutado.Replace(caracterMutante, caracterSorteado);
+            mutante = new Cromossomo(valorMutado, estadoFinal);
+            
+            //recalculando sua aptidao
+            populacao[posicaoMutante] = mutante;
+        }
+    }
+
     static void Main()
     {
         Console.WriteLine("Algoritmos Genéticos");
@@ -206,8 +230,11 @@ static class Program
             reproduzir(populacao, novaPopulacao, taxaReproducao, estadoFinal);
 
             //testar se vai haver mutacao
-            //mutar(novaPopulacao,taxaMutacao);
-
+            if (i % (populacao.Count / taxaMutacao) == 0)
+            {
+                mutar(novaPopulacao, estadoFinal); //estadoFinal é passado, pq indivíduos mutados devem ter suas aptidões recalculadas
+            }
+            
             //aplicando o método de ordenação nativo do C#
             novaPopulacao = novaPopulacao.OrderByDescending(c => c.aptidao).ToList();
 

@@ -1,0 +1,158 @@
+Métodos de busca:
+    - Cegos ou Sem Informação: profundidade e largura/amplitude
+
+    - Heurísticos ou Com Informação - a heurística, ou a dica, ou a informação privilegiada pode encurtar caminho,
+      ou seja, na hora de escolher/aplicar N regras de transição, o algoritmo te auxilia a escolher/aplicar uma 
+      regra transição que te leve mais rápido à solução
+
+    - Heurística ou Dica é uma informação com relação:
+        - CUSTO REAL para trocar de um estado a outro (geralmente, distância, tempo, ...)
+
+        - CUSTO HEURÍSTICO/ESTIMADO para trocar de um estado a outro. 
+          Note, que esse custo é ESTIMADO, fornecido por um cálculo
+          ou por um especialista (geralmente tem relação com tempo)
+          - TABELA CRIADA EM TEMPO DE PROCESSAMENTO PARA AJUDAR NA ESCOLHA DE REGRAS DE TRANSIÇÃO
+
+    - Método de Subida de Encosta (Climb Hill)
+        - baseado no profundidade (sem backtracking) - PODE NÃO ATINGIR SOLUÇÃO
+        - usa como heurística o CUSTO REAL
+            - NA TEORIA, uma regra de transição é aplicada para atingir o estado mais próximo
+
+    - Método Guloso (GREEDY)
+        - baseado no largura/amplitude (com backtracking)
+        - realiza testes na árvore (espaço de busca) para confirmar se o caminho escolhido é o melhor
+        - usa como heurística o CUSTO ESTIMADO (fornecido via cálculo ou por especialista e pode ser inadimissível)
+
+    - Método A*
+        - baseado no largura/amplitude (com backtracking)
+        - realiza testes na árvore (espaço de busca) para confirmar se o caminho escolhido é o melhor
+        - corrige o caminho somando o CUSTO REAL (acumulado) com CUSTO HEURÍSTICO/Estimado
+
+
+PROBLEMAS E A PRESENÇA OU NÃO DE HEURÍSTICAS
+    - Jarras -> não tem heurística
+    - Hanoi -> não tem heurística
+    - N rainhas -> não tem heurística
+    - Homem, Alface, Lobo, Galinha -> não tem heurística
+    - Problema do Puzzle de NxN
+
+    0   0   0
+    0   0   0
+    0   0   0
+
+    Ei-
+    7   6   2
+    0   1   3
+    8   4   5
+
+    linha  - 1
+    coluna - 0
+
+    Ef
+    0   1   2
+    3   4   5
+    6   7   8
+
+    linha  - 0
+    coluna - 0
+
+
+    Custo real -> 1
+    Custo estimado -> A ou B
+        A - movimentar as peças mais distantes do seu lugar final
+        B - não movimentar as peças que já estão no seu lugar
+
+    CUIDADO
+        Heurísticas podem ser inadimissíveis, principalmente as de custo estimado
+
+
+Exercício no Mapa da Romênia e com a tabela de estimativa para chegar em Bucharest
+
+APLICAR AMPLITUDE NO MAPA A PARTIR DE ARAD
+Fila
+
+                                    A
+                S                   T               Z
+        F       O       RV          L               
+        B
+A S F B -> 450
+
+APLICAR PROFUNDIDADE NO MAPA
+Pilha -> recursão 
+
+
+                                    A
+                S
+        F 
+        B
+
+A S F B -> 450
+
+
+APLICAR SUBIDA DE ENCOSTA
+Pilha -> SEM RECURSÃO ou SEM backtracking
+Custo real -> g(n)
+
+                                    A 
+                                            Z 
+                                            O 
+                                            S 
+                                            RV 
+                                            P
+                                            B
+
+A Z O S RV P B -> 575
+
+
+APLICAR GULOSO
+Fila -> com análise constante dos 'nodos/estados' 'tios', pra ter 
+        certeza que está indo pelo melhor caminho
+Custo estimado -> h(n)
+Problema: Se a tabela de custos estimados (heurística) for inadimissível (furada),
+não vai gerar soluções pelo melhor caminho
+
+                                    A  366
+                S 253               
+        F 176  
+        B 0
+
+Este não é o melhor caminho. Isso significa que a heurística é falha.
+Este método é 100% dependente da heurística.
+
+VISITADOS - A S F B -> 450
+
+
+OBSERVAÇÃO:
+    - na programação há duas situações de programação que transformam 
+      a complexidade da solução, logo a vida do programador:
+      - mapeamento e implementação de heurística (1o lugar)
+      - tratamento restrições (2o lugar)
+
+
+APLICAR A*
+Fila -> com análise constante dos 'nodos/estados' 'tios', pra ter 
+        certeza que está indo pelo melhor caminho (igual ao Guloso)
+
+Soma dos custos real e estimado = g(n) + h(n)
+Observação: o custo real é acumulado.
+
+Ele resolve o problema do Guloso. Ele faz correção da heurística pelo custo real.
+
+                                            A 
+                                                       S 140+253=393               
+                                                       RV 220+193=413 
+                                                       P 317+100=417 
+                                                       B 418+0= 418   
+     
+
+VISITADOS - A S RV P B = 418
+
+
+
+
+
+
+
+
+
+

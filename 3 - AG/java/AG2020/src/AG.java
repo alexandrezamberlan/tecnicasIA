@@ -27,7 +27,7 @@ public class AG {
      * @param populacao 
      */
     static void ordenar(List<Cromossomo> populacao) {
-        //Collections.sort(populacao);
+        // Collections.sort(populacao);
         boolean houveTroca;
         Cromossomo tmp;
         int distancia = populacao.size();

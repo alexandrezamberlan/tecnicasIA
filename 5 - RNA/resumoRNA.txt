@@ -15,7 +15,7 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
         -> USAR: classificar, agrupar, diagnosticar, predizer, prever
             -> MINERAÇÃO (dados, texto, web, imagem)
 
-        Aprendizagem:
+        Aprendizagem se dá pelo treinamento:
             - observação
             - escuta
             - experimentação
@@ -23,16 +23,15 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
     
         Itens a observar/escutar/experimentar/ler
             - atributos massivos
-            - pesos respectivos ()
+            - pesos respectivos (a importância de um atributo em relação a outros)
 
         trabalha/exercita atributos e seus pesos => TREINAMENTO => APRENDIZADO DA MÁQUINA
 
 
-        Treinamento (não supervisionada / supervisionada / híbrida)    
+        Treinamento (não supervisionado / supervisionado / híbrido / pesos fixos)    
             - é dependente da capacidade de armazenar, raciocinar e aprender
             - é dependente de um conceito de LIMIAR (threshold) ou função objetivo
             - trabalha a relação de atributos e seus pesos (ajustes dessa combinação)
-
 
         Projetar uma RNA envolve:
             - identificar a área em que se deseja RECONHECER PADRÕES ou realizar DIAGNÓSTICO

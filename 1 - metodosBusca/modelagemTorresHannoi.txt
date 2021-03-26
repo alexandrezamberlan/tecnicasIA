@@ -13,7 +13,7 @@ Características do problema:
 1) espaço de busca dependente do N (árvore gerada), o espaço cresce, o consumo de memória aumenta conforme N
 2) o estado final é conhecido
 3) com restrições 
-4) tem heurística ou dica de atalho (sem alguma informação que ajude a ir para um estado específico)
+4) não tem heurística ou dica de atalho (sem alguma informação que ajude a ir para um estado específico)
 
 Estados do Problema das Jarras
     Classe; atributos; tipos
@@ -33,7 +33,7 @@ Regras de transição do Problema das Jarras
 
 Como tratar os visitados ou objetos ou estados já produzidos
     Lista encadeada ou HashSet com coersão dos atributos em string
-    "[321][][]" "[32][1][]" "[][][321]""
+    "[321][][]" "[32][1][]" "[][][321]"
 
 Mapear as restrições do Problema
 topoDaOrigem < topoDoDestino

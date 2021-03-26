@@ -187,7 +187,7 @@ public class Hannoi implements Estado {
         // chama busca em largura
         System.out.println("busca em ....");
         
-        Nodo n = new BuscaProfundidade(new MostraStatusConsole()).busca(estadoInicial);
+        Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
         
         if (n == null) {
             System.out.println("sem solucao!");

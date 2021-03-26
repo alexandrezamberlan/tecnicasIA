@@ -1,8 +1,5 @@
 import java.util.LinkedList;
 
-
-
-
 public class RNA1 {
 
     static double somatorio(LinkedList entradas, LinkedList pesos) {

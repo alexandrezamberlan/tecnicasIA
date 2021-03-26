@@ -1,51 +1,19 @@
 Técnicas de IA que geram Sistemas com Comportamento Inteligente
     - Sistemas de Comportamento Inteligente
-        1) base de conhecimento
-        2) raciocínio automatizado
-            dedução: aplicação do método força bruta profundidade
-            indução
-        3) aprendizado de máquina
+        1) base de conhecimento: experiências (fatos ou regras)
+        2) motor de raciocínio automatizado
+            dedução: (top-down) aplicação do método força bruta profundidade
+            indução: (bottom-up)
+        3) aprendizado de máquina: reconhecimento de padrões -> treinamento
 
-    - Métodos de resolução de problemas: métodos de busca (raciocínio automatizado)
-        - Elementos fundamentais de modelagem e implementação que é necessário OBEDECER
-            - estados (atributos ou objetos de uma classe): inicial(ais) e final(ais)
-            - regras de transição (métodos ou operações de uma classe): são as ações que modificam o estado de um problema
-            - estrutura de visitados (lista ou um hash para controlar estados já produzidos e visitados)
-                - conversão do estado em uma string ou stringbuffer
-            - restrições do problemas (ifs ou métodos de validação)
-                - implica diretamente em complexidade (esforço, mais processamento)
+    
+    - Resolução de Problemas que em tese são resolvidos por seres humanos
+        - diagnóstico: 
+        - 'empacotamento': não conhecimento do estado final; há muitas restrições
 
-        - Exemplos: Problema das Jarras, Problema da Torre de Hannoi, Problema das N Rainhas,
 
-        - Exercício: Problema do Puzzle NxN
-            - Estrutura(s) de dados para montar um estado do problema
-                - matriz de inteiros de tamanho NxN
-                - posicaoX e posicaoY da célula vazia
-                - string op: para verbose do que está acontecendo
-            - Estado Inicial
-                - matriz com números de 0 a N distribuídos aleatoriamente
-                - captura/descoberta da posição com o 0
-            - Estado final
-                - matriz com números sequencias de 0 a N 
-            - Métodos para modificar um estado + restrições
-                if (X > 0) {
-                    irParaCima() -> X--
-                }
-                
-                if (X < N-1) {
-                    irParaBaixo() -> X++
-                }
-                
-                if (Y > 0) {
-                    irParaEsquerda() -> Y--
-                }
-                
-                if (Y < N-1) {
-                    irParaDireita() -> Y++
-                }
-
-            - Visitados
-                - converter a matriz em uma string com todas a linhas da matriz
-                - "068251473"
-
-           
+    - Métodos de busca de uma solução via algoritmos de:
+        - força bruta: profundidade e largura. Não se tem algum tipo de informação para 'atalhar'
+                       até a solução.
+        - heurísticos: subida de encosta, guloso e A*. Há dicas/heurísticas que são informações    
+                       que podem gerar atalhos até a solução.

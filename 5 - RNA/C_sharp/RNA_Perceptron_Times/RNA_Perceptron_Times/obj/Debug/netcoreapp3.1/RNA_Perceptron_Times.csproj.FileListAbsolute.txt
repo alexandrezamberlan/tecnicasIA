@@ -10,3 +10,15 @@
 /Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.dll
 /Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.pdb
 /Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.genruntimeconfig.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/bin/Debug/netcoreapp3.1/RNA_Perceptron_Times.deps.json
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/bin/Debug/netcoreapp3.1/RNA_Perceptron_Times.runtimeconfig.json
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/bin/Debug/netcoreapp3.1/RNA_Perceptron_Times.runtimeconfig.dev.json
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/bin/Debug/netcoreapp3.1/RNA_Perceptron_Times.dll
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/bin/Debug/netcoreapp3.1/RNA_Perceptron_Times.pdb
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.csprojAssemblyReference.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.AssemblyInfoInputs.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.AssemblyInfo.cs
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.csproj.CoreCompileInputs.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.dll
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.pdb
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/Debug/netcoreapp3.1/RNA_Perceptron_Times.genruntimeconfig.cache

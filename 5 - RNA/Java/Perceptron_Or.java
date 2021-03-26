@@ -71,12 +71,12 @@ public class Perceptron_Or {
     public void treinar() {
 	
         // variavel utilizada responsável pelo controlede treinamento recebefalso
-        boolean treinou;
+        boolean aprendeu;
         // varável responsável para receber o valor da saída (y)
         int saida;
 		
 		do {
-			treinou = true;
+			aprendeu = true;
 			// laço usado para fazer todas as entradas
 			for (int i = 0; i < matrizAprendizado.length; i++) {
 				// A saída recebe o resultado da rede que no caso é 1 ou 0
@@ -88,7 +88,7 @@ public class Perceptron_Or {
 					// os pesos sinápticos serão corrigidos
 					corrigirPeso(i, saida);
 					// a variavél responsável pelo controlede treinamento recebe falso
-					treinou = false;
+					aprendeu = false;
 	 
 				}
 			}
@@ -97,7 +97,7 @@ public class Perceptron_Or {
 	 
 			// teste se houve algum erro duranteo treinamento e o número de epocas
 			//é menor qe o definido
-		} while (!treinou && this.count < this.epocasMax);
+		} while (!aprendeu && this.count < this.epocasMax);
  
     }    // fim do método para treinamento
  

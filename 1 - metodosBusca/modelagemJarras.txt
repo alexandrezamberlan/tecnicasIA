@@ -1,8 +1,9 @@
 Estados do Problema das Jarras
     Classe; atributos; tipos
-    Jarras; jarra1, jarra2; int, int
+    Jarra; jarra1, jarra2; int, int
     Estado inicial: jarra1 = 0; jarra2 = 0
     Estados finais: jarra1 == 2 && jarra2 == 0 || jarra1 == 0 && jarra2 == 2
+    
 
 Regras de transição do Problema das Jarras 
     Métodos da Classe
@@ -33,6 +34,7 @@ No processo de resolução do problema por métodos de busca, são feitas 3 perg
 6) despejarJarra2EmJarra1
 
 SOLUÇÃO COM MÉTODO EM BUSCA EM AMPLITUDE/LARGURA
+    - usa fila
                                         (jarra1,jarra2)
                                              (0,0)
                                   r1(3,0)             r2(0,4)  
@@ -47,6 +49,7 @@ visitados: "00" "30" "04" "34" "03" "31" "33" "01" "10" "14" "32"  "02"
 
 
 SOLUÇÃO COM MÉTODO EM BUSCA EM PROFUNDIDADE
+    - usa pilha
                                         (jarra1,jarra2)
                                              (0,0)
                                         r1(3,0)
@@ -65,4 +68,4 @@ Características do problema:
 1) espaço de busca é pequeno (árvore gerada)
 2) o estado final é conhecido, ou seja, o que é esperado é conhecido
 3) sem restrições
-4) tem heurística ou dica de atalho
+4) não tem heurística ou dica de atalho

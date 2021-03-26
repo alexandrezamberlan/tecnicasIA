@@ -4,7 +4,8 @@
  * @author Dimas Kastibergue <k45t1b@gmail.com>;
  */
  
-public class Perceptron_And {//RNA mais simples... feedforward .... uma camada... supervisionado
+public class Perceptron_And {//RNA mais simples... feedforward/propagação a frente 
+    //.... uma camada... supervisionado
  
     // pesos sinápticos [0] entrada 1, [1] entrada 2, [3]BIAS
     double[] pesos = new double[3];//vetor que vai receber treinamento
@@ -50,7 +51,6 @@ public class Perceptron_And {//RNA mais simples... feedforward .... uma camada..
 		this.matrizAprendizado[3][2] = 1; // valor esperado
 	 
 		// inicialização dos pesos sinápticos
-	 
 		// Peso sináptico para primeira entrada.
 		pesos[0] = 0;
 		// Peso sináptico para segunda entrada.
@@ -76,11 +76,11 @@ public class Perceptron_And {//RNA mais simples... feedforward .... uma camada..
     public void treinar() {
  
         // variavel utilizada responsável pelo controle do treinamento recebe falso
-        boolean treinou; //aprendeu
+        boolean aprendeu; //aprendeu
         // varável responsável para receber o valor da saída (y)
         int saida;
         do {
-            treinou = true;
+            aprendeu = true;
             // laço usado para fazer todas as entradas
             for (int i = 0; i < matrizAprendizado.length; i++) {
                 // A saída recebe o resultado da rede que no caso é 1 ou 0
@@ -92,7 +92,7 @@ public class Perceptron_And {//RNA mais simples... feedforward .... uma camada..
                     // os pesos sinápticos serão corrigidos, ou seja, calibrados
                     corrigirPeso(i, saida); 
                     // a variavél responsável pelo controlede treinamento recebe falso
-                    treinou = false; //nao aprendeu
+                    aprendeu = false; //nao aprendeu
                 }
             }
             // acrescenta uma época
@@ -100,7 +100,7 @@ public class Perceptron_And {//RNA mais simples... feedforward .... uma camada..
     
             // teste se houve algum erro duranteo treinamento e o número de geracoes
             //é menor qe o definido
-        } while (!treinou && this.contaGeracoes < this.geracoesMax);
+        } while (!aprendeu && this.contaGeracoes < this.geracoesMax);
     }    // fim do método para treinamento
  
     // Método para a correção de pesos, conhecido como HEURÍSTICA
@@ -109,7 +109,6 @@ public class Perceptron_And {//RNA mais simples... feedforward .... uma camada..
         pesos[0] = pesos[0] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][0]);
         pesos[1] = pesos[1] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][1]);
         pesos[2] = pesos[2] + (1 * (matrizAprendizado[i][2] - saida) * (-1));
- 
     }
  
     void testar() { //colocar em prática o modelo rna treinado para reconhecer

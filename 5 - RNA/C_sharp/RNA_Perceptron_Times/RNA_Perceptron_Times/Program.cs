@@ -55,7 +55,7 @@ namespace RNA_Perceptron_Times
 			Console.Write("\n\nInforme valor para x (-1 a 1): ");
 			double x = Double.Parse( Console.ReadLine() );
 			Console.Write("Informe valor para y (-1 a 1): ");
-			double y = Double.Parse( Console.ReadLine() );
+			double y = Double.Parse( Console.ReadLine() ); 
 
 			p.testar(new Ponto(x,y));
         }

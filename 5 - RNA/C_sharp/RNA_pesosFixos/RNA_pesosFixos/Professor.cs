@@ -5,8 +5,8 @@ namespace RNA_pesosFixos
     {
         string nome;
         string area;
-        int[] vetor_nome;
-        int[] vetor_area;
+        int[] vetor_nome; 
+        int[] vetor_area; 
 
         public string Nome { get => nome; set => nome = value; }
         public string Area { get => area; set => area = value; }

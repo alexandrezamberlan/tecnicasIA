@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj": {}
+    "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj": {}
   },
   "projects": {
-    "/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj": {
+    "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
+        "projectUniqueName": "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
         "projectName": "RNA_Perceptron_Times",
-        "projectPath": "/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
+        "projectPath": "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
         "packagesPath": "/Users/alexandrezamberlan/.nuget/packages/",
-        "outputPath": "/Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/",
+        "outputPath": "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/alexandrezamberlan/.config/NuGet/NuGet.Config"
+          "/Users/alexandrezamberlan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -27,6 +27,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,6 +39,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -53,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

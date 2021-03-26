@@ -10,3 +10,15 @@
 /Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.dll
 /Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.pdb
 /Users/alexandrezamberlan/codigos/ia_jogosDigitais/5 - RNA/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.genruntimeconfig.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.deps.json
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.runtimeconfig.json
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.runtimeconfig.dev.json
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.dll
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/bin/Debug/netcoreapp3.1/RNA_pesosFixos.pdb
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.csprojAssemblyReference.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.AssemblyInfoInputs.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.AssemblyInfo.cs
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.csproj.CoreCompileInputs.cache
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.dll
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.pdb
+/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_pesosFixos/RNA_pesosFixos/obj/Debug/netcoreapp3.1/RNA_pesosFixos.genruntimeconfig.cache

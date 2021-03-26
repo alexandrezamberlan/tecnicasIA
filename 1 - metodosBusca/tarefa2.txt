@@ -1,0 +1,75 @@
+Labirinto NxM -> 4x5
+ESTADO INICIAL: matriz inicializada com E e S sorteados em posições aleatórias
+0   0   0   0   0
+0   E   0   0   0
+0   0   0   S   0
+0   0   0   0   0
+
+posLinhaE = 1
+posColunaE = 1
+
+
+ESTADO FINAL:
+matriz[posLinhaE][posColunaE] == 'S'
+
+Regras de transição 
+    1) mover para cima 
+    2) mover para baixo
+    3) mover para esquerda
+    4) mover para direita
+
+Restrições
+    1) se estiver na primeira linha, não pode mover cima
+    2) se estiver na ultima linha, não pode mover baixo
+    3) se estiver na primeira coluna, não pode mover esquerda
+    4) se estiver na última coluna, não pode mover direita
+
+Visitados
+    List ou HashSet
+    Por exemplo
+    0 0 0 0 0
+    E 0 0 0 S
+    0 0 0 0 0
+    0 0 0 0 0
+    
+    "00000E000S0000000000"
+
+
+0   0   0   0   0
+0   E   0   0   0
+0   0   0   S   0
+0   0   0   0   0
+posLinhaE = 1
+posColuna = 1
+
+MOVER PARA CIMA
+0   E   0   0   0
+0   0   0   0   0
+0   0   0   S   0
+0   0   0   0   0
+posLinhaE = 0
+posColuna = 1
+
+MOVER PARA BAIXO
+0   0   0   0   0
+0   0   0   0   0
+0   E   0   S   0
+0   0   0   0   0
+posLinhaE = 1
+posColuna = 1
+
+MOVER PARA ESQUERDA
+0   0   0   0   0
+E   0   0   0   0
+0   0   0   S   0
+0   0   0   0   0
+posLinhaE = 1
+posColuna = 0
+
+MOVER PARA DIREITA
+0   0   0   0   0
+0   0   E   0   0
+0   0   0   S   0
+0   0   0   0   0
+posLinhaE = 1
+posColuna = 1

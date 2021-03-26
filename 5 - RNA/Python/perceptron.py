@@ -106,8 +106,8 @@ rede = Perceptron(amostras, saidas)
 rede.treinar()
  
 # Entrando com amostra para teste
-x = 0.8
-y = -0.4
+x = 0
+y = 0
 print('Ponto: ', x , ' , ', y)
 rede.teste([x,y])
 #sys.exit("fim de teste")

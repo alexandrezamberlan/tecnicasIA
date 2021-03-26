@@ -107,7 +107,7 @@ namespace RNA_pesosFixos
             int[] saidaArea = new int[4];            
 
             //entrar com 
-            // int[] alexandre = {1, -1, 1, -1, 1};       
+            //int[] alexandre = {1, -1, 1, -1, 1};       
             //int[] reiner = {1, 1, 1, -1, -1};
             //int[] cassio = {1, 1, -1, -1, 1};
             for (int j = 0; j < TAMAREA; j++)
@@ -151,6 +151,4 @@ namespace RNA_pesosFixos
  *                   ["reiner","programacao",{1, 1, 1, -1, -1},{1, 1, -1, -1}]
  *                   ["cassio","design",{1, 1, -1, -1, 1},{1, -1, -1, 1}]
  *
- *
- *                  
  */

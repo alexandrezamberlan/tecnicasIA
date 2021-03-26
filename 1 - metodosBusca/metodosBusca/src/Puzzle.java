@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.List;
 import busca.Heuristica;
 import busca.BuscaLargura;
+import busca.AEstrela;
 import busca.Estado;
 import busca.MostraStatusConsole;
 import busca.Nodo;
@@ -267,7 +268,7 @@ public class Puzzle implements Estado, Heuristica {
             System.out.println(pos.linha + "," + pos.coluna);
             Puzzle estadoInicial = new Puzzle(matriz,pos.linha, pos.coluna, "estado inicial");
             System.out.println("busca em ...");
-            // Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
+//            Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
             Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
             if (n == null) {
                 System.out.println("sem solucao!");

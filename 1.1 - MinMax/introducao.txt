@@ -1,0 +1,35 @@
+Algoritmo MinMax foi criado junto à Teoria de Jogos (1920) - John Von Newmann
+
+Teoria de Jogos -> Economia
+    - Competição: ganha e perde
+        - Lucro
+        - Maximizar a si mesmo
+        - Minimizar o adeversario
+    - Ações:
+        - qualidade do produto ou serviço
+        - marketing
+        - ofertas e promoções
+    
+
+Algoritmo tem a dinâmica de potencializar ou maximizar a jogada própria e minimizar a jogada do adversário.
+
+    - Algoritmo para dois competidores
+    - Para maximizar e minimizar as jogadas, o algoritmo usa o método de busca por AMPLITUDE/LARGURA para abrir todas as jogadas possíveis até o
+      final do jogo. É nas folhas que o algoritmo 'enxerga' as jogadas
+    - Os tipos de competição precisam ser de dois competidores; espaço de busca do jogo não pode consumir muita memória 
+        - damas, velha, gamão, xadrez (alteração no algoritmo)
+    - Entretanto, depois que o amplitude abre a árvore, o profundidade realiza um cálculo recursivo para pontuar as folhas da árvore
+        - +1 se na folha o jogar vence
+        - -1 se o adversário vence
+        - 0 se há empate
+
+
+                                                O MAX 0
+
+                        X-1      X-1       X-1       X-1       X0       X0       X0       X0    MIN
+
+                    O  O  O   O  O  O   O  O  O   O  O  O   O  O  O   O  O  O   O  O  O   O  O  O   MAX
+                    1  0 -1  -1 -1  0   1  0 -1  -1  -1 1   0  0  0   0  0  0   0  0  0   0  0  0 
+
+    - Algoritmo Min-Max possui uma melhoria para jogos com um espaço de busca muito grande: subalgoritmo Alfa-Beta.
+        - Algoritmo de poda: ele fica avaliando a profundidade que a árvore está (níveis) e pode começar a podar/descartar em um nível definido pelo programador

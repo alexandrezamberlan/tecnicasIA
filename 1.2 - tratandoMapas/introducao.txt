@@ -1,0 +1,17 @@
+1) Converter o mapa em um arquivo de texto no formato Grafo
+
+2) Caso tenha tabela heurística, também converter em arquivo texto no formato Lista
+
+3) Para cada cidade (estado ou um cruzamento) do mapa devemos ter uma linha e uma coluna na matriz e criar a matriz que representa o grafo/mapa
+
+                    Arad    Bucharest   Craiova     Fagaras     Oradea      Rimnicu Vilcea      Pitesti     Sibiu   Timisoara   Zerind
+Arad                                                                                                        140
+Bucharest                                                                                       101                 118         75
+Craiova                                                                     141                 138
+Fagaras                    211                                                                              99
+Oradea                                                                                                      151
+Rimnicu Vilcea                         146                                                      97          80
+Pitesti                     101        138
+Sibiu               140                             99          151         80
+Timisoara           118
+Zerind              75

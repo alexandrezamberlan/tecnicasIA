@@ -1,0 +1,22 @@
+%Origem@Destino@distancia
+Arad@Sibiu@140
+Sibiu@Arad@140
+Arad@Timisoara@118
+Timisoara@Arada@118
+Arad@Zerind@75
+Zerind@Arad@75
+Sibiu@Fagaras@99
+Fagaras@Sibiu@99
+Sibiu@Oradea@151
+Oradea@Sibiu@151
+Sibiu@Rimnicu Vilcea@80
+Rimnicu Vilcea@Sibiu@80
+Fagaras@Bucharest@211
+Bucharest@Fagaras@211
+Rimnicu Vilcea@Craiova@146
+Craiova@Rimnicu Vilcea@146
+Rimnicu Vilcea@Pitesti@97
+Pitesti@Bucharest@101
+Bucharest@Pitesti@101
+Pitesti@Craiova@138
+Craiova@Pitesti@138

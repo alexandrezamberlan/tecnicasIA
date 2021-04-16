@@ -1,7 +1,45 @@
 Sistemas de Comportamento Inteligente
     - BASE DE CONHECIMENTO - prolog, ontologia, ifs 
-    - RACIOCÍNIO - métodos de busca - prolog
+    - RACIOCÍNIO - métodos de busca - prolog (profundidade)
     - APRENDIZAGEM DE MÁQUINA - reconhecimento de padrões
+
+Representar Conhecimento para depois processá-lo 
+    - Em prolog, o conhecimento é expresso em:
+        - SENTENÇA ou DECLARAÇÃO ou PREDICADO (indica uma relação)
+    
+Antes de tratarmos sobre conhecimento, a gente tem um sequencia de compreensão:
+    - dado: elemento mais bruto - elemento sem contexto
+    - informação: conjunto de dados em contexto
+    - conhecimento: conjunto de informações que te ajudam e reconhecer padrões
+
+Por exemplo PROLOG:
+
+%fatos - são verdades da base%
+progenitor(zeno,jurandir).
+progenitor(jurandir,alexandre).
+progenitor(jurandir,tina).
+progenitor(alexandre,dante).
+
+%regras - hipóteses ou consultas a serem testadas%
+avo(A,N) :- pai(A,P),
+            pai(P,N).
+
+irmaos(A,B) :- pai(Pai,A),
+               pai(Pai,B),
+               A \== B. 
+
+tio(T,S) :- irmaos(T,I),
+            pai(I,S),
+            T \== S.
+
+
+PROLOG é uma linguagem interpretada excelente para criar bases de conhecimento e processar raciocínio
+sobre ela.
+
+Existem inúmeras versões de PROLOG - SWI Prolog - https://www.swi-prolog.org/
+    - embutida em outras linguagens; 
+    - naturalmente multithread;
+    - naturalmente recursivo (as instruções de repetição são via recursão)
 
 BASE DE CONHECIMENTO/RACIOCÍNIO EM PROLOG
     - fatos  - verdades em forma de sentença ou proposição ou declaração ou predicado
@@ -20,4 +58,27 @@ BASE DE CONHECIMENTO/RACIOCÍNIO EM PROLOG
         - SWI Prolog
 
     
+aluno("Junior",cc). 
+aluno("Guilherme",cc).
 
+curso(cc, "Ciência da Computação"). 
+curso(si, "Sistemas de Informação").
+
+disciplina(ia, "Inteligência Artificial"). 
+disciplina(sd, "Sistemas Distribuídos"). 
+
+matriculado(junior, ia, "Alexandre Zamberlan"). 
+matriculado(guilherme, sd, "Alexandre Zamberlan"). 
+matriculado(guilherme, ia, "Mirkos Martins").
+
+aula(Professor, Aluno, Curso, Disciplina) :- aluno(Aluno, Sigla),           
+                                             curso(Sigla, Curso),
+                                             disciplina(SiglaDisciplina, Disciplina),
+                                             matriculado(Aluno, SiglaDisciplina, Professor).   
+
+
+
+//terminal prolog
+? - aula("Alexandre Zamberlan", Aluno, _, _).
+
+? - aula(Professor, "Guilherme", Curso, Disciplina).

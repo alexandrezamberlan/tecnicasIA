@@ -17,7 +17,7 @@ raca(anao, 500).
 raca(humano, 90).
 raca(hobbit, 100).
 
-persongagem(uruk, orc, rei, mordor).
+personagem(uruk, orc, rei, mordor).
 personagem(bilbo, hobbit, ladrao, condado).
 personagem(frodo, hobbit, _, condado).
 personagem(gimmly, anao, guerreiro, _).
@@ -42,7 +42,7 @@ lingua(saruman, portugues).
 lingua(saruman, elfico).
 lingua(gimmly, portugues).
 
-aliado(al1(Nome1, Raca1), al2(Nome2, Raca2))) :- 
+aliado(al1(Nome1, Raca1), al2(Nome2, Raca2)) :- 
         lingua(Nome1, Lingua),
         lingua(Nome2, Lingua),
         personagem(Nome1, Raca1, _, _),
@@ -53,6 +53,6 @@ quantoVive(P, T) :- personagem(P, Raca, Categoria, _),
                     raca(Raca, T),
                     Categoria \== mago.
 
-quantoVive(P, T) :- personagem(P, Raca, Categoria, _),
+quantoVive(P, T) :- personagem(P, Raca, _, _),
                     raca(Raca, Tempo),
                     T is Tempo + 100.

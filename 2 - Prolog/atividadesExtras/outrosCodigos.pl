@@ -50,3 +50,19 @@ ta_na_ponta(Pessoa) :- a_direita_de(Pessoa, _),
 					   
 ta_na_ponta(Pessoa) :- a_esquerda_de(Pessoa, _),
                        not(a_esquerda_de(_,Pessoa)).   
+
+arco(a,b,100).
+arco(a,e, 400).
+arco(b,c,50).
+arco(c,d,60).
+arco(d,e,50).
+caminho(O,D,Custo) :- arco(O,D,Custo). %criterio de parada
+caminho(O,D,Custo) :- arco(O,I,Custo1),
+                      caminho(I,D,Custo2),
+                      Custo is Custo1 + Custo2.
+
+fatorial(N,F) :-  N == 0, 
+                   F is 1,!.                
+fatorial(N,F) :-   N1 is N - 1,
+                    fatorial(N1,F1), %ponto de recursão
+                    F is N * F1. 

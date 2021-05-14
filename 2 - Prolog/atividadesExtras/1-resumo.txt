@@ -1,0 +1,35 @@
+Sistemas de Comportamento Inteligente em PROLOG
+    - base de conhecimento     -> FATOS e REGRAS
+    - raciocínio automatizado  -> MÉTODO DE DEDUÇÃO FORÇA BRUTA PROFUNDIDADE
+    - aprendizado de máquina
+
+A linguagem Prolog é:
+    - declarativa
+    - do paradigma lógico
+    - constrói módulos de comportamento inteligente, sendo necessário outra linguagem para:
+        - conversar com o usuário - camanda de visão
+        - conversar com o banco de dados - camada de modelo
+        - ditar as regras do negócio - camada de controle
+
+Paradigmas de programação:
+    1) Imperativo: toda codificação num programa deve conter: o que, como e quando fazer determinado
+       conjunto de instruções
+       Exemplos: C, C++, Java, C#, Python
+
+    2) Lógico: toda a codificação contempla: o que e quando fazer
+       Declarativo
+       Exemplos: SQL e Prolog
+
+       select nome
+       from usuario
+       where idade > 40;
+
+    3) Funcional: toda codificação também contempla o que, como e quando fazer, entretanto TUDO são FUNÇÕES
+        - Utilizado em programação de alto desempenho (paralelismo (núcles) e/ou concomitantes (threads))
+        Exemplos: Lisp, Haskell
+
+
+Prolog como programação lógico-declarativo:
+    sentençãs ou afirmações ou declarações ou predicados
+
+Um predicado é um relação entre objetos, como um função como n parâmetros.

@@ -15,7 +15,7 @@ Representação
 Usando listas em fatos e consultas - exemplos: 
 
 Fato (declarado em arquivo):
-               idades([[andre,25], [jose,30]]).
+               idades([ [andre,25], [jose,30] ]).
 Consulta:
                ?- idades([[_,A], [_,B]]).
                A = 25,

@@ -17,3 +17,11 @@ ultimo([U], U).
 ultimo([_ | R], U) :- ultimo(R, U).
 
 distancias([450,90,110,55]).
+
+
+FOCO NESTE ESTUDO
+- senteças ou cláusulas declarativas
+- predicados que sao fatos
+- predicados que são regras
+- variáveis e o uso no parâmetro para receber respostas
+- recursao

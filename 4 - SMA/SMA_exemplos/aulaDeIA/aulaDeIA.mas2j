@@ -1,0 +1,14 @@
+MAS aulaDeIA {
+
+	infrastructure: Centralised
+
+	environment: Teams
+
+	agents:
+		fred;
+		lucas;
+		alexandre;
+
+	aslSourcePath:
+		"src/asl";
+}

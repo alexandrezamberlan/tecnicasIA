@@ -21,9 +21,9 @@ class Util {
 
 final class Cromossomo implements Comparable<Cromossomo> {
 
-    StringBuffer valor;
-    int aptidao;
-    int aptidaoPorcentagem;
+    StringBuffer valor; //guardar a palavra
+    int aptidao;        //fitness do individuo baseado no cálculo da heurística 
+    int aptidaoPorcentagem;  //usado no processo de seleção - distribuir 'fichas' de sorteio para a seleção
 
     public Cromossomo(StringBuffer valor, int aptidao) {
         this.valor = valor;
@@ -179,7 +179,7 @@ public class AG_SugestaoFinal {
         for (; qtdMutantes > 0; qtdMutantes--) {
             posicaoMutante = gerador.nextInt(novaPopulacao.size());
             mutante = novaPopulacao.get(posicaoMutante);
-            JOptionPane.showMessageDialog(null,"vai mutar " + mutante.valor + "  " + mutante.aptidao);
+            //JOptionPane.showMessageDialog(null,"vai mutar " + mutante.valor + "  " + mutante.aptidao);
             //mudando
             String valorMutado = mutante.valor.toString();
             char caracterMutante = mutante.valor.charAt(gerador.nextInt(mutante.valor.length()));
@@ -203,7 +203,6 @@ public class AG_SugestaoFinal {
         List<Cromossomo> novaPopulacao = new ArrayList<>();
 
         gerarPopulacao(populacao, tamanhoPopulacao, estadoFinal);
-
         ordenarPopulacao(populacao);
         System.out.println("Geração 0");
         exibirPopulacao(populacao);
@@ -223,7 +222,7 @@ public class AG_SugestaoFinal {
             //mutar de tempos em tempos
             if (i % frequencia == 0) {
                 System.out.println("Nessa geração haverá mutação!!\n\n");
-                JOptionPane.showMessageDialog(null, "Nessa geração haverá mutação!!\n\n");
+                //JOptionPane.showMessageDialog(null, "Nessa geração haverá mutação!!\n\n");
                 gerarMutacao(novaPopulacao, estadoFinal);               
             }
 
@@ -237,5 +236,4 @@ public class AG_SugestaoFinal {
         }
 
     }
-
 }

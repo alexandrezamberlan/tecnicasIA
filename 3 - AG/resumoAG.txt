@@ -1,6 +1,18 @@
 AG
-	- método de busca
-	- tipo de problema com muitas restrições e sem o conhecimento do estado final
+	- método de busca heurística
+	- tipo de problema com muitas restrições (ifs) e sem o conhecimento do estado final
+	- produz estados como os métodos de busca tradicionais, entretanto, a produz/geração não é linear,
+	  mas sim paralelo (como se fosse um vetor/lista).... a cada geração um AG pode produzir/gerar N estados novos
+	- método de busca turbinado com aleatoriedade controlada.... maior chute da paróquia
+
+AG 
+	- baseado na teoria da evolução Charles Darwin
+		- método de seleção natural (os mais aptos ou os mais perto da solução ou os com menos restrições feridas 
+		  irão passar para a próxima geração)
+		- método de cruzamento/crossover.... vai eleger dois estados para cruzarem/reproduzirem
+		- método mutação
+		- elitismo
+
 
 Problema: Geração de palavras em evolução até chegar numa palavra estado final
 
@@ -15,7 +27,7 @@ Entradas:
 	- Criar a classe Cromossomo (representa um estado ou um indivíduo)
 		- atributos
 		- construtor
-		- cálculo de aptidão (heurística)
+		- cálculo de aptidão (heurística) -> 'pulo do gato'
 
 	- Criar uma classe Util como métodos utilitários ao problema
 

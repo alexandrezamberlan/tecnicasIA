@@ -178,7 +178,30 @@ public class Principal {
         }
 	}
 	
-	
+	public static void mutarPopulacao(List<Cromossomo> populacao,  Mapa mapa) {
+		Random gerador = new Random();
+        int qtdMutantes = gerador.nextInt(populacao.size() / 5); //somente 20% dos elementos vão mutar
+        Cromossomo mutante;
+        int posicaoMutante;
+        List<String> caminhoASerMutado = new LinkedList<>();
+        int posicaoDoPontoASerMutado;
+        
+        for (; qtdMutantes > 0; qtdMutantes--) {
+            posicaoMutante = gerador.nextInt(populacao.size());
+            mutante = populacao.get(posicaoMutante);
+            System.out.println("vai mutar " + mutante.caminho + "  " + mutante.aptidao);
+            //mudando
+            caminhoASerMutado.addAll(mutante.caminho);
+            posicaoDoPontoASerMutado = gerador.nextInt(mapa.quantidadePontos);
+            caminhoASerMutado.set(posicaoDoPontoASerMutado, ""+gerador.nextInt(mapa.quantidadePontos));
+            
+            //recalculando sua aptidao
+            mutante = new Cromossomo(caminhoASerMutado, mapa);
+
+            populacao.set(posicaoMutante, mutante);
+            caminhoASerMutado.clear();
+        }
+	}
 	
 	public static void main(String a[]) {
 		Mapa mapa = new Mapa(9);
@@ -226,6 +249,9 @@ public class Principal {
 			reproduzirPopulacao(populacao, novaPopulacao, taxaReproducao, mapa);
 			
 			//mutar
+			if (i % (populacao.size() / taxaMutacao) == 0) {
+                mutarPopulacao(novaPopulacao, mapa); 
+            }
 			
 			//ordenar decrescente
 			ordenarPopulacao(novaPopulacao);

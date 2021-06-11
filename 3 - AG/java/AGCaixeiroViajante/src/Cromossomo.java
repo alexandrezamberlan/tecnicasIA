@@ -12,7 +12,7 @@ public class Cromossomo implements Comparable<Cromossomo>{
 		this.porcentagemAptidao = calcularPorcentagemAptidao();
 	}
 	
-	private int calcularAptidao(Mapa mapa) {
+	private int calcularAptidao(Mapa mapa) { //heurística do sistema ou do AG
 		int aptidao = 0;
 		//valor [4 3 1 2 6 5 9 8 7]
 		String conexao; //"4,3"

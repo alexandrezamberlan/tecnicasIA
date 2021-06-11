@@ -9,5 +9,4 @@ public class Mapa {
 		this.quantidadePontos = quantidadePontos;
 		listaConexoes = new LinkedList<String>();
 	}
-	
 }

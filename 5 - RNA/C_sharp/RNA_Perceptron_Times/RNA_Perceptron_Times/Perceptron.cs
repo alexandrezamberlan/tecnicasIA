@@ -28,7 +28,7 @@ namespace RNA_Perceptron_Times
 
         private int funcao_ativacao_signal(double soma)
         {
-            if (soma >= 0) return 1; 
+            if (soma >= 0) return 1;  
             return -1;
         }
 		
@@ -59,7 +59,7 @@ namespace RNA_Perceptron_Times
             {
                 aprendeu = true;
 
-                //Para cada amostra...
+                //Para cada amostra ou registrou ou ponto ...
                 soma = 0;
                 for (int i = 0; i < amostras.Count; i++) {
                     //Inicializar potencial de ativação
@@ -75,7 +75,7 @@ namespace RNA_Perceptron_Times
                     {
                         aprendeu = false;
                         double erro = this.saidas[i] - saida_gerada;
-                        //Fazer o ajuste dos pesos para cada elemento da amostra ou SEJA UM CALIBRAGEM DOS PESOS
+                        //Fazer o ajuste dos pesos para cada elemento da amostra ou SEJA UMA CALIBRAGEM DOS PESOS
                         this.pesos[0] = this.pesos[0] + this.taxa_aprendizado * erro * this.amostras[i].limiar;
                         this.pesos[1] = this.pesos[1] + this.taxa_aprendizado * erro * this.amostras[i].x;
                         this.pesos[2] = this.pesos[2] + this.taxa_aprendizado * erro * this.amostras[i].y;

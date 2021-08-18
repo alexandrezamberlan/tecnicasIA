@@ -16,7 +16,7 @@ public class RNA1 {
     }
     public static void main(String a[]) {
         LinkedList<Integer> entradas = new LinkedList();
-        entradas.add(1);
+        entradas.add(1); //amostra
         entradas.add(7);
         entradas.add(5);
 

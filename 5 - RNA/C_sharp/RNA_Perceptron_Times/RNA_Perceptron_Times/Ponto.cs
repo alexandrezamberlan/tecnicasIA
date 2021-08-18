@@ -10,6 +10,6 @@ namespace RNA_Perceptron_Times
         {
             this.x = x;
             this.y = y;
-        }
+        } 
     }
 }

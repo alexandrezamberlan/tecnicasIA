@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
+      "projectUniqueName": "/Users/alexandrezamberlan/Documents/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
       "projectName": "RNA_Perceptron_Times",
-      "projectPath": "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
+      "projectPath": "/Users/alexandrezamberlan/Documents/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/RNA_Perceptron_Times.csproj",
       "packagesPath": "/Users/alexandrezamberlan/.nuget/packages/",
-      "outputPath": "/Volumes/HD16GB/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/",
+      "outputPath": "/Users/alexandrezamberlan/Documents/codigos/tecnicasIA/5 - RNA/C_sharp/RNA_Perceptron_Times/RNA_Perceptron_Times/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -62,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
       }
     }
   }

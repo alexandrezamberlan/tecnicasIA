@@ -1,0 +1,109 @@
+INTELIGÊNCIA ARTIFICIAL = Técnicas e metodologias para construção de Sistemas com Comportamento Inteligente
+    - Base de conhecimento = experiências
+    - Motor de raciocínio/inferência/deliberação = deduzir ou induzir
+        - métodos de busca <- foco da aula de hoje
+    - Aprendizagem de máquina = reconhecimento de padrões
+
+
+    Métodos de busca
+        - Buscar o quê?
+            A solução ou os passos até a solução
+        - Baseado em comportamento de árvore, ou seja, todos os passos da solução estão numa árvore
+        - Categorias:
+            - Busca cega ou força bruta
+                - profundidade = método clássico de dedução
+                - amplitude/largura
+
+            - Busca heurística ou baseada em dicas
+                - Subida de encostas (Climb Hill)
+                - Guloso
+                - A*
+
+
+        - Elementos fundamentais
+            - estado = um objeto de uma classe com valores naquele instante de processamento 
+                - um estado pode conter muitos atributos 
+            - regras de transição (para modificar um estado) = método ou operação de uma classe/objeto
+            - restrições = condições (quanto mais restrições, maior a complexidade)
+            - lista de visitados = estrutura que guarda todos os estados produzidos/transitados
+            - função objetivo 
+                - é o final,  ou seja, estado gerado é o final?
+
+
+        - Problemas de diagnóstico ou de  'empacotamento'
+            1) Há duas jarras (jarra1 = 4 litros e jarra2 = 3 litros); também há uma torneira que jorra água infinitamente
+               Problema é deixar 2 litros em alguma das jarras.
+
+            Estado 
+                int jarra1
+                int jarra2
+                Estado inicial
+                    jarra1 = 0 
+                    jarra2 = 0
+                
+            
+            Regras de transição
+                r1) encher jarra1
+                r2) encher jarra2
+                r3) esvaziar jarra1
+                r4) esvaziar jarra2
+                r5) despejar jarra1 em jarra2
+                r6) despejar jarra2 em jarra1
+                
+            Restrições 
+                Não há
+            
+            Visitados - o estado deve ser convertido em uma string
+                jarra1 e jarra2 
+                (0,0), (4,0)
+                "00", "40"
+
+            Função objetivo/meta
+               jarra1 == 2 && jarra2 == 0 || jarra1 == 0 && jarra2 == 2;
+
+
+            Aplicando o amplitude
+            visitados "00" "40" "03" "43" "13" "30" "10" "33" "01" "42" "41" "02"
+
+                                                            (jarra1, jarra2)
+                                                            (0,0)
+                            r1(4,0)                                                     r2(0,3)
+                r2(4,3)               r5(1,3)                               r6(3,0) 
+                   X            r4(1,0)                             r2(3,3)
+                           r5(0,1)                              r6(4,2)
+                    r1(41)                                  r3(0,2)
+            
+                    
+Solução deste problema de empacotamento
+Encher Jarra2
+Despejar Jarra2 em Jarra1 
+Encher Jarra2
+Despejar Jarra2 em Jarra1
+Esvaziar Jarra1
+=============================================================================================================
+
+Aplicando o profundidade
+            visitados "00" "40" "43" "03" "30" "33"
+
+                                                            (jarra1, jarra2)
+                                                            (0,0)
+                                        r1(4,0)
+                                r2(4,3)
+                            r3(0,3)
+                        r6(3,0)
+                    r2(3,3)
+                r6(4,2)
+            r3(0,2)
+
+
+Solução deste problema de empacotamento
+Encher Jarra1
+Encher Jarra2
+Esvaziar Jarra1 
+Despejar Jarra2 em Jarra1
+Encher Jarra2
+Despejar Jarra2 em Jarra1
+Esvaziar Jarra1
+
+
+

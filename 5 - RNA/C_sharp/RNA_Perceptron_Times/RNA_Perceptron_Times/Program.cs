@@ -10,7 +10,7 @@ namespace RNA_Perceptron_Times
 			Console.WriteLine("Exemplo de RNA Perceptron para classificação de equipes");
 			List<Ponto> amostras = new List<Ponto>();
 
-			amostras.Add(new Ponto(0.72, 0.82));
+			amostras.Add(new Ponto(0.72, 0.82)); 
 			amostras.Add(new Ponto(0.91, -0.69));
 			amostras.Add(new Ponto(0.46, 0.80));
 			amostras.Add(new Ponto(0.03, 0.93));
@@ -52,12 +52,19 @@ namespace RNA_Perceptron_Times
 
 			p.treinar();
 
-			Console.Write("\n\nInforme valor para x (-1 a 1): ");
-			double x = Double.Parse( Console.ReadLine() );
-			Console.Write("Informe valor para y (-1 a 1): ");
-			double y = Double.Parse( Console.ReadLine() ); 
+			String op;
+			do 
+			{
+				Console.Write("\n\nInforme valor para x (-1 a 1): ");
+				double x = Double.Parse( Console.ReadLine() );
+				Console.Write("Informe valor para y (-1 a 1): ");
+				double y = Double.Parse( Console.ReadLine() ); 
 
-			p.testar(new Ponto(x,y));
+				p.testar(new Ponto(x,y));
+				Console.Write("1 - Sair: ");
+				op = Console.ReadLine();
+			} while (op != "1");
+			
         }
     }
 }

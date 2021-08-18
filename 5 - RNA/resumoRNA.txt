@@ -1,16 +1,50 @@
+Sistemas de Comportamento Inteligente
+    - base de conhecimento                          - prolog, sma (crenças), métodos (estados)
+    - raciocínio automatizado                       - métodos de busca (todos), profundidade (dedução)
+    - aprendizado de máquina (machine learning)     - RNA
 
-REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕES
+    Música
+    Notas
+    C D E F G A B 
+
+    estação = inverno         peso = 1
+    temperatura = 18 graus    peso = 1
+    cidade = santa maria      peso = 1
+    vento = norte-sul         peso = 2
+    umidade do ar = 88%       peso = 2
+    regiao                    peso = 3
+
+
+    Comigo
+        Domingo
+        Inverno
+        16h
+        Ultimo final de semana de junho
+
+    TV
+        Domingo
+        Verão no jogo - pelas roupas da platéia
+        Quadra Saibro
+        Ultimo final de semana de junho
+        Equipamento era Wilson
+        Equipamento era Babolat
+
+
+
+REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕES => Treinamento
         -> vários algoritmos (tipo de treinamento, topologia (quantas camadas),
                               tipo propagação (feedforward ou feedback propagations))
 
             -> redes recorrente (feedback propagation - retroalimentação para ajudar no
                                  treinamento não supervisionado)
 
-            -> redes famosas (perceptron (treinamento supervisionado, feedforward propagation))
+            -> rede famosa perceptron (treinamento supervisionado e não supervisionado, feedforward propagation)
 
             -> redes convolucionais (google em veículos autônomos, tradução de textos)
                                     (feedback propagation, multicamadas, 
                                      treinamento não supervisionado)
+
+            
 
         -> USAR: classificar, agrupar, diagnosticar, predizer, prever
             -> MINERAÇÃO (dados, texto, web, imagem)
@@ -18,11 +52,11 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
         Aprendizagem se dá pelo treinamento:
             - observação
             - escuta
-            - experimentação
+            - experimentação via amostras
             - leitura
     
         Itens a observar/escutar/experimentar/ler
-            - atributos massivos
+            - atributos massivos (muitos)
             - pesos respectivos (a importância de um atributo em relação a outros)
 
         trabalha/exercita atributos e seus pesos => TREINAMENTO => APRENDIZADO DA MÁQUINA
@@ -64,7 +98,7 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
             2) aplicar algoritmmo de treinamento/Aprendizagem (presença de supervisor)
                 2.1) entradas vs pesos
                 2.2) função somatório
-                2.3) função ativação (step, sign ou sigmoide)
+                2.3) função ativação (step, sign ou sigmoide) - calcula o limiar
             3) finalizar o modelo (modelo treinado/aprendido)
 
 
@@ -79,9 +113,9 @@ REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕ
         - peso = peso + (taxaAprendizagem * entrada * erro)
         
             IDEIA DO ALGORITMO DE TREINAMENTO   
-                enquanto (saida_gerada != saida_esperada)                   //erro existir
-                    para cada registro                                      //conjunto de entradas
-                        calcular a saída com os pesos atuais
-                        comparar a saida_esperada com a saida_gerada        //calculo erro
-                        para cada peso da rede
-                            peso = peso + (taxa_aprendizagem * entrada * erro)  //ajuste pesos
+            enquanto (saida_gerada != saida_esperada)                   //erro existir
+                para cada registro                                      //conjunto de entradas
+                    calcular a saída com os pesos atuais
+                    comparar a saida_esperada com a saida_gerada        //calculo erro
+                    para cada peso da rede
+                        peso = peso + (taxa_aprendizagem * entrada * erro)  //ajuste pesos

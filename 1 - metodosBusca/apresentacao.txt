@@ -105,5 +105,135 @@ Encher Jarra2
 Despejar Jarra2 em Jarra1
 Esvaziar Jarra1
 
+        2) Problema das Rainhas - é um tabuleiro n X n, com n Rainhas. Objetivo é distribuir as rainhas no tabuleiro sem que elas se matem. 
+           Aqui, as rainhas se comportam como no jogo de xadrez.
+
+           Problema com restrição e que não se sabe o estado/configuração do tabuleiro final
+           
+        - estado 
+            matriz de char n X n
+            quantidadeRainhas
+            Estado inicial: matriz inicializada com vazio e quantidadeRainhas = 0
+
+        - regras de transição
+            colocar uma rainha na primeira célula vazia
+
+        - restrições
+            mais de uma rainha não pode estar na mesma coluna, linha ou diagonal
+
+        - lista de visitados = estrutura que guarda todos os estados produzidos/transitados
+            matriz convertida em uma string
+
+        - função objetivo (estado final)
+            - quantidadeRainhas == n
 
 
+Solução deste problema de empacotamento: 
+Colocar Rainha 0,1
+Colocar Rainha 1,3
+Colocar Rainha 2,0
+Colocar Rainha 3,2
+
+        3) Problema das Torres de Hannoi. São 3 torres e n discos.
+           A complexidade aumenta, conforme a quantidade de discos.
+           2 ^ n - 1 = 2 ^ 3 - 1 = 7 movimentos
+
+
+        - estado 
+            Stack torreA, Stack torreB, Stack torreC  - Classe Stack já tem métodos (push, pop, isEmpty, peek, size)
+            A primeira torre terá todos os discos inseridos do maior ao menor. As demais torres estarão vazias
+
+            Stack torreA = new Stack();
+            Stack torreB = new Stack();
+            Stack torreC = new Stack();
+            int qtdDiscos = 5;
+            for (; qtdDiscos > 0; qtdDiscos--) {
+                torreA.push(qtdDiscos);
+            }
+
+        - regras de transição
+            torreDestino.push(torreOrigem.pop())
+
+            r1) moverTA_TB    -> torreB.push(torreA.pop())
+            r2) moverTA_TC
+            r3) moverTB_TA
+            r4) moverTB_TC
+            r5) moverTC_TA
+            r6) moverTC_TB
+
+        - restrições
+            disco maior não pode ficar em cima de um disco menor
+            (int)torreOrigem.peek() < (int)torreDestino.peek()
+
+
+        - lista de visitados = estrutura que guarda todos os estados produzidos/transitados
+            as pilhas (Stacks) concatenadas e convertidas em uma string
+            Estado inicial [123][][]
+            Estado final [][][123]
+
+        - função objetivo (estado final)
+            torreA.isEmpty() && torreB.isEmpty()
+
+        4) Problema do Homem, Lobo, Alface e Carneiro
+           Duas margens de rio com uma canoa. O único que rema é o homem. O objetivo é levar todos da margem esquera para margem direita.
+           Entretanto, só um passageiro com o remador (homem) é possível. E não se pode deixar sozinhos na margem um Carneiro com alface e um Carneiro
+           com o lobo.
+
+           Novamente, temos um problema de empacotamento, ou seja, qual é a sequencia de passos necessários para levar todos para a outra margem.
+
+        - estado 
+            char homem, lobo, alface, carneiro com valores 'e' de margem esquera ou 'd' de margem direita
+            Estado inicial
+            homem = 'e'
+            lobo = 'e'
+            alface = 'e'
+            carneiro = 'e'
+
+
+
+        - regras de transição
+            r1) levarNada - homem atravessa de uma margem para outra, sozinho. Se está na 'e' vai para 'd' e vice-versa.
+            r2) levarLobo
+            public void levarLobo() {
+                if (homem == lobo) {
+                    homem = margemOposta(homem)
+                    lobo = margemOposta(lobo)
+                }
+            }
+
+            r3) levarAlface
+            r4) levarCarneiro
+
+        - restrições
+            homem != lobo && lobo == carneiro || homem != carneiro && carneiro == alface
+
+
+        - lista de visitados = estrutura que guarda todos os estados produzidos/transitados
+            concatenar e transformar em string as 4 variaveis
+            "eeee"
+            "deed"
+
+        - função objetivo (estado final)
+            homem == 'd' && lobo == 'd' && alface == 'd' && carneiro == 'd'
+            
+            r1) levarNada 
+            r2) levarLobo
+            r3) levarAlface
+            r4) levarCarneiro
+
+            eeee, dede, eede, ddde, edde, dddd
+
+                                                        (hlac)
+                                                        (eeee)
+                                    r3(dede)
+                            r1(eede)
+                        r2(ddde)
+                    r1(edde)
+                r4(dddd)
+
+            Solução deste problema de empacotamento: 
+            1) Levar Alface
+            2) Levar nada
+            3) Levar Lobo 
+            4) Levar Nada
+            5) Levar Carneiro

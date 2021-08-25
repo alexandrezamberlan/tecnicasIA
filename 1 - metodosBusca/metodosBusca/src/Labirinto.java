@@ -64,10 +64,10 @@ public class Labirinto implements Estado, Heuristica {
         
         Random gerador = new Random();
 
-        int entrada = gerador.nextInt(dimensao * dimensao); 
+        int entrada = gerador.nextInt(dimensao * dimensao); //13
         int saida;
         do {
-            saida = gerador.nextInt(dimensao * dimensao); 
+            saida = gerador.nextInt(dimensao * dimensao); //3
         } while (entrada == saida);
 
         int contaPosicoes = 0;
@@ -137,7 +137,8 @@ public class Labirinto implements Estado, Heuristica {
     }
 
     private void paraCima(List<Estado> visitados) {
-        if (this.linhaEntrada == 0) return;
+        if (this.linhaEntrada == 0) return; //restrição
+        //explicando o git
 
         char mTemp[][];
         mTemp = clonar(this.matriz);
@@ -247,7 +248,7 @@ public class Labirinto implements Estado, Heuristica {
 
     public static void main(String[] a) {
         try {
-            int dimensao = 5; //Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
+            int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
             Labirinto estadoInicial = new Labirinto(dimensao, "estado inicial");
             
             int qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Profundidade\n2 - Largura"));

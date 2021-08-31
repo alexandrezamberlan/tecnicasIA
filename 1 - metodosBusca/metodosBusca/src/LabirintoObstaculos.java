@@ -60,8 +60,9 @@ public class LabirintoObstaculos implements Estado, Heuristica {
     public LabirintoObstaculos(int dimensao, String o, int porcentagemObstaculos) {
         this.matriz = new char[dimensao][dimensao];
         this.op = o;
-        int quantidadeObstaculos = (dimensao*dimensao)* porcentagemObstaculos/100;
         
+        int quantidadeObstaculos = (dimensao*dimensao)* porcentagemObstaculos/100;
+        System.out.println(quantidadeObstaculos);
         
         Random gerador = new Random();
 
@@ -84,7 +85,7 @@ public class LabirintoObstaculos implements Estado, Heuristica {
                     this.colunaSaida = j;
                 } else if (quantidadeObstaculos > 0 && gerador.nextInt(3) == 1) {
                     quantidadeObstaculos--;
-                    matriz[i][j] = '#';
+                    this.matriz[i][j] = '@';
                 } else {
                     this.matriz[i][j] = 'O';
                 }
@@ -140,7 +141,7 @@ public class LabirintoObstaculos implements Estado, Heuristica {
     }
 
     private void paraCima(List<Estado> visitados) {
-        if (this.linhaEntrada == 0 || this.matriz[this.linhaEntrada - 1][this.colunaEntrada] == '#') return; //restrição
+        if (this.linhaEntrada == 0 || this.matriz[this.linhaEntrada - 1][this.colunaEntrada] == '@') return; 
 
         char mTemp[][];
         mTemp = clonar(this.matriz);
@@ -150,12 +151,12 @@ public class LabirintoObstaculos implements Estado, Heuristica {
         mTemp[this.linhaEntrada][this.colunaEntrada] = 'O';
         mTemp[linhaTemp][colunaTemp] = 'E';
      
-        Labirinto novo = new Labirinto(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida, "Movendo para cima");
+        LabirintoObstaculos novo = new LabirintoObstaculos(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida, "Movendo para cima");
         if (!visitados.contains(novo)) visitados.add(novo);
     }
 
     private void paraBaixo(List<Estado> visitados) {
-        if (this.linhaEntrada == this.matriz.length-1 || this.matriz[this.linhaEntrada + 1][this.colunaEntrada] == '#') return;
+        if (this.linhaEntrada == this.matriz.length-1 || this.matriz[this.linhaEntrada + 1][this.colunaEntrada] == '@') return;
 
         char mTemp[][];
         mTemp = clonar(this.matriz);
@@ -165,12 +166,12 @@ public class LabirintoObstaculos implements Estado, Heuristica {
         mTemp[this.linhaEntrada][this.colunaEntrada] = 'O';
         mTemp[linhaTemp][colunaTemp] = 'E';
                
-        Labirinto novo = new Labirinto(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida, "Movendo para baixo");
+        LabirintoObstaculos novo = new LabirintoObstaculos(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida, "Movendo para baixo");
         if (!visitados.contains(novo)) visitados.add(novo);
     }
 
     private void paraEsquerda(List<Estado> visitados) {
-        if (this.colunaEntrada == 0 || this.matriz[this.linhaEntrada][this.colunaEntrada - 1] == '#') return;
+        if (this.colunaEntrada == 0 || this.matriz[this.linhaEntrada][this.colunaEntrada - 1] == '@') return;
 
         char mTemp[][];
         mTemp = clonar(this.matriz);
@@ -180,12 +181,13 @@ public class LabirintoObstaculos implements Estado, Heuristica {
         mTemp[this.linhaEntrada][this.colunaEntrada] = 'O';
         mTemp[linhaTemp][colunaTemp] = 'E';
      
-        Labirinto novo = new Labirinto(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida,"Movendo para esquerda");
+        LabirintoObstaculos novo = new LabirintoObstaculos(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida,"Movendo para esquerda");
         if (!visitados.contains(novo)) visitados.add(novo);
     }
 
     private void paraDireita(List<Estado> visitados) {
-        if (this.colunaEntrada == this.matriz.length-1 || this.matriz[this.linhaEntrada][this.colunaEntrada + 1] == '#') return;
+        if (this.colunaEntrada == this.matriz.length-1 || this.matriz[this.linhaEntrada][this.colunaEntrada + 1] == '@') return;
+        
         char mTemp[][];
         mTemp = clonar(this.matriz);
         int linhaTemp = this.linhaEntrada;
@@ -194,7 +196,7 @@ public class LabirintoObstaculos implements Estado, Heuristica {
         mTemp[this.linhaEntrada][this.colunaEntrada] = 'O';
         mTemp[linhaTemp][colunaTemp] = 'E';
                
-        Labirinto novo = new Labirinto(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida,"Movendo para direita");
+        LabirintoObstaculos novo = new LabirintoObstaculos(mTemp, linhaTemp, colunaTemp, this.linhaSaida, this.colunaSaida,"Movendo para direita");
         if (!visitados.contains(novo)) visitados.add(novo);
     }
 
@@ -204,8 +206,8 @@ public class LabirintoObstaculos implements Estado, Heuristica {
      */
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Labirinto) {
-            Labirinto e = (Labirinto) o;
+        if (o instanceof LabirintoObstaculos) {
+            LabirintoObstaculos e = (LabirintoObstaculos) o;
             for (int i = 0; i < e.matriz.length; i++) {
                 for (int j = 0; j < e.matriz.length; j++) {
                     if (e.matriz[i][j] != this.matriz[i][j]) {
@@ -238,7 +240,8 @@ public class LabirintoObstaculos implements Estado, Heuristica {
         StringBuffer resultado = new StringBuffer();
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                resultado.append(this.matriz[i][j] + "\t");
+                resultado.append(this.matriz[i][j]);
+                resultado.append("\t");
             }
             resultado.append("\n");
         }
@@ -248,40 +251,42 @@ public class LabirintoObstaculos implements Estado, Heuristica {
     }
 
     public static void main(String[] a) {
+        LabirintoObstaculos estadoInicial = null;
+        int dimensao;
+        int porcentagemObstaculos;
+        int qualMetodo;
+        Nodo n;
         try {
-            int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
-            int porcentagemObstaculos = Integer.parseInt(JOptionPane.showInputDialog(null,"Porcentagem de obstáculos!"));
-            LabirintoObstaculos estadoInicial = new LabirintoObstaculos(dimensao, "estado inicial", porcentagemObstaculos);
-            
-            int qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Profundidade\n2 - Largura"));
-            Nodo n;
+            dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
+            porcentagemObstaculos = Integer.parseInt(JOptionPane.showInputDialog(null,"Porcentagem de obstáculos!"));
+            qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Profundidade\n2 - Largura"));
+            estadoInicial = new LabirintoObstaculos(dimensao, "estado inicial", porcentagemObstaculos);
             
             switch (qualMetodo) {
-				case 1: 
-					System.out.println("busca em PROFUNDIDADE");
-					n = new BuscaProfundidade(new MostraStatusConsole()).busca(estadoInicial);
-					break;
-				case 2: 
-					System.out.println("busca em LARGURA");
-					n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
-					break;
-				default: 
-					n = null;
-					JOptionPane.showMessageDialog(null, "Método não implementado");
-			}
+                case 1: 
+                        System.out.println("busca em PROFUNDIDADE");
+                        n = new BuscaProfundidade(new MostraStatusConsole()).busca(estadoInicial);
+                        break;
+                case 2: 
+                        System.out.println("busca em LARGURA");
+                        n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
+                        break;
+                default: 
+                        n = null;
+                        JOptionPane.showMessageDialog(null, "Método não implementado");
+            }
             
             
 //            Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
-            
-            
+             
             if (n == null) {
-                System.out.println(estadoInicial);
                 System.out.println("sem solucao!");
+                System.out.println(estadoInicial);
             } else {
                 System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Problemas com a dimensão do Puzzle");
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
         System.exit(0);
     }

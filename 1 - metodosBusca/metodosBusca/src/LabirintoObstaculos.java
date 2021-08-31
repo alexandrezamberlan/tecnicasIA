@@ -11,7 +11,7 @@ import busca.MostraStatusConsole;
 import busca.Nodo;
 import javax.swing.JOptionPane;
 
-public class Labirinto implements Estado, Heuristica {
+public class LabirintoObstaculos implements Estado, Heuristica {
     
     @Override
     public String getDescricao() {
@@ -45,7 +45,7 @@ public class Labirinto implements Estado, Heuristica {
     /**
      * construtor para o estado gerado na evolução/resolução do problema, recebe cada valor de atributo
      */
-    public Labirinto(char m[][], int linhaEntrada, int colunaEntrada, int linhaSaida, int colunaSaida, String o) {
+    public LabirintoObstaculos(char m[][], int linhaEntrada, int colunaEntrada, int linhaSaida, int colunaSaida, String o) {
         this.matriz = m; //ter certeza que m foi clonado antes de entrar no construtor
         this.linhaEntrada = linhaEntrada;
         this.colunaEntrada = colunaEntrada;
@@ -57,9 +57,10 @@ public class Labirinto implements Estado, Heuristica {
     /**
      * construtor para o estado INICIAL
      */
-    public Labirinto(int dimensao, String o) {
+    public LabirintoObstaculos(int dimensao, String o, int porcentagemObstaculos) {
         this.matriz = new char[dimensao][dimensao];
         this.op = o;
+        int quantidadeObstaculos = (dimensao*dimensao)* porcentagemObstaculos/100;
         
         
         Random gerador = new Random();
@@ -81,8 +82,10 @@ public class Labirinto implements Estado, Heuristica {
                     this.matriz[i][j] = 'S';
                     this.linhaSaida = i;
                     this.colunaSaida = j;
-                }
-                else {
+                } else if (quantidadeObstaculos > 0 && gerador.nextInt(3) == 1) {
+                    quantidadeObstaculos--;
+                    matriz[i][j] = '#';
+                } else {
                     this.matriz[i][j] = 'O';
                 }
                 contaPosicoes++;
@@ -137,7 +140,7 @@ public class Labirinto implements Estado, Heuristica {
     }
 
     private void paraCima(List<Estado> visitados) {
-        if (this.linhaEntrada == 0 || this.matriz[linhaEntrada - 1][colunaEntrada] == '@')   return; //restrição
+        if (this.linhaEntrada == 0 || this.matriz[this.linhaEntrada - 1][this.colunaEntrada] == '#') return; //restrição
 
         char mTemp[][];
         mTemp = clonar(this.matriz);
@@ -152,7 +155,7 @@ public class Labirinto implements Estado, Heuristica {
     }
 
     private void paraBaixo(List<Estado> visitados) {
-        if (this.linhaEntrada == this.matriz.length-1 || this.matriz[linhaEntrada + 1][colunaEntrada] == '@') return;
+        if (this.linhaEntrada == this.matriz.length-1 || this.matriz[this.linhaEntrada + 1][this.colunaEntrada] == '#') return;
 
         char mTemp[][];
         mTemp = clonar(this.matriz);
@@ -167,7 +170,7 @@ public class Labirinto implements Estado, Heuristica {
     }
 
     private void paraEsquerda(List<Estado> visitados) {
-        if (this.colunaEntrada == 0) return;
+        if (this.colunaEntrada == 0 || this.matriz[this.linhaEntrada][this.colunaEntrada - 1] == '#') return;
 
         char mTemp[][];
         mTemp = clonar(this.matriz);
@@ -182,8 +185,7 @@ public class Labirinto implements Estado, Heuristica {
     }
 
     private void paraDireita(List<Estado> visitados) {
-        if (this.colunaEntrada == this.matriz.length-1) return;
-
+        if (this.colunaEntrada == this.matriz.length-1 || this.matriz[this.linhaEntrada][this.colunaEntrada + 1] == '#') return;
         char mTemp[][];
         mTemp = clonar(this.matriz);
         int linhaTemp = this.linhaEntrada;
@@ -248,7 +250,8 @@ public class Labirinto implements Estado, Heuristica {
     public static void main(String[] a) {
         try {
             int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
-            Labirinto estadoInicial = new Labirinto(dimensao, "estado inicial");
+            int porcentagemObstaculos = Integer.parseInt(JOptionPane.showInputDialog(null,"Porcentagem de obstáculos!"));
+            LabirintoObstaculos estadoInicial = new LabirintoObstaculos(dimensao, "estado inicial", porcentagemObstaculos);
             
             int qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Profundidade\n2 - Largura"));
             Nodo n;
@@ -270,7 +273,9 @@ public class Labirinto implements Estado, Heuristica {
             
 //            Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
             
+            
             if (n == null) {
+                System.out.println(estadoInicial);
                 System.out.println("sem solucao!");
             } else {
                 System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");

@@ -1,5 +1,5 @@
 Métodos de busca:
-    - Cegos ou Sem Informação: profundidade e largura/amplitude
+    - Cegos ou Sem Informação: profundidade e largura/amplitude - FORÇA BRUTA
 
     - Heurísticos ou Com Informação - a heurística, ou a dica, ou a informação privilegiada pode encurtar caminho,
       ou seja, na hora de escolher/aplicar N regras de transição, o algoritmo te auxilia a escolher/aplicar uma 
@@ -7,8 +7,10 @@ Métodos de busca:
 
     - Heurística ou Dica é uma informação com relação:
         - CUSTO REAL para trocar de um estado a outro (geralmente, distância, tempo, ...)
+                g(n)
 
         - CUSTO HEURÍSTICO/ESTIMADO para trocar de um estado a outro. 
+                h(n)
           Note, que esse custo é ESTIMADO, fornecido por um cálculo
           ou por um especialista (geralmente tem relação com tempo)
           - TABELA CRIADA EM TEMPO DE PROCESSAMENTO PARA AJUDAR NA ESCOLHA DE REGRAS DE TRANSIÇÃO

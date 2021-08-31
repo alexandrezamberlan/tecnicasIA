@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import busca.BuscaLargura;
 import busca.BuscaProfundidade;
@@ -13,8 +14,9 @@ public class Jarras implements Estado {
     public String getDescricao() {
         return " Problema das Jarras.... ";
     }
-    final int TAM1 = 3; //capacidade da jarra1
-    final int TAM2 = 4; //capacidade da jarra2
+    Random gerador = new Random();
+    final int TAM1 = 6; //capacidade da jarra1
+    final int TAM2 = 5; //capacidade da jarra2
     
     final int jarra1, jarra2;
     final String op; // operacao que gerou o estado

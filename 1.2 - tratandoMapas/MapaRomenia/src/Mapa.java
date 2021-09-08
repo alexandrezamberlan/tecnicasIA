@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.LinkedList;
 
 public class Mapa {
+    
     public static List<Cidade> criarListaHeuristica(File arquivo) {
         List<Cidade> lista = new LinkedList<Cidade>();
         String resposta[];

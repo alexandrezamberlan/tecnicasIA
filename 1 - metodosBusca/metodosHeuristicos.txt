@@ -33,7 +33,7 @@ Métodos de busca:
 
 PROBLEMAS E A PRESENÇA OU NÃO DE HEURÍSTICAS
     - Jarras -> não tem heurística
-    - Hanoi -> não tem heurística
+    - Hannoi -> não tem heurística
     - N rainhas -> não tem heurística
     - Homem, Alface, Lobo, Galinha -> não tem heurística
     - Problema do Puzzle de NxN
@@ -75,7 +75,7 @@ Fila
 
                                     A
                 S                   T               Z
-        F       O       RV          L               
+        F       O       RV          L               O              
         B
 A S F B -> 450
 
@@ -114,9 +114,12 @@ Problema: Se a tabela de custos estimados (heurística) for inadimissível (fura
 não vai gerar soluções pelo melhor caminho
 
                                     A  366
-                S 253               
-        F 176  
-        B 0
+                S 253               T  329                 Z 374
+   F 176        O 380            RV 193
+   B (0)
+
+                    
+                
 
 Este não é o melhor caminho. Isso significa que a heurística é falha.
 Este método é 100% dependente da heurística.
@@ -139,6 +142,13 @@ Soma dos custos real e estimado = g(n) + h(n)
 Observação: o custo real é acumulado.
 
 Ele resolve o problema do Guloso. Ele faz correção da heurística pelo custo real.
+                                                                        A 
+                                S 140+253=393                            T 118+329=447               Z 75+374=449 
+                F 140+99+176=415     O 140+151+380=671             RV 140+80+193=413  
+B 140+99+211+0=450                                    C 140+80+146+160=526                   P 140+80+97+100=417 
+                                                                                  C 140+80+97+138+160=615        B 140+80+97+101+0=418                      
+
+
 
                                             A 
                                                        S 140+253=393               
@@ -149,7 +159,9 @@ Ele resolve o problema do Guloso. Ele faz correção da heurística pelo custo r
 
 VISITADOS - A S RV P B = 418
 
-
+Atividade de fixação:
+Construir as árvores de caminhamento da cidade de Dobreta até Bucharest, tendo como referência o mapa e a tabela heurística.
+Aplicar os 3 métodos novos estudados.
 
 
 

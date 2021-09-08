@@ -275,10 +275,7 @@ public class LabirintoObstaculos implements Estado, Heuristica {
                         n = null;
                         JOptionPane.showMessageDialog(null, "Método não implementado");
             }
-            
-            
 //            Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
-             
             if (n == null) {
                 System.out.println("sem solucao!");
                 System.out.println(estadoInicial);

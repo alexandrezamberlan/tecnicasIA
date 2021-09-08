@@ -243,7 +243,7 @@ public class Puzzle implements Estado, Heuristica {
         //         contador++;
         //     }
         // }
-        int matriz[][] = new int[][]{{3,6,1},{0,2,5},{7,4,8}};
+        int matriz[][] = new int[][]{{0,2,5},{3,6,1},{7,4,8}};
         p.linha = 1;
         p.coluna = 0;
         
@@ -268,8 +268,8 @@ public class Puzzle implements Estado, Heuristica {
             System.out.println(pos.linha + "," + pos.coluna);
             Puzzle estadoInicial = new Puzzle(matriz,pos.linha, pos.coluna, "estado inicial");
             System.out.println("busca em ...");
-//            Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
-            Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
+            Nodo n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial); // Com Status de andamento
+//            Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
             if (n == null) {
                 System.out.println("sem solucao!");
             } else {

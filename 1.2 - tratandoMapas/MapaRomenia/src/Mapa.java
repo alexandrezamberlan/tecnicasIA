@@ -10,8 +10,7 @@ import java.util.LinkedList;
 
 public class Mapa {
     
-    public static List<Cidade> criarListaHeuristica(File arquivo) {
-        List<Cidade> lista = new LinkedList<Cidade>();
+    public static void criarListaHeuristica(File arquivo, List<Cidade> lista) {
         String resposta[];
         try {
             BufferedReader in = new BufferedReader(new FileReader(arquivo));
@@ -27,6 +26,10 @@ public class Mapa {
         } catch (IOException e) {
             System.out.println("Erro na abertura e tratamento do arquivo!");
         }
-        return lista;
+    }
+    
+    
+    public static void criarMatrizAdjacencia(File arquivo, int matriz[][]) {
+         
     }
 }

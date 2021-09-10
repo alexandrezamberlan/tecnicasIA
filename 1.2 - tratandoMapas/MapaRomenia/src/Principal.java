@@ -13,7 +13,7 @@ public class Principal {
         //montar lista ou hash/dicionário com as heurística
         if (janelaCarregarArquivo.showOpenDialog(janelaCarregarArquivo) == JFileChooser.APPROVE_OPTION) {
             //Arquivo.lerArquivo(janelaCarregarArquivo.getSelectedFile());
-            Mapa.criarListaHeuristica(janelaCarregarArquivo.getSelectedFile(), listaHeuristica);
+            Grafo.criarListaHeuristica(janelaCarregarArquivo.getSelectedFile(), listaHeuristica);
 
             System.out.println("Quantidade de cidades/estados: " + listaHeuristica.size());
             for (int i = 0; i < listaHeuristica.size(); i++) {
@@ -27,10 +27,11 @@ public class Principal {
         janelaCarregarArquivo.setMultiSelectionEnabled(false);
         if (janelaCarregarArquivo.showOpenDialog(janelaCarregarArquivo) == JFileChooser.APPROVE_OPTION) {
             //Arquivo.lerArquivo(janelaCarregarArquivo.getSelectedFile());
-            Mapa.preencherMatrizAdjacencia(janelaCarregarArquivo.getSelectedFile(), matrizAdjacencia, listaHeuristica);
+            Grafo.preencherMatrizAdjacencia(janelaCarregarArquivo.getSelectedFile(), matrizAdjacencia, listaHeuristica);
+           
 
             System.out.println("Matriz de adjacencia");
-            Mapa.mostrarMatrizAdjacencia(matrizAdjacencia, listaHeuristica);
+            Grafo.mostrarMatrizAdjacencia(matrizAdjacencia, listaHeuristica);
         }
     }
 

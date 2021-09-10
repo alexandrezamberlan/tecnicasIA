@@ -1,89 +1,180 @@
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import javax.swing.JFileChooser;
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
-public class Mapa {
+import busca.Heuristica;
+import busca.BuscaLargura;
+import busca.BuscaProfundidade;
+import busca.AEstrela;
+import busca.Estado;
+import busca.MostraStatusConsole;
+import busca.Nodo;
+import java.awt.HeadlessException;
+import java.io.File;
+import javax.swing.JOptionPane;
 
-    public static void criarListaHeuristica(File arquivo, List<Cidade> lista) {
-        String resposta[];
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(arquivo));
-            String str;
-            while (in.ready()) {
-                str = in.readLine();
-                resposta = str.split("@");
-                lista.add(new Cidade(resposta[0], Integer.parseInt(resposta[1])));
+public class Mapa implements Estado, Heuristica {
+
+    @Override
+    public String getDescricao() {
+        return "Mapa da Romênia + a tabela de custo heurístico estimado, ambos do livro IA de Stuart Russel";
+    }
+
+    final String origem;
+    final String destino;
+    final List<Cidade> listaHeuristica;
+    final int matrizAdjacencia[][];
+    final String op; // operacao que gerou o estado
+
+    //atenção.... matrizes precisam ser clonadas ao gerarmos novos estados
+    int[][] clonar(int origem[][]) {
+        int destino[][] = new int[origem.length][origem.length];
+        for (int i = 0; i < origem.length; i++) {
+            for (int j = 0; j < origem.length; j++) {
+                destino[i][j] = origem[i][j];
             }
-            in.close();
-        } catch (IOException e) {
-            System.out.println("Erro na abertura e tratamento do arquivo!");
+        }
+        return destino;
+    }
+
+    /**
+     * construtor para o estado gerado na evolução/resolução do problema, recebe
+     * cada valor de atributo
+     */
+    public Mapa(File arquivo) {
+        origem = "";
+        destino = "";
+        op = "";
+        listaHeuristica = new LinkedList();
+        Grafo.criarListaHeuristica(arquivo, listaHeuristica);
+        matrizAdjacencia = new int[listaHeuristica.size()][listaHeuristica.size()];
+        Grafo.preencherMatrizAdjacencia(arquivo, matrizAdjacencia, listaHeuristica);
+    }
+    
+    public Mapa(String origem, String destino, String op) {
+        this.origem = origem;
+        this.destino = destino;
+        this.op = op;
+        listaHeuristica = new LinkedList();
+        matrizAdjacencia = new int[listaHeuristica.size()][listaHeuristica.size()];
+    }
+
+    /**
+     * verifica se o estado e meta
+     */
+    @Override
+    public boolean ehMeta() {
+        return this.origem.equals(destino);
+    }
+
+    
+    @Override
+    public int custo() {
+        //ter como base a matriz de adjacência, ou melhor, o valor da distancia entre origem e destino
+        
+        return 1;
+    }
+
+   
+    @Override
+    public int h() {
+        //ter como base a lista heuristica
+        
+        return 1;
+    }
+
+    /**
+     * gera uma lista de sucessores do nodo.
+     */
+    @Override
+    public List<Estado> sucessores() {
+        List<Estado> visitados = new LinkedList<Estado>(); // a lista de sucessores
+
+        irOrigemDestino(origem, destino, visitados);
+
+        return visitados;
+    }
+
+    private void irOrigemDestino(String origem, String destino, List<Estado> visitados) {
+        //...
+        
+        
+        
+        Mapa novo = new Mapa(origem, destino, op);
+        if (!visitados.contains(novo)) {
+            visitados.add(novo);
         }
     }
     
-    public static int pegaIndice(String nomeCidade, List<Cidade> listaHeuristica) {
-        for (int i = 0; i < listaHeuristica.size(); i++) {
-            if (listaHeuristica.get(i).nome.equalsIgnoreCase(nomeCidade)) {
-                return i;
-            }
+    
+    /**
+     * verifica se um estado e igual a outro (usado para poda)
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Mapa) {
+            Mapa e = (Mapa) o;
+            
+            return true;
         }
-        return -1;
+        return false;
     }
 
-    public static void preencherMatrizAdjacencia(File arquivo, int matriz[][], List<Cidade> listaHeuristica) {
-        //inicializar a matriz de adjacencia
-        for (int i = 0; i < listaHeuristica.size(); i++) {
-            for (int j = 0; j < listaHeuristica.size(); j++) {
-                matriz[i][j] = 0;
-            }
-        }
+    /**
+     * retorna o hashCode desse estado (usado para poda, conjunto de fechados)
+     */
+    @Override
+    public int hashCode() {
+        String estado = "";
+
         
-        String resposta[];
+        return estado.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer resultado = new StringBuffer();
+        
+        return "\n" + op + "\n" + resultado + "\n\n";
+    }
+
+    public static void main(String[] a) {
+        File arquivo;
+        Mapa estadoInicial = null;
+        int qualMetodo;
+        Nodo n;
         try {
-            BufferedReader in = new BufferedReader(new FileReader(arquivo));
-            String str;
-            int origem;
-            int destino;
-            while (in.ready()) {
-                str = in.readLine();
-                resposta = str.split("@"); //resposta[arad,sibiu,140]
-                origem = pegaIndice(resposta[0], listaHeuristica);
-                destino = pegaIndice(resposta[1], listaHeuristica);
-                //System.out.println(origem + " - " + destino + "  -  " + Integer.parseInt(resposta[2]));
-                try {
-                    matriz[origem][destino] = Integer.parseInt(resposta[2]);
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("Problemas de índices na matriz de adjacência!");
-                }
-                
-            }
-            in.close();
-        } catch (IOException e) {
-            System.out.println("Erro na abertura e tratamento do arquivo!");
-        }
-
-    }
-
-    public static void mostrarMatrizAdjacencia(int matriz[][], List<Cidade> listaHeuristica) {
-        for (int i = 0; i < listaHeuristica.size(); i++) {
-            System.out.print("\t" + listaHeuristica.get(i).nome.charAt(0));
-        }
-        System.out.println();
         
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                if (j == 0) {
-                    System.out.print(listaHeuristica.get(i).nome.charAt(0) + "\t");
-                }
-                System.out.print(matriz[i][j] + "\t");
+            qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null, "1 - Profundidade\n2 - Largura\n3 - A*"));
+            estadoInicial = new Mapa("Arad", "Bucharest", "Estado Inicial");
+
+            switch (qualMetodo) {
+                case 1:
+                    System.out.println("busca em PROFUNDIDADE");
+                    n = new BuscaProfundidade(new MostraStatusConsole()).busca(estadoInicial);
+                    break;
+                case 2:
+                    System.out.println("busca em LARGURA");
+                    n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
+                    break;
+                case 3:
+                    System.out.println("busca em A*");
+                    n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial);
+                    break;
+                default:
+                    n = null;
+                    JOptionPane.showMessageDialog(null, "Método não implementado");
             }
-            System.out.println();
+            if (n == null) {
+                System.out.println("sem solucao!");
+                System.out.println(estadoInicial);
+            } else {
+                System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
+            }
+        } catch (HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        System.exit(0);
     }
 }

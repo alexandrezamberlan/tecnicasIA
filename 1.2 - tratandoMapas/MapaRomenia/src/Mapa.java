@@ -21,10 +21,10 @@ public class Mapa implements Estado, Heuristica {
         return "Mapa da Romênia + a tabela de custo heurístico estimado, ambos do livro IA de Stuart Russel";
     }
 
-    final String origem;
-    final String destino;
-    final List<Cidade> listaHeuristica;
-    final int matrizAdjacencia[][];
+    int origem;
+    int destino;
+    List<Cidade> listaHeuristica;
+    int matrizAdjacencia[][];
     final String op; // operacao que gerou o estado
 
     //atenção.... matrizes precisam ser clonadas ao gerarmos novos estados
@@ -43,8 +43,8 @@ public class Mapa implements Estado, Heuristica {
      * cada valor de atributo
      */
     public Mapa(File arquivo) {
-        origem = "";
-        destino = "";
+        origem = 0;
+        destino = 0;
         op = "";
         listaHeuristica = new LinkedList();
         Grafo.criarListaHeuristica(arquivo, listaHeuristica);
@@ -52,7 +52,7 @@ public class Mapa implements Estado, Heuristica {
         Grafo.preencherMatrizAdjacencia(arquivo, matrizAdjacencia, listaHeuristica);
     }
     
-    public Mapa(String origem, String destino, String op) {
+    public Mapa(int origem, int destino, String op) {
         this.origem = origem;
         this.destino = destino;
         this.op = op;
@@ -65,23 +65,26 @@ public class Mapa implements Estado, Heuristica {
      */
     @Override
     public boolean ehMeta() {
-        return this.origem.equals(destino);
+        return origem == destino;
     }
 
     
     @Override
     public int custo() {
         //ter como base a matriz de adjacência, ou melhor, o valor da distancia entre origem e destino
-        
-        return 1;
+        if (matrizAdjacencia[origem][destino] != 0) {
+            return matrizAdjacencia[origem][destino];
+        }
+        return 0;
+        //return 1;
     }
 
    
     @Override
     public int h() {
         //ter como base a lista heuristica
-        
-        return 1;
+        return listaHeuristica.get(destino).estimativa;
+        //return 1;
     }
 
     /**
@@ -96,7 +99,7 @@ public class Mapa implements Estado, Heuristica {
         return visitados;
     }
 
-    private void irOrigemDestino(String origem, String destino, List<Estado> visitados) {
+    private void irOrigemDestino(int origem, int destino, List<Estado> visitados) {
         //...
         
         
@@ -142,12 +145,15 @@ public class Mapa implements Estado, Heuristica {
     public static void main(String[] a) {
         File arquivo;
         Mapa estadoInicial = null;
+        List<Cidade> listaHeuristica = new LinkedList();
         int qualMetodo;
         Nodo n;
         try {
         
             qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null, "1 - Profundidade\n2 - Largura\n3 - A*"));
-            estadoInicial = new Mapa("Arad", "Bucharest", "Estado Inicial");
+            int origem = Grafo.pegaIndice("Arad", listaHeuristica);
+            int destino = Grafo.pegaIndice("Bucharest", listaHeuristica);
+            estadoInicial = new Mapa(origem, destino, "Estado Inicial");
 
             switch (qualMetodo) {
                 case 1:

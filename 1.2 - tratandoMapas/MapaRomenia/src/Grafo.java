@@ -1,20 +1,15 @@
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import javax.swing.JFileChooser;
+import java.util.Iterator;
 import java.util.List;
-import java.util.LinkedList;
 
 public class Grafo {
 
-    public static void criarListaHeuristica(File arquivo, List<Cidade> lista) {
+    public static void criarListaHeuristica(FileReader arquivo, List<Cidade> lista) {
         String resposta[];
         try {
-            BufferedReader in = new BufferedReader(new FileReader(arquivo));
+            BufferedReader in = new BufferedReader(arquivo);
             String str;
             while (in.ready()) {
                 str = in.readLine();
@@ -36,17 +31,16 @@ public class Grafo {
         return -1;
     }
 
-    public static void preencherMatrizAdjacencia(File arquivo, int matriz[][], List<Cidade> listaHeuristica) {
+    public static void preencherMatrizAdjacencia(FileReader arquivo, int matriz[][], List<Cidade> listaHeuristica) {
         //inicializar a matriz de adjacencia
         for (int i = 0; i < listaHeuristica.size(); i++) {
             for (int j = 0; j < listaHeuristica.size(); j++) {
                 matriz[i][j] = 0;
             }
         }
-        
         String resposta[];
         try {
-            BufferedReader in = new BufferedReader(new FileReader(arquivo));
+            BufferedReader in = new BufferedReader(arquivo);
             String str;
             int origem;
             int destino;
@@ -60,14 +54,12 @@ public class Grafo {
                     matriz[origem][destino] = Integer.parseInt(resposta[2]);
                 } catch (ArrayIndexOutOfBoundsException e) {
                     System.out.println("Problemas de índices na matriz de adjacência!");
-                }
-                
+                } 
             }
             in.close();
         } catch (IOException e) {
             System.out.println("Erro na abertura e tratamento do arquivo!");
         }
-
     }
 
     public static void mostrarMatrizAdjacencia(int matriz[][], List<Cidade> listaHeuristica) {
@@ -84,6 +76,12 @@ public class Grafo {
                 System.out.print(matriz[i][j] + "\t");
             }
             System.out.println();
+        }
+    }
+    
+    public static void mostrarListaHeuristica(List<Cidade> listaHeuristica) {
+        for (Iterator<Cidade> iterator = listaHeuristica.iterator(); iterator.hasNext();) {
+            System.out.println(iterator.next());
         }
     }
 }

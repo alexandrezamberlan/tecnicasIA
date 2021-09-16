@@ -1,30 +1,20 @@
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
-
 import busca.Heuristica;
-import busca.BuscaLargura;
-import busca.BuscaProfundidade;
-import busca.AEstrela;
 import busca.Estado;
-import busca.MostraStatusConsole;
-import busca.Nodo;
-import java.awt.HeadlessException;
-import java.io.File;
-import javax.swing.JOptionPane;
 
 public class Mapa implements Estado, Heuristica {
 
+    public static List<Cidade> listaHeuristica;
+    public static int matrizAdjacencia[][];
+    
     @Override
     public String getDescricao() {
         return "Mapa da Romênia + a tabela de custo heurístico estimado, ambos do livro IA de Stuart Russel";
     }
 
-    int origem;
-    int destino;
-    List<Cidade> listaHeuristica;
-    int matrizAdjacencia[][];
+    final int origem;
+    final int destino;
     final String op; // operacao que gerou o estado
 
     //atenção.... matrizes precisam ser clonadas ao gerarmos novos estados
@@ -37,27 +27,11 @@ public class Mapa implements Estado, Heuristica {
         }
         return destino;
     }
-
-    /**
-     * construtor para o estado gerado na evolução/resolução do problema, recebe
-     * cada valor de atributo
-     */
-    public Mapa(File arquivo) {
-        origem = 0;
-        destino = 0;
-        op = "";
-        listaHeuristica = new LinkedList();
-        Grafo.criarListaHeuristica(arquivo, listaHeuristica);
-        matrizAdjacencia = new int[listaHeuristica.size()][listaHeuristica.size()];
-        Grafo.preencherMatrizAdjacencia(arquivo, matrizAdjacencia, listaHeuristica);
-    }
     
     public Mapa(int origem, int destino, String op) {
         this.origem = origem;
         this.destino = destino;
         this.op = op;
-        listaHeuristica = new LinkedList();
-        matrizAdjacencia = new int[listaHeuristica.size()][listaHeuristica.size()];
     }
 
     /**
@@ -143,44 +117,49 @@ public class Mapa implements Estado, Heuristica {
     }
 
     public static void main(String[] a) {
-        File arquivo;
-        Mapa estadoInicial = null;
-        List<Cidade> listaHeuristica = new LinkedList();
-        int qualMetodo;
-        Nodo n;
-        try {
+        Mapa.listaHeuristica = new LinkedList();
+        Util.lerArquivoHeuristica(Mapa.listaHeuristica);
+        Grafo.mostrarListaHeuristica(Mapa.listaHeuristica);
+        Mapa.matrizAdjacencia = new int[listaHeuristica.size()][listaHeuristica.size()];
+        Util.lerArquivoMapa(Mapa.matrizAdjacencia, Mapa.listaHeuristica);
+        Grafo.mostrarMatrizAdjacencia(Mapa.matrizAdjacencia, Mapa.listaHeuristica);
         
-            qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null, "1 - Profundidade\n2 - Largura\n3 - A*"));
-            int origem = Grafo.pegaIndice("Arad", listaHeuristica);
-            int destino = Grafo.pegaIndice("Bucharest", listaHeuristica);
-            estadoInicial = new Mapa(origem, destino, "Estado Inicial");
-
-            switch (qualMetodo) {
-                case 1:
-                    System.out.println("busca em PROFUNDIDADE");
-                    n = new BuscaProfundidade(new MostraStatusConsole()).busca(estadoInicial);
-                    break;
-                case 2:
-                    System.out.println("busca em LARGURA");
-                    n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
-                    break;
-                case 3:
-                    System.out.println("busca em A*");
-                    n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial);
-                    break;
-                default:
-                    n = null;
-                    JOptionPane.showMessageDialog(null, "Método não implementado");
-            }
-            if (n == null) {
-                System.out.println("sem solucao!");
-                System.out.println(estadoInicial);
-            } else {
-                System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
-            }
-        } catch (HeadlessException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        
+//        int qualMetodo;
+//        Nodo n;
+//        try {
+//        
+//            qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null, "1 - Profundidade\n2 - Largura\n3 - A*"));
+//            int origem = Grafo.pegaIndice("Arad", listaHeuristica);
+//            int destino = Grafo.pegaIndice("Bucharest", listaHeuristica);
+//            estadoInicial = new Mapa(origem, destino, "Estado Inicial");
+//
+//            switch (qualMetodo) {
+//                case 1:
+//                    System.out.println("busca em PROFUNDIDADE");
+//                    n = new BuscaProfundidade(new MostraStatusConsole()).busca(estadoInicial);
+//                    break;
+//                case 2:
+//                    System.out.println("busca em LARGURA");
+//                    n = new BuscaLargura(new MostraStatusConsole()).busca(estadoInicial);
+//                    break;
+//                case 3:
+//                    System.out.println("busca em A*");
+//                    n = new AEstrela(new MostraStatusConsole()).busca(estadoInicial);
+//                    break;
+//                default:
+//                    n = null;
+//                    JOptionPane.showMessageDialog(null, "Método não implementado");
+//            }
+//            if (n == null) {
+//                System.out.println("sem solucao!");
+//                System.out.println(estadoInicial);
+//            } else {
+//                System.out.println("solucao:\n" + n.montaCaminho() + "\n\n");
+//            }
+//        } catch (HeadlessException | NumberFormatException e) {
+//            JOptionPane.showMessageDialog(null, e.getMessage());
+//        }
         System.exit(0);
     }
 }

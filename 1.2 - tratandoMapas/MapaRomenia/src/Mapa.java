@@ -1,3 +1,4 @@
+
 import java.util.LinkedList;
 import java.util.List;
 import busca.Heuristica;
@@ -7,7 +8,7 @@ public class Mapa implements Estado, Heuristica {
 
     public static List<Cidade> listaHeuristica;
     public static int matrizAdjacencia[][];
-    
+
     @Override
     public String getDescricao() {
         return "Mapa da Romênia + a tabela de custo heurístico estimado, ambos do livro IA de Stuart Russel";
@@ -19,15 +20,15 @@ public class Mapa implements Estado, Heuristica {
 
     //atenção.... matrizes precisam ser clonadas ao gerarmos novos estados
     int[][] clonar(int origem[][]) {
-        int destino[][] = new int[origem.length][origem.length];
+        int matrizDestino[][] = new int[origem.length][origem.length];
         for (int i = 0; i < origem.length; i++) {
             for (int j = 0; j < origem.length; j++) {
-                destino[i][j] = origem[i][j];
+                matrizDestino[i][j] = origem[i][j];
             }
         }
-        return destino;
+        return matrizDestino;
     }
-    
+
     public Mapa(int origem, int destino, String op) {
         this.origem = origem;
         this.destino = destino;
@@ -36,37 +37,37 @@ public class Mapa implements Estado, Heuristica {
 
     /**
      * verifica se o estado e meta
+     *
+     * @return
      */
     @Override
     public boolean ehMeta() {
         return origem == destino;
     }
 
-    
     @Override
     public int custo() {
         //ter como base a matriz de adjacência, ou melhor, o valor da distancia entre origem e destino
-        if (matrizAdjacencia[origem][destino] != 0) {
-            return matrizAdjacencia[origem][destino];
+        if (Mapa.matrizAdjacencia[origem][destino] != 0) {
+            return Mapa.matrizAdjacencia[origem][destino];
         }
         return 0;
-        //return 1;
     }
 
-   
     @Override
     public int h() {
         //ter como base a lista heuristica
-        return listaHeuristica.get(destino).estimativa;
-        //return 1;
+        return Mapa.listaHeuristica.get(destino).estimativa;
     }
 
     /**
      * gera uma lista de sucessores do nodo.
+     *
+     * @return
      */
     @Override
     public List<Estado> sucessores() {
-        List<Estado> visitados = new LinkedList<Estado>(); // a lista de sucessores
+        List<Estado> visitados = new LinkedList<>(); // a lista de sucessores
 
         irOrigemDestino(origem, destino, visitados);
 
@@ -74,26 +75,23 @@ public class Mapa implements Estado, Heuristica {
     }
 
     private void irOrigemDestino(int origem, int destino, List<Estado> visitados) {
-        //...
-        
-        
-        
-        Mapa novo = new Mapa(origem, destino, op);
-        if (!visitados.contains(novo)) {
-            visitados.add(novo);
+        if (Mapa.matrizAdjacencia[origem][destino] != 0) {
+            Mapa novo = new Mapa(origem, destino , " vai para "); //ATENÇAO! ESTÁ PARADO
+            if (!visitados.contains(novo)) {
+                visitados.add(novo);
+            }
         }
     }
-    
-    
+
     /**
      * verifica se um estado e igual a outro (usado para poda)
+     * @param o
      */
     @Override
     public boolean equals(Object o) {
         if (o instanceof Mapa) {
             Mapa e = (Mapa) o;
-            
-            return true;
+            return this.origem == e.origem && this.destino == e.destino;
         }
         return false;
     }
@@ -103,17 +101,12 @@ public class Mapa implements Estado, Heuristica {
      */
     @Override
     public int hashCode() {
-        String estado = "";
-
-        
-        return estado.hashCode();
+        return (""+this.origem + this.destino).hashCode();
     }
 
     @Override
     public String toString() {
-        StringBuffer resultado = new StringBuffer();
-        
-        return "\n" + op + "\n" + resultado + "\n\n";
+        return "(" + this.origem + op + this.destino + ")\n";
     }
 
     public static void main(String[] a) {
@@ -123,8 +116,7 @@ public class Mapa implements Estado, Heuristica {
         Mapa.matrizAdjacencia = new int[listaHeuristica.size()][listaHeuristica.size()];
         Util.lerArquivoMapa(Mapa.matrizAdjacencia, Mapa.listaHeuristica);
         Grafo.mostrarMatrizAdjacencia(Mapa.matrizAdjacencia, Mapa.listaHeuristica);
-        
-        
+
 //        int qualMetodo;
 //        Nodo n;
 //        try {

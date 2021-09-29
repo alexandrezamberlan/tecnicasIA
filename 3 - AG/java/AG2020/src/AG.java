@@ -27,7 +27,7 @@ public class AG {
      * @param populacao 
      */
     static void ordenar(List<Cromossomo> populacao) {
-        // Collections.sort(populacao);
+        // Collections.sort(populacao); //O sort do Java é baseado no MergeSort
         boolean houveTroca;
         Cromossomo tmp;
         int distancia = populacao.size();
@@ -223,7 +223,7 @@ public class AG {
      */
     public static void mutar(List<Cromossomo> populacao, String estadoFinal) {
         Random gerador = new Random();
-        int qtdMutantes = gerador.nextInt(populacao.size() / 5);
+        int qtdMutantes = gerador.nextInt(populacao.size() / 5); //a qtd de mutantes será no máximo 20% da população
         Cromossomo mutante;
         int posicaoMutante;
 
@@ -257,7 +257,7 @@ public class AG {
         //1a população que é 100% aleatória
         gerarPopulacao(populacao, tamanhoPopulacao, estadoFinal);
         ordenar(populacao);
-        System.out.println("Geracao 0");
+        System.out.println("Geracao 1");
         exibir(populacao);
 
         //gerações

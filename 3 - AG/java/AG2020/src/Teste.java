@@ -13,19 +13,21 @@ public class Teste {
         // System.out.println(sFilho1);
         // System.out.println(sFilho2);
 
-        Random gerador = new Random();
+//        Random gerador = new Random();
+//        
+//        int gene;
+//        String estadoFinal = "anderson";
+//        gene = gerador.nextInt(estadoFinal.length());
+//        System.out.println(gene);
+//        
+//        String sMutante = "alexandre";
+//        sMutante.replace(sMutante.charAt(gene), Util.letras.charAt(gerador.nextInt(Util.tamanho))) ;
+//
+//
+//        System.out.println(sMutante);
         
-        int gene;
-        String estadoFinal = "anderson";
-        gene = gerador.nextInt(estadoFinal.length());
-        System.out.println(gene);
-        
-        String sMutante = "alexandre";
-        sMutante.replace(sMutante.charAt(gene), Util.letras.charAt(gerador.nextInt(Util.tamanho))) ;
 
-
-        System.out.println(sMutante);
-        
+          System.out.println(Util.gerarPalavra("thiago".length()));
         
     }
 }

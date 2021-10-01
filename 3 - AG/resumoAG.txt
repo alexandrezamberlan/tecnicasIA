@@ -1,3 +1,5 @@
+Exemplo - https://rednuht.org/genetic_cars_2/
+
 AG
 	- método de busca heurística
 	- tipo de problema com muitas restrições (ifs) e sem o conhecimento do estado final

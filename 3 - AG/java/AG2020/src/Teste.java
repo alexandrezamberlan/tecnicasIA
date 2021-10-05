@@ -27,7 +27,7 @@ public class Teste {
 //        System.out.println(sMutante);
         
 
-          System.out.println(Util.gerarPalavra("thiago".length()));
+          System.out.println(Util.gerarPalavra("ruan".length()));
         
     }
 }

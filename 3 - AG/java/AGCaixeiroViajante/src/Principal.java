@@ -15,7 +15,7 @@ public class Principal {
 		
 		
 		for (int i = 0; i < tamanhoPopulacao; i++) {
-			Collections.shuffle(sequenciaPontos);
+			Collections.shuffle(sequenciaPontos); //embaralhando
 			populacao.add(new Cromossomo(sequenciaPontos, mapa));
 		}
 	}
@@ -27,7 +27,27 @@ public class Principal {
 	}
 	
 	public static void ordenarPopulacao(List<Cromossomo> populacao) {
-		Collections.sort(populacao);
+		// Collections.sort(populacao); //ordena por MergeSort
+        boolean houveTroca;
+        Cromossomo tmp;
+        int distancia = populacao.size();
+
+        do {
+            distancia = (int) (distancia / 1.3);
+            if (distancia <= 0) {
+                distancia = 1;
+            }
+            houveTroca = false;
+            for (int i = 0; i < populacao.size() - distancia; i++) {
+                if (populacao.get(i).aptidao > populacao.get(i + distancia).aptidao) {
+                    tmp = populacao.get(i);
+                    populacao.set(i, populacao.get(i + distancia));
+                    populacao.set(i + distancia, tmp);
+                    houveTroca = true;
+                }
+            }
+        } while (distancia > 1 || houveTroca);
+
 	}
 	
 	public static void selecionarPorRoletaPopulacao(List<Cromossomo> populacao, List<Cromossomo> novaPopulacao, int taxaSelecao) {
@@ -219,16 +239,15 @@ public class Principal {
 		mapa.listaConexoes.add("9,3");
 		mapa.listaConexoes.add("9,7");
 
-		
 		List<Cromossomo> populacao = new LinkedList<Cromossomo>();
 		List<Cromossomo> novaPopulacao = new LinkedList<Cromossomo>();
 		
-		int tamanhoPopulacao = 10;
+		int tamanhoPopulacao = 100; //tamanho influencia no espaço de busca e combinações
 		int taxaSelecao = 30;
 		int taxaReproducao = 100 - taxaSelecao;
 		
 		int taxaMutacao = 5;
-		int quantidadeGeracoes = 100;
+		int quantidadeGeracoes = 1000;
 		
 		//gerar população inicial
 		gerarPopulacaoInicial(populacao, tamanhoPopulacao, mapa);
@@ -253,12 +272,15 @@ public class Principal {
                 mutarPopulacao(novaPopulacao, mapa); 
             }
 			
-			//ordenar decrescente
-			ordenarPopulacao(novaPopulacao);
-			//exibir
-			
-			System.out.println("\nGeração " + i);
-			exibirPopulacao(novaPopulacao);
+			populacao.clear();
+            populacao.addAll(novaPopulacao);
+            novaPopulacao.clear();
+            ordenarPopulacao(populacao);
+
+            System.out.println("\n\nGeracao " + (i + 1));
+            exibirPopulacao(populacao);
+
+
 		}
 	}
 

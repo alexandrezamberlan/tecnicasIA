@@ -1,5 +1,5 @@
-Sistemas Multiagentes
-    - Faz parte da subárea de IA conhecida como IA Distribuída
+Sistemas Multiagentes - foca no princípio do dividir para conquistar
+    - Faz parte da subárea de IA conhecida como IA Distribuída - inspirada nas organizações/comunidadesde insetos
         - as técnicas de resolução de problemas são divididas/repartidas entre agentes numa
           sociedade.
         - dentro da computação um agente pode ser uma entidade de hardware ou uma

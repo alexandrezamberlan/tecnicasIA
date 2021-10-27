@@ -1,0 +1,16 @@
+MAS casaInteligente {
+
+	infrastructure: Centralised
+
+	environment: Sala
+
+	agents:
+		cafeteira;
+		thiago;
+		arCondicionado;
+		alexandre;
+		
+
+	aslSourcePath:
+		"src/asl";
+}

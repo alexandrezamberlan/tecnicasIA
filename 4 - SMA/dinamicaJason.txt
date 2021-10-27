@@ -1,0 +1,15 @@
+Dinâmica de SMA em Jason (interpretador como plugin no Eclipse) e AgentSpeak (linguagem)
+
+Projeto Jason contém alguns arquivos:
+    1) nomeProjeto.mas2j -> detalhes do projeto SMA
+    2) NomeAmbiente.java -> programa em Java que simula um ambiente (por exemplo,
+       sala de aula, almoxarifado, um jogo, ...)
+    3) nomeAgente.asl -> um código em AgentSpeak que representa o 'cérebro' agente,
+       contendo crenças (fatos) e seus planos (desejos e intenções)
+
+
+No SMA em Jason, os agentes podem fazer comunicação via diretivas:
+    .send(agente,tell,crenca)
+    .send(agente,achieve,plano)
+    .broadcast(crenca)
+    

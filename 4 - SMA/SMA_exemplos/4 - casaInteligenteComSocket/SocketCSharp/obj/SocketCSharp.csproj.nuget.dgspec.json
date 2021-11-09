@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/SocketCSharp.csproj": {}
+    "/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/SocketCSharp.csproj": {}
   },
   "projects": {
-    "/Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/SocketCSharp.csproj": {
+    "/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/SocketCSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/SocketCSharp.csproj",
+        "projectUniqueName": "/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/SocketCSharp.csproj",
         "projectName": "SocketCSharp",
-        "projectPath": "/Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/SocketCSharp.csproj",
+        "projectPath": "/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/SocketCSharp.csproj",
         "packagesPath": "/Users/alexandrezamberlan/.nuget/packages/",
-        "outputPath": "/Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/obj/",
+        "outputPath": "/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

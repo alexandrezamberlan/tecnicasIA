@@ -28,3 +28,18 @@
 /Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/obj/Debug/net5.0/ref/SocketCSharp.dll
 /Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/obj/Debug/net5.0/SocketCSharp.pdb
 /Users/alexandrezamberlan/Documents/_codigos/tfg-traffic-sma/sockets/SocketCSharp/obj/Debug/net5.0/SocketCSharp.genruntimeconfig.cache
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/bin/Debug/net5.0/SocketCSharp.deps.json
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/bin/Debug/net5.0/SocketCSharp.runtimeconfig.json
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/bin/Debug/net5.0/SocketCSharp.runtimeconfig.dev.json
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/bin/Debug/net5.0/SocketCSharp.dll
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/bin/Debug/net5.0/ref/SocketCSharp.dll
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/bin/Debug/net5.0/SocketCSharp.pdb
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.csproj.AssemblyReference.cache
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.AssemblyInfoInputs.cache
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.AssemblyInfo.cs
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.csproj.CoreCompileInputs.cache
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.dll
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/ref/SocketCSharp.dll
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.pdb
+/Users/alexandrezamberlan/Documents/_codigos/tecnicasIA/4 - SMA/SMA_exemplos/4 - casaInteligenteComSocket/SocketCSharp/obj/Debug/net5.0/SocketCSharp.genruntimeconfig.cache

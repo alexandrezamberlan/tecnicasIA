@@ -3,34 +3,6 @@ Sistemas de Comportamento Inteligente
     - raciocínio automatizado                       - métodos de busca (todos), profundidade (dedução)
     - aprendizado de máquina (machine learning)     - RNA
 
-    Música
-    Notas
-    C D E F G A B 
-
-    estação = inverno         peso = 1
-    temperatura = 18 graus    peso = 1
-    cidade = santa maria      peso = 1
-    vento = norte-sul         peso = 2
-    umidade do ar = 88%       peso = 2
-    regiao                    peso = 3
-
-
-    Comigo
-        Domingo
-        Inverno
-        16h
-        Ultimo final de semana de junho
-
-    TV
-        Domingo
-        Verão no jogo - pelas roupas da platéia
-        Quadra Saibro
-        Ultimo final de semana de junho
-        Equipamento era Wilson
-        Equipamento era Babolat
-
-
-
 REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕES => Treinamento
         -> vários algoritmos (tipo de treinamento, topologia (quantas camadas),
                               tipo propagação (feedforward ou feedback propagations))

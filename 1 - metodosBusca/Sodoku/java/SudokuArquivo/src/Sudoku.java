@@ -56,7 +56,7 @@ class Sudoku {
             this.inicializarMatriz();
             String numeros[]; 
             for (int i = 0; i < linhas.size(); i++) {
-                numeros = linhas.get(i).split();
+                numeros = linhas.get(i).split(" ");
                 for (int j = 0; j < linhas.size(); j++) {                    
                    this.matriz[i][j] = Integer.parseInt(numeros[j]);                                       
                 }
@@ -84,7 +84,7 @@ class Sudoku {
             }
             for (int j = 0; j < this.dimensao; j++) {
                 if (j % (dimensao / 3) == 0 && j != 0) {
-                    System.out.print("/");
+                    System.out.print("|");
                 }
                 System.out.print(this.matriz[i][j] + " ");
             }

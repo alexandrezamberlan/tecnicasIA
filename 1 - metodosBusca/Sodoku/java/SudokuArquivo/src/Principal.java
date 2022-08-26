@@ -15,6 +15,8 @@ public class Principal {
             } else {
                 System.out.println("Cenário não resolvido! A configuração inicial do sudoku está complexa!");
             }
+        } else {
+            System.out.println("Arquivo não localizado");
         }
     }
 }

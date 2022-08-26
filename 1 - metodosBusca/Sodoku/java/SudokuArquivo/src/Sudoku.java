@@ -43,22 +43,22 @@ class Sudoku {
     public boolean popularDoArquivo(String nomeDoArquivoSudoku) {               
         try {
             File arquivo = new File(nomeDoArquivoSudoku);
-            int qtdLinhas = 0;
+            
             ArrayList<String> linhas = new ArrayList<>();
             try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
                 String linha;                
-                while ((linha = br.readLine()) != null) {
-                    qtdLinhas++;
+                while ((linha = br.readLine()) != null) {  
                     linhas.add(linha);
                 }
             }
-            this.dimensao = qtdLinhas;
+            this.dimensao = linhas.size();
             this.matriz = new int[this.dimensao][this.dimensao];
             this.inicializarMatriz();
-            
+            String numeros[]; 
             for (int i = 0; i < linhas.size(); i++) {
+                numeros = linhas.get(i).split();
                 for (int j = 0; j < linhas.size(); j++) {                    
-                   this.matriz[i][j] = Integer.parseInt(linhas.get(i).substring(j, j+1));                                       
+                   this.matriz[i][j] = Integer.parseInt(numeros[j]);                                       
                 }
             }        
         } catch (IOException e) {
@@ -83,8 +83,8 @@ class Sudoku {
                 System.out.println("-------------------");
             }
             for (int j = 0; j < this.dimensao; j++) {
-                if (j % 3 == 0 && j != 0) {
-                    System.out.print("|");
+                if (j % (dimensao / 3) == 0 && j != 0) {
+                    System.out.print("/");
                 }
                 System.out.print(this.matriz[i][j] + " ");
             }
@@ -112,10 +112,10 @@ class Sudoku {
 
     private boolean numeroEstaNoBox(int numero, int linha, int coluna) {
         int linhaBoxLocal = linha - linha % 3;
-        int colunaBoxLocal = coluna - coluna % 3;
+        int colunaBoxLocal = coluna - coluna % (dimensao / 3);
 
         for (int i = linhaBoxLocal; i < linhaBoxLocal + 3; i++) {
-            for (int j = colunaBoxLocal; j < colunaBoxLocal + 3; j++) {
+            for (int j = colunaBoxLocal; j < colunaBoxLocal + (dimensao / 3); j++) {
                 if (this.matriz[i][j] == numero){
                         return true;
                 }
@@ -134,7 +134,7 @@ class Sudoku {
         for (int linha = 0; linha < this.dimensao; linha++) {
             for (int coluna = 0; coluna < this.dimensao; coluna++) {
                 if (this.matriz[linha][coluna] == 0) {
-                    for (int tentandoNumero = 0; tentandoNumero <= this.dimensao; tentandoNumero++) {
+                    for (int tentandoNumero = 1; tentandoNumero <= this.dimensao; tentandoNumero++) {
                         if (numeroEstaNoLugarCerto(tentandoNumero, linha, coluna)) {
                             this.matriz[linha][coluna] = tentandoNumero;
 

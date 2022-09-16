@@ -1,0 +1,47 @@
+1) A partir da do arquivo 1-resumo.txt, em que há um exemplo de representação de árvore genealógica,
+crie sua própria representação da família.
+
+Por exemplo,
+
+progenitor(zeno,jurandir).
+progenitor(jurandir,alexandre).
+progenitor(jurandir,tina).
+progenitor(alexandre,dante).
+
+Em cima disso, crie as regras:
+
+avo(Avo, Neto)
+
+tio(Tio, Sobrinho)
+
+irmaos(Irmao1, Irmao2)
+
+cunhado(Pessoa1, Pessoa2)
+
+
+2) Baseado na descrição em português, converter para predicados prolog, ou seja, para uma base prolog.
+
+Terra Média possui 5 grandes regiões: norte, sul, centro-oeste, leste e oeste.
+Há as raças de Orcs, Anões, Elfos, Humanos, Hobbits. Um orc vive 110 anos em geral. Um anão pode viver
+até 500 anos. Já um humano vivem 90 anos em geral, a menos que seja um mago, aí vive mais 100 anos. Um
+hobbit chega a viver 100 anos. Elfos podem viver mais de mil anos.
+
+Existem orcs guerreiros e reis. O mesmo acontece com elfos: magos, reis, guerreiros. Os anões são divididos
+em guerreiros, reis, ferreiros. Há alguns humanos guerreiros, reis e magos. Já hobbits não tem nenhuma
+classificação, por serem pequenos podem ser considerados em uma aventura como ladrões.
+
+Orcs falam orces, elfos falam élfico e português, anões falam português, humanos falam português, hobbits
+também falam português. Em geral, alidados falam a mesma língua.
+
+Nas grandes regiões, existem povoados ou estados, como por exemplo, Condado dos hobbits fica no leste. 
+Valfenda, dos elfos, fica no centro-oeste, Mordor fica no norte sendo a terra dos orcs, os humanos ficam 
+no oeste em Rohan.
+
+Há alguns personagens importantes: gandalf que é um mago humano nascido em valfenda; bilbo e frodo
+que hobbits nascidos no condado; legolas que é um guerreiro elfo nascido em valvenda; galadriel que é
+um mago elfa nascida em valfenda; Gimmly é um anão; Boromir é humano nascido em Rohan.
+
+Um detalhe, a casa do Bilbo e Frodo fica no Condado e se chama Bolsão.
+
+Dicas: verbo indica uma relação, logo marca o predicado.
+

@@ -1,1 +1,1 @@
-https://github.com/ikkebr/WebFundamentals/commit/d7353961025900fbd618ee14d19e9bfab80afac1
+https://github.com/google/WebFundamentals

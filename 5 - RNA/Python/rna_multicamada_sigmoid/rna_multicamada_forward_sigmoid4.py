@@ -44,4 +44,12 @@ erro_camada_saida = saidas - camada_saida
 #print(erro_camada_saida)
 
 media_absoluta = np.mean(np.abs(erro_camada_saida))
-print(media_absoluta)
+#print(media_absoluta)
+
+
+# para usar o cálculo delta que aplica gradiente descendente via derivada
+# é preciso realizar delta_saida = erro_camada_saida * sigmoid_derivada
+# como isso, o erro tende a se aproximar do 0, veja bem, tende 
+
+delta_saida = erro_camada_saida * sigmoid_derivada(camada_saida)
+print(delta_saida)

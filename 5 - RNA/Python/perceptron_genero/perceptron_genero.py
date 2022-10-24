@@ -12,8 +12,8 @@ class Util:
             with open(nome_arquivo, "r", encoding='utf8') as leitor:
                 for linha in leitor:                    
                     dados_linha = linha.split(';')
-                    lista_tmp.append(float(dados_linha[0]))
-                    lista_tmp.append(float(dados_linha[1]))
+                    for indice in range(len(dados_linha)):
+                        lista_tmp.append(float(dados_linha[indice]))                    	
                     lista.append(lista_tmp)
                     lista_tmp = []
         except:
@@ -66,35 +66,32 @@ class Perceptron:
 
 		# Inicializar contador de gerações
 		geracoes = 0
-		self.amostras_numpy = numpy.array(self.amostras)
-		self.saidas_numpy = numpy.array(self.saidas)
-		self.pesos_numpy = numpy.array(self.pesos)
+		
 		while True:
 			# Assume-se que o treinamento vai ser eficiente e numa geração o algoritmo possa aprender
 			aprendeu = True 
 			# Para cada amostra
 			for i in range(self.n_amostras):
 				# Inicializar potencial de ativação
-				
-				matriz_soma = self.amostras_numpy.dot(self.pesos_numpy)
-				soma = numpy.sum(matriz_soma)
+			
 				# print(soma)
-				# # Para cada atributo
-				# soma = 0
-				# for j in range(self.n_atributos + 1):
-				# 	# Multiplicar amostra e seu peso e também somar com o potencial que já tinha
-				# 	soma += self.pesos[j] * self.amostras[i][j]
-				# print(soma)
+				# Para cada atributo
+				soma = 0
+				for j in range(self.n_atributos + 1):
+					# Multiplicar amostra e seu peso e também somar com o potencial que já tinha
+					soma += self.pesos[j] * self.amostras[i][j]
+				#print(soma)
 				# Obter a saída da rede considerando a função sinal
 				saida_gerada = self.funcao_ativacao_signal(soma)
+				print(saida_gerada)
 				# Verificar se a saída da rede é diferente da saída desejada
 				# se sim, calibrar ou treinar ou ajustar ou fazer aprender
 				if saida_gerada != self.saidas[i]:
 					# Calcular o erro
-					erro = self.saidas_numpy[i] - saida_gerada
+					erro = self.saidas[i] - saida_gerada
 					# Fazer o ajuste dos pesos para cada elemento da amostra
 					for j in range(self.n_atributos + 1):
-						self.pesos_numpy[j] = self.pesos_numpy[j] + self.taxa_aprendizado * erro * self.amostras_numpy[i][j]
+						self.pesos[j] = self.pesos[j] + self.taxa_aprendizado * erro * self.amostras[i][j]
 					
 					# se entrou no if é porque ainda não aprendeu
 					aprendeu = False
@@ -146,12 +143,8 @@ perceptron = Perceptron(amostras, saidas)
 perceptron.treinar()
  
 # # Entrando com amostra para teste
-# x = float(input("Ponto x: "))
-# y = float(input("Ponto y: "))
+barba = float(input("-1 a 1, mais perto do 1, mais barburdo: "))
+voz = float(input("-1 a 1, mais perto do 1, mais grave a voz: "))
+gogo = float(input("-1 a 1, mais perto do 1, mais gogo: "))
 
-# print('Ponto: ', x , ' , ', y)
-# perceptron.teste([x,y])
-# #sys.exit("fim de teste")
-
-# #Os dados utilizados correspondem a pares de coordenadas (x,y) para classificação de cores: 
-# # 1 é azul e -1 é vermelho. 
+perceptron.teste([barba,voz])

@@ -8,8 +8,9 @@ pesos = np.array([0.8, 0.1, 0])
 #somatório fica a encargo da função dot() que usa recursos multicore da CPU ou da GPU
 def soma_listas(e, p):
     soma = e.dot(p)
+    # soma = 0
     # for i in range(len(e)):
-    #     s += e[i] * p[i]
+    #     soma += e[i] * p[i]
 
     return soma
 

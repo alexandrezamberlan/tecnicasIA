@@ -6,23 +6,29 @@ v = [v1, ..., vn] -> u = [exp(v1), exp(v2), ..., exp(vn)]
 solução não vetorizada seria Numpy é um pacote para computação científica. 
 Mantida pela comunidade (www.numpy.org). 
 '''
-import numpy as np
+import numpy
 import time
 import math
 
-n = 1000000
-v = np.random.rand(n)
+n = 10000000
+vetor = numpy.random.rand(n)
+saida = numpy.zeros((n,1))
 
-u = np.zeros((n,1))
 
+inicio = time.time()
 print("solucao for tradicional")
 for i in range(n):
-  u[i] = math.exp(v[i])
+  saida[i] = math.exp(vetor[i])
+fim = time.time()
+print("Solucao com for: " + str(1000*(fim - inicio)) + " ms")
+# print(u)
 
-print(u)
 
-u = np.zeros((n,1))  
 
+saida = numpy.zeros((n,1))  
+inicio = time.time()
 print("solucao vetorizada")
-u = np.exp(v)
-print(u)
+saida = numpy.exp(vetor)
+fim = time.time()
+print("Solucao vetorizada: " + str(1000*(fim - inicio)) + " ms")
+#print(u)

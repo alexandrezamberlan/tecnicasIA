@@ -43,7 +43,7 @@ MODELAGEM DO AGENTE
     4) atualização da base de crença 
 
 Vídeo no Youtube sobre modelagem de Agentes
-    - https://youtu.be/IBNh7j_F4yc    
+    - https://youtu.be/L6hoY05zS0U    
 
 
 NA FERRAMENTA JASON (interpretador da linguagem AgentSpeak - baseada em Prolog)

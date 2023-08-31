@@ -6,12 +6,17 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Principal {
 
     public static void montarTabelaHeuristica(List<Cidade> listaHeuristica) {
-        JFileChooser janelaCarregarArquivo = new JFileChooser();
+        JFileChooser janelaCarregarArquivo = new JFileChooser("C:\\Users\\laboratorio\\Downloads\\tecnicasIA\\1.2 - tratandoMapas\\MapaRomenia\\src");
         janelaCarregarArquivo.setMultiSelectionEnabled(false);
+        janelaCarregarArquivo.setDialogTitle("Escolha o arquivo de heurística");
+        janelaCarregarArquivo.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Arquivo heuristica", "map");
+        janelaCarregarArquivo.addChoosableFileFilter(filtro);
 
         //montar lista ou hash/dicionário com as heurística
         if (janelaCarregarArquivo.showOpenDialog(janelaCarregarArquivo) == JFileChooser.APPROVE_OPTION) {
@@ -30,8 +35,13 @@ public class Principal {
     }
     
     public static void montarMatrizAdjacencia(int matrizAdjacencia[][], List<Cidade> listaHeuristica) {     
-        JFileChooser janelaCarregarArquivo = new JFileChooser();
+        JFileChooser janelaCarregarArquivo = new JFileChooser("C:\\Users\\laboratorio\\Downloads\\tecnicasIA\\1.2 - tratandoMapas\\MapaRomenia\\src");
         janelaCarregarArquivo.setMultiSelectionEnabled(false);
+        janelaCarregarArquivo.setDialogTitle("Escolha o arquivo do grafo ou mapa");
+        janelaCarregarArquivo.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Arquivo Mapa", "map");
+        janelaCarregarArquivo.addChoosableFileFilter(filtro);
+        
         if (janelaCarregarArquivo.showOpenDialog(janelaCarregarArquivo) == JFileChooser.APPROVE_OPTION) {
             try {
                 Grafo.preencherMatrizAdjacencia(new FileReader(janelaCarregarArquivo.getSelectedFile()), matrizAdjacencia, listaHeuristica);
@@ -52,6 +62,6 @@ public class Principal {
         int matrizAdjacencia[][] = new int[listaHeuristica.size()][listaHeuristica.size()];
         Principal.montarMatrizAdjacencia(matrizAdjacencia, listaHeuristica);
 
-        System.exit(1);
+        System.exit(0);
     }
 }

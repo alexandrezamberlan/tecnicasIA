@@ -111,10 +111,11 @@ public class Mapa implements Estado, Heuristica {
 
     public static void main(String[] a) {
         Mapa.listaHeuristica = new LinkedList();
-        Util.lerArquivoHeuristica(Mapa.listaHeuristica);
+        Util.montarTabelaHeuristica(listaHeuristica);
+                
         Grafo.mostrarListaHeuristica(Mapa.listaHeuristica);
         Mapa.matrizAdjacencia = new int[listaHeuristica.size()][listaHeuristica.size()];
-        Util.lerArquivoMapa(Mapa.matrizAdjacencia, Mapa.listaHeuristica);
+        Util.montarMatrizAdjacencia(matrizAdjacencia, listaHeuristica);                
         Grafo.mostrarMatrizAdjacencia(Mapa.matrizAdjacencia, Mapa.listaHeuristica);
 
 //        int qualMetodo;

@@ -2,7 +2,7 @@
  * Classe que representa um estado ou indivíduo de um problema para o AG
  * @author alexandrezamberlan
  */
-class Cromossomo implements Comparable<Cromossomo> {
+public class Cromossomo implements Comparable<Cromossomo> {
 
     /**
      * atributo que armazena uma palavra qualquer gerada aleatoriamente

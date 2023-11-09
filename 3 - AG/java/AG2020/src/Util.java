@@ -21,8 +21,6 @@ public class Util {
      * @return uma palavra gerada aleatoriamente
      */
     public static StringBuffer gerarPalavra(int n) {
-        
-
         StringBuffer palavra = new StringBuffer();
 
         Random gerador = new Random();

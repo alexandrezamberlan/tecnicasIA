@@ -27,26 +27,26 @@ public class AG {
      * @param populacao 
      */
     static void ordenar(List<Cromossomo> populacao) {
-        // Collections.sort(populacao); //O sort do Java é baseado no MergeSort
-        boolean houveTroca;
-        Cromossomo tmp;
-        int distancia = populacao.size();
-
-        do {
-            distancia = (int) (distancia / 1.3);
-            if (distancia <= 0) {
-                distancia = 1;
-            }
-            houveTroca = false;
-            for (int i = 0; i < populacao.size() - distancia; i++) {
-                if (populacao.get(i).aptidao < populacao.get(i + distancia).aptidao) {
-                    tmp = populacao.get(i);
-                    populacao.set(i, populacao.get(i + distancia));
-                    populacao.set(i + distancia, tmp);
-                    houveTroca = true;
-                }
-            }
-        } while (distancia > 1 || houveTroca);
+        Collections.sort(populacao); //O sort do Java é baseado no MergeSort
+//        boolean houveTroca;
+//        Cromossomo tmp;
+//        int distancia = populacao.size();
+//
+//        do {
+//            distancia = (int) (distancia / 1.3);
+//            if (distancia <= 0) {
+//                distancia = 1;
+//            }
+//            houveTroca = false;
+//            for (int i = 0; i < populacao.size() - distancia; i++) {
+//                if (populacao.get(i).aptidao < populacao.get(i + distancia).aptidao) {
+//                    tmp = populacao.get(i);
+//                    populacao.set(i, populacao.get(i + distancia));
+//                    populacao.set(i + distancia, tmp);
+//                    houveTroca = true;
+//                }
+//            }
+//        } while (distancia > 1 || houveTroca);
     }
 
     /**

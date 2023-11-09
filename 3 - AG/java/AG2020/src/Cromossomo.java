@@ -55,6 +55,8 @@ class Cromossomo implements Comparable<Cromossomo> {
     public int compareTo(Cromossomo cromossomo) {
         if (this.aptidao > cromossomo.aptidao) {
             return -1;
+        } else if (this.aptidao == cromossomo.aptidao) {
+            return 0;
         }
         return 1;
     }

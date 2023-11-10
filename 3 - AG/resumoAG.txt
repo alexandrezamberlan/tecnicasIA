@@ -11,7 +11,7 @@ AG
 	- baseado na teoria da evolução Charles Darwin
 		- método de seleção natural (os mais aptos ou os mais perto da solução ou os com menos restrições feridas 
 		  irão passar para a próxima geração)
-		- método de cruzamento/crossover.... vai eleger dois estados para cruzarem/reproduzirem
+		- método de cruzamento/crossover.... vai eleger dois estados para cruzarem/reproduzirem -> UNICO METODO QUE CRIA INDIVIDUOS
 		- método mutação
 		- elitismo
 

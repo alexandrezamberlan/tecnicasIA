@@ -5,7 +5,7 @@ class Util:
     tamanho = len(letras)
     
     @staticmethod
-    def gerar_palavra(n):
+    def gerar_palavra(n):     
         palavra = ''
 
         for i in range(n):

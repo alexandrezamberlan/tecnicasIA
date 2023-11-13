@@ -1,5 +1,5 @@
-import os
 import random
+import time
 
 from cromossomo import Cromossomo
 from util import Util
@@ -11,11 +11,10 @@ class AG:
             populacao.append(Cromossomo(Util.gerar_palavra(len(estado_final)), estado_final))
     
     @staticmethod
-    def exibir(populacao):
-        print('PARADA...tamanho....', len(populacao))
-        os.system("pause")
+    def exibir(populacao):        
         for i in populacao:
             print(i)
+            # time.sleep(0.05)
 
     def selecionar_por_torneio(populacao, nova_populacao, taxa_selecao):
         # OBS.: a populacao nao pode ser pequena e nem a taxa de selecao ser muito alta
@@ -101,7 +100,7 @@ class AG:
         while (qtd_mutantes > 0):
             posicao_mutante = random.randrange( int(len(populacao)) )
             mutante = populacao[ posicao_mutante ]
-            print("vai mutar " + mutante)
+            print("vai mutar " , mutante)
             
             #mudando
             valor_mutado = mutante.valor
@@ -112,5 +111,6 @@ class AG:
             mutante = Cromossomo(valor_mutado, estado_final)
             
             populacao[posicao_mutante] = mutante
+            qtd_mutantes -= 1
         
     

@@ -24,16 +24,41 @@
 # print(sFilho1)
 # print(sFilho2)
 
-import random
+# import random
 
-letras = "abcdefghijklmnopqrstuvxwyz"
+# letras = "abcdefghijklmnopqrstuvxwyz"
 
-valor = "abcd"
+# valor = "abcd"
 
-print(valor[ random.randrange(len(valor)) ])
-print(letras[ random.randrange(len(letras)) ])
+# print(valor[ random.randrange(len(valor)) ])
+# print(letras[ random.randrange(len(letras)) ])
 
-lista = [1,2,3,4,5]
-lista[0] = 100
-print(lista)
+# lista = [1,2,3,4,5]
+# lista[0] = 100
+# print(lista)
 
+# produtos = [
+
+#     ["Ipad", 5000],
+
+#     ['Iphone', 4500],
+
+# ]
+
+# produtos_2 = produtos.copy()
+
+# produtos_2[0][1] = 6000
+
+# print(produtos_2)
+
+# print(produtos)
+
+# import copy
+
+# produtos_3 = copy.deepcopy(produtos)
+
+# produtos_3[1][1] = 5500
+
+# print(produtos_3)
+
+# print(produtos)

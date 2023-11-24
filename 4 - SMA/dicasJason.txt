@@ -1,3 +1,8 @@
+Site Jason - https://github.com/jason-lang/jason
+Tutorial - https://github.com/jason-lang/jason/blob/master/doc/tutorials/getting-started/readme.adoc
+Instalação - https://github.com/jason-lang/jason/blob/master/doc/install.adoc
+VS Code + Jason - https://github.com/jason-lang/jason/blob/master/doc/tutorials/vscode/readme.adoc
+
 Jason  - três tipos de arquivo
 
 nomeProjeto.mas2j 

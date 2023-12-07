@@ -3,6 +3,33 @@ Sistemas de Comportamento Inteligente
     - raciocínio automatizado                       - métodos de busca (todos), profundidade (dedução)
     - aprendizado de máquina (machine learning)     - RNA
 
+    - palavra-chave -> aprender -> treinar -> amostra -> repetição  
+    - por que aprender?        
+        - reconhecer padrões -> diagnosticar
+    - treinar   
+        - amostras: atributos/propriedades E pesos/importância
+        - corrigir/calibrar os pesos
+
+        fluxo
+        treinamento -> amostras -> repetição
+        aprendizagem
+        reconhecimento de padrões
+        diagnostico
+        sim ou não
+
+        Vai chover? sim ou não
+        atributo                    peso ou importância ou relevância
+        presença nuvens             6
+        vento                       1
+        umidade                     3
+
+        cenários ou amostras
+        06/12
+        sim                     choveu - sim
+        22
+        89
+
+
 REDES NEURAIS ARTIFICIAIS => Aprendizado de máquina => RECONHECIMENTO DE PADRÕES => Treinamento
         -> vários algoritmos (tipo de treinamento, topologia (quantas camadas),
                               tipo propagação (feedforward ou feedback propagations))

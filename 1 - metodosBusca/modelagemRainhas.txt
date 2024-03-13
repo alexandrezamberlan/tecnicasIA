@@ -10,7 +10,7 @@ Características do problema:
 3) com restrições (mais de uma rainha não pode estar na mesma linha, coluna, diagonais principais, diagonais secundárias)
 4) não tem heurística ou dica de atalho (sem alguma informação que ajude a ir para um estado específico)
 
-Estados do Problema das Jarras
+Estados do Problema das Rainhas
     Classe; atributos; tipos
     Rainhas; matriz NxN de inteiros representando o tabuleiro, quantidade de rainhas posicionadas (inteiro)
     Estado inicial: matriz inicializada com 0; quantidade de rainhas inicializada com 0
@@ -20,27 +20,26 @@ Regras de transição do Problema das Jarras
     Métodos da Classe
     1) posicionar uma rainha no primeiro slot/casa livre
 
+Mapear as restrições do Problema
+    testar cada linha 
+    testar cada coluna
+    testar todas as diagonais principais
+    testar todas as diagonais secundárias
+
+Tudo isso, procurando mais de uma rainha
+
+No processo de resolução do problema por métodos de busca, são feitas 3 perguntas/métodos:
+1) é válido?
+    public boolean ehValido() {}
+2) foi visitado?
+    if (visitados.contains(estado))
+3) é a meta/objetivo?
+    public boolean ehMeta() {}
 
 Como tratar os visitados ou objetos ou estados já produzidos
     Lista encadeada ou HashSet com coersão dos atributos em string
     "0000000000000000" "100000000000" "1000001000000000"
 
-Mapear as restrições do Problema
-testar cada linha 
-testar cada coluna
-testar todas as diagonais principais
-testar todas as diagonais secundárias
-
-Tudo isso, procurando mais de uma rainha
-
-
-No processo de resolução do problema por métodos de busca, são feitas 3 perguntas/métodos:
-1) é válido?
-public boolean ehValido() {}
-2) foi visitado?
-if (visitados.contains(estado))
-3) é a meta/objetivo?
-public boolean ehMeta() {}
 
 |   |   |   |   |
 |   |   |   |   |

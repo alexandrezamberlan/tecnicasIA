@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "lcrE7YKv2v6Cn8SDBwlGwZzD+Y5uiAem/UxltOCczKaF9z4IrpXxfpnsPRD1uVb0vGgGH51dyc+uohEE4A3VQg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\laboratorio\\Downloads\\Sudoku\\Sudoku.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.21\\microsoft.netcore.app.host.win-x64.6.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -11,6 +11,84 @@ Técnicas de IA que geram Sistemas com Comportamento Inteligente
         - diagnóstico: 
         - 'empacotamento': não conhecimento do estado final; há muitas restrições
 
+===============================
+Técnicas de IA
+1) Métodos de Busca
+2) Representação do conhecimento
+3) Algoritmos Genéticos
+4) Sistemas Multiagentes
+5) Redes Neurais
+
+Um Sistema de Comportamento Inteligente
+    - base de conhecimento: conjunto de fatos e regras
+        2 e 4
+    - raciocínio automatizado: aplicação de um método de busca
+        1, 2, 3 e 4
+    - aprendizado de máquina: reconhecimento de padrões por treinamento via amostras
+        5
+
+Um sistema de comportamento inteligente é diferente de um sistema inteligente. Por quê?        
+
+Métodos de Busca (estrutura de visitados - mapeia e guarda os estados visitados)
+    cegos - força bruta
+        profundidade - pilha
+        largura/amplitude - fila
+    heurísticos
+        Subida da Encosta - profundidade
+        Guloso - largura
+        A* - largura
+
+        Há dois tipos de custo:
+            real g(n) - km, tempo, ...
+            estimado h(n) - valor estimado de um estado até outro estado
+                - estimado significa que pode ser falho ou inadimissível
+
+1) No processo de modelagem de soluções para problemas que necessitam de métodos de busca,
+o que deve ser modelado:
+    - estado (inicial ou final)
+    - regras de transição
+    - restrições (ou impedimentos)
+    - estrutura de visitados
+    - função objetivo
+
+2) Ao aplicar métodos de busca, para cada estado gerado, são realizados 3 testes:
+    - é válido
+    - já foi visitado
+    - é o estado final
+
+3) No processo de modelagem e implementação de soluções com métodos de busca, há um
+processo muito difícil de se construir. Qual? Por quê?
+    - definição de heurísticas. Porque a presença de um super especialista na regra de 
+    negócio deve ser obrigatório, ou os cálculos deve contemplar a realidade da
+    regra de negócio.
+
+========
+
+Prolog
+    Um sistema de comportamento inteligente possui base, raciocínio e aprendizado. É criado
+    com técnicas de IA.
+
+1) qual o paradigma da linguagem Prolog? Lógico
+    - constituído por sentenças ou predicados (relação) entre objetos
+
+2) quais as vantagens de se utilizar Prolog?
+    1) a linguagem é ao mesmo tempo linguagem de modelagem e de codificação
+    2) é naturalmente recursiva, substituindo instruções de repetição
+    3) é multicore
+    4) por trabalhar com fatos e regras, todas a exceções ou restrições são mapeadas facilmente
+    5) usa como motor o método de profundidade, ou seja, aplica dedução via força bruta
+
+3) o que são fatos e para que são usados?
+    São declarações ou predicados verdadeiros e são usados para mapear uma área de conhecimento
+
+4) o que são regras e para que são utilizadas?
+    São declarações ou predicados que testam fatos, ou seja, é a aplicação do motor de raciocínio
+    para descobrir algo
+
+5) qual é o papel da sobrecarga em prolog?
+    Faz com que regras que falhem, ou seja, na sua primeira ocorrencia, a próxima
+    regra seja chamada. Comportamento de OU.
+
 
     - Métodos de busca de uma solução via algoritmos de:
         - força bruta: profundidade e largura. Não se tem algum tipo de informação para 'atalhar'

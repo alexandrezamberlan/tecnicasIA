@@ -28,3 +28,6 @@ A partir dessa descrição monte uma base de fatos em Prolog que represente fiel
 - "nasceu_em" 
 - "mora_em"
 
+
+7) Os problemas que a IA resolve tem características próprias. Comente quais as categorias de problemas que a IA trabalha, conforme discutido em sala de aula.
+

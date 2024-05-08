@@ -3,18 +3,17 @@ Exemplo - https://rednuht.org/genetic_cars_2/
 AG
 	- método de busca heurística
 	- tipo de problema com muitas restrições (ifs) e sem o conhecimento do estado final
-	- produz estados como os métodos de busca tradicionais, entretanto, a produz/geração não é linear,
+	- produz estados como os métodos de busca tradicionais, entretanto, a produção/geração não é linear,
 	  mas sim paralelo (como se fosse um vetor/lista).... a cada geração um AG pode produzir/gerar N estados novos
-	- método de busca turbinado com aleatoriedade controlada.... maior chute da paróquia
+	- método de busca 'turbinado' com aleatoriedade controlada.... maior chute da paróquia
 
 AG 
 	- baseado na teoria da evolução Charles Darwin
 		- método de seleção natural (os mais aptos ou os mais perto da solução ou os com menos restrições feridas 
 		  irão passar para a próxima geração)
-		- método de cruzamento/crossover.... vai eleger dois estados para cruzarem/reproduzirem -> UNICO METODO QUE CRIA INDIVIDUOS
-		- método mutação
-		- elitismo
-
+		- método de cruzamento/crossover.... vai eleger dois estados para cruzarem/reproduzirem -> METODO QUE CRIA INDIVIDUOS
+		- método mutação -> MÉTODO QUE CRIA INDIVIDUOS A PARTIR DA ALTERAÇÃO DE OUTRO
+		- elitismo -> tem relação com a seleção, ou seja, o melhor indivíduo sempre é selecionado para a próxima geração
 
 Problema: Geração de palavras em evolução até chegar numa palavra estado final
 

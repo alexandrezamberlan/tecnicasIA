@@ -171,7 +171,7 @@ public class Hannoi implements Estado {
     
     
     public static void main(String[] a) {
-        int discos = Integer.parseInt(JOptionPane.showInputDialog(null, "Quantos discos?"));
+        int discos = 5;
         if (discos == 0) System.exit(0);
         
         Stack t1 = new Stack();

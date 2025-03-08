@@ -53,7 +53,7 @@
 
 
     def numero_esta_no_lugar_certo(self, numero, linha, coluna):
-        return (not numero_esta_na_linha(numero, linha)) and (not numero_esta_na_coluna(numero, coluna)) and (not numero_esta_no_box(numero, linha, coluna))
+        return (not self.numero_esta_na_linha(numero, linha)) and (not self.numero_esta_na_coluna(numero, coluna)) and (not self.numero_esta_no_box(numero, linha, coluna))
     
 
     def resolver_sudoku(self):    
@@ -61,10 +61,10 @@
             for coluna in range(0, self.dimensao):                    
                 if (self.matriz[linha][coluna] == 0):                
                     for tentandoNumero in range(1, self.dimensao+1):                    
-                        if (numero_esta_no_lugar_certo(tentandoNumero, linha, coluna)):                        
+                        if (self.numero_esta_no_lugar_certo(tentandoNumero, linha, coluna)):                        
                             self.matriz[linha][coluna] = tentandoNumero
                             
-                            if (resolver_sudoku()):                
+                            if (self.resolver_sudoku()):                
                                 return True                            
                             else:                            
                                 self.matriz[linha][coluna] = 0                            

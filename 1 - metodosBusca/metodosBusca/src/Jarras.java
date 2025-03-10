@@ -66,9 +66,6 @@ public class Jarras implements Estado {
     private void encherJarra1(List<Estado> visitados) {
         Jarras novo = new Jarras(TAM1,this.jarra2,"Enchendo a jarra1");
         if (!visitados.contains(novo)) visitados.add(novo);
-        else {
-            System.gc();
-        }
     }
     
     private void encherJarra2(List<Estado> visitados) {

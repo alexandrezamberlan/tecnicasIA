@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
+
 import busca.Heuristica;
 import busca.*;
 import java.util.Collections;
@@ -254,9 +256,10 @@ public class Puzzle implements Estado, Heuristica {
     }
 
     public static void main(String[] a) {
-        try {
+        try (Scanner teclado = new Scanner(System.in)) {
             Posicao pos = new Posicao();
-            int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
+            System.out.println("Entre com a dimensão do Puzzle!");
+            int dimensao = teclado.nextInt();
             int matriz[][] = geraMatrizInicial(dimensao, pos);
             exibirMatriz(matriz);
             System.out.println(pos.linha + "," + pos.coluna);

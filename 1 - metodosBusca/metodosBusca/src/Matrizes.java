@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
 import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.Collections;
 public class Matrizes {
 
@@ -121,30 +122,33 @@ public class Matrizes {
         System.out.println(pos.linha + "," + pos.coluna);
         testaHash(matriz);
         String op;
-
-        do {
-            op = JOptionPane.showInputDialog(null,"W - cima; S - baixo; A - esquerda; D - direita");
-            switch (op) {
-                case "w":
-                    paraCima(matriz, pos);
-                    break;
-                case "s":
-                    paraBaixo(matriz, pos);
-                    break;
-                case "a":
-                    paraEsquerda(matriz, pos);
-                    break;
-                case "d":
-                    paraDireita(matriz, pos);
-                    break;
-                default:
-                    break;
-            }
-            System.out.println("\n");
-            exibirMatriz(matriz);
-            System.out.println(pos.linha + "," + pos.coluna);
-            testaHash(matriz);
-        } while (true);
+        try (Scanner teclado = new Scanner(System.in)) {
+            do {
+                // op = JOptionPane.showInputDialog(null,"W - cima; S - baixo; A - esquerda; D - direita");
+                System.out.println("W - cima; S - baixo; A - esquerda; D - direita");
+                op = teclado.nextLine();
+                switch (op) {
+                    case "w":
+                        paraCima(matriz, pos);
+                        break;
+                    case "s":
+                        paraBaixo(matriz, pos);
+                        break;
+                    case "a":
+                        paraEsquerda(matriz, pos);
+                        break;
+                    case "d":
+                        paraDireita(matriz, pos);
+                        break;
+                    default:
+                        break;
+                }
+                System.out.println("\n");
+                exibirMatriz(matriz);
+                System.out.println(pos.linha + "," + pos.coluna);
+                testaHash(matriz);
+            } while ("w".equals(op) || "s".equals(op) || "a".equals(op) || "d".equals(op));
+        }
     }
 }
 

@@ -257,9 +257,9 @@ public class LabirintoObstaculos implements Estado, Heuristica {
         int qualMetodo;
         Nodo n;
         try {
-            dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
-            porcentagemObstaculos = Integer.parseInt(JOptionPane.showInputDialog(null,"Porcentagem de obstáculos!"));
-            qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Profundidade\n2 - Largura"));
+            dimensao = 5;
+            porcentagemObstaculos = 5;
+            qualMetodo = 2; // 1 - Profundidade, 2 - Largura
             estadoInicial = new LabirintoObstaculos(dimensao, "estado inicial", porcentagemObstaculos);
             
             switch (qualMetodo) {

@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class QuebraCabeca implements Estado, Heuristica {
@@ -77,6 +79,9 @@ public class QuebraCabeca implements Estado, Heuristica {
     private int h_avaliacao() {
         int nr = 0,
                 qtd = 0;
+        if (this.tabuleiro == null) {
+            return 0;
+        }
 
         for (int i = 0; i < this.tabuleiro.length; i++) {
             for (int j = 0; j < this.tabuleiro.length; j++) {
@@ -97,6 +102,10 @@ public class QuebraCabeca implements Estado, Heuristica {
     private int h_heuristica() {
         int nr = 0,
                 distancia = 0;
+
+        if (this.tabuleiro == null) {
+            return 0;
+        }
 
         for (int i = 0; i < this.tabuleiro.length; i++) {
             for (int j = 0; j < this.tabuleiro.length; j++) {
@@ -119,6 +128,9 @@ public class QuebraCabeca implements Estado, Heuristica {
     @Override
     public boolean ehMeta() {
         int count = 0;
+        if (this.tabuleiro == null) {
+            return false;
+        }
         for (int i = 0; i < this.tabuleiro.length; i++) {
             for (int j = 0; j < this.tabuleiro.length; j++) {
                 if (this.tabuleiro[i][j] != count++) {
@@ -138,6 +150,10 @@ public class QuebraCabeca implements Estado, Heuristica {
         if (o instanceof QuebraCabeca) {
             QuebraCabeca e = (QuebraCabeca) o;
 
+            if (this.tabuleiro == null || e.tabuleiro == null) {
+                return false;
+            }
+
             for (int i = 0; i < this.tabuleiro.length; i++) {
                 for (int j = 0; j < this.tabuleiro.length; j++) {
                     if (this.tabuleiro[i][j] != e.tabuleiro[i][j]) {
@@ -152,7 +168,11 @@ public class QuebraCabeca implements Estado, Heuristica {
 
     @Override
     public int hashCode() {
-        StringBuffer frase = new StringBuffer();
+        StringBuilder frase = new StringBuilder();
+
+        if (this.tabuleiro == null) {
+            return 0;
+        }
 
         for (int i = 0; i < this.tabuleiro.length; i++) {
             for (int j = 0; j < this.tabuleiro.length; j++) {
@@ -289,20 +309,23 @@ public class QuebraCabeca implements Estado, Heuristica {
         }
     }
 
-
     public static void main(String[] a) {
-        int tamanho = Integer.parseInt(JOptionPane.showInputDialog(null, "Entre com a dimensao do tabuleiro: "));
-        QuebraCabeca inicial = new QuebraCabeca(tamanho); // Gera o estado inicial
+        try (Scanner teclado = new Scanner(System.in)) {
+            System.out.println("Entre com a dimensao do tabuleiro: ");
+            int tamanho = teclado.nextInt();
+            QuebraCabeca inicial = new QuebraCabeca(tamanho); // Gera o estado inicial
 
-        System.out.println("Busca A*");
-        
-        Nodo n = new AEstrela(new MostraStatusConsole()).busca(inicial); // Com Status de andamento
-        if (n == null) {
-            System.out.println("Sem solucao!");
-        } else {
-            System.out.println("Solucao:\n" + n.montaCaminho() + "\n\n");
+            System.out.println("Busca A*");
+            
+            Nodo n = new AEstrela(new MostraStatusConsole()).busca(inicial); // Com Status de andamento
+            if (n == null) {
+                System.out.println("Sem solucao!");
+            } else {
+                System.out.println("Solucao:\n" + n.montaCaminho() + "\n\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        System.exit(0);
+        System.exit(0); 
     }
 }

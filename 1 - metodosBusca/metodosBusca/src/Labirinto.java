@@ -247,10 +247,12 @@ public class Labirinto implements Estado, Heuristica {
 
     public static void main(String[] a) {
         try {
-            int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
+            // int dimensao = Integer.parseInt(JOptionPane.showInputDialog(null,"Entre com a dimensão do Puzzle!"));
+            int dimensao = 4;
             Labirinto estadoInicial = new Labirinto(dimensao, "estado inicial");
             
-            int qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Profundidade\n2 - Largura"));
+            // int qualMetodo = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Profundidade\n2 - Largura"));
+            int qualMetodo = 2;
             Nodo n;
             
             switch (qualMetodo) {

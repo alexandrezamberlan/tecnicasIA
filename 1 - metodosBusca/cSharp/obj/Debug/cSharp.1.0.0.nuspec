@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>cSharp</id>
+    <version>1.0.0</version>
+    <authors>cSharp</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="ff5d2714a1b0023a68944e3ea8ace79462345dc0" />
+    <dependencies>
+      <group targetFramework="net9.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\bin\Debug\net9.0\cSharp.runtimeconfig.json" target="lib\net9.0\cSharp.runtimeconfig.json" />
+    <file src="C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\bin\Debug\net9.0\cSharp.dll" target="lib\net9.0\cSharp.dll" />
+  </files>
+</package>

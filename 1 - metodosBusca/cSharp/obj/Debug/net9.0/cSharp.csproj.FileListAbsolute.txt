@@ -1,0 +1,15 @@
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\bin\Debug\net9.0\cSharp.exe
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\bin\Debug\net9.0\cSharp.deps.json
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\bin\Debug\net9.0\cSharp.runtimeconfig.json
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\bin\Debug\net9.0\cSharp.dll
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\bin\Debug\net9.0\cSharp.pdb
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.AssemblyInfoInputs.cache
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.AssemblyInfo.cs
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.csproj.CoreCompileInputs.cache
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.sourcelink.json
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.dll
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\refint\cSharp.dll
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.pdb
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\cSharp.genruntimeconfig.cache
+C:\Users\laboratorio\Desktop\tecnicasIA\1 - metodosBusca\cSharp\obj\Debug\net9.0\ref\cSharp.dll

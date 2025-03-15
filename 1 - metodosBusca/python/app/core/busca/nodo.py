@@ -1,5 +1,8 @@
+from .estado import Estado
+
+
 class Nodo:
-    def __init__(self, estado, pai=None):
+    def __init__(self, estado: Estado, pai=None):
         self.estado = estado
         self.pai = pai
         self.profundidade = 0 if pai is None else pai.get_profundidade() + 1

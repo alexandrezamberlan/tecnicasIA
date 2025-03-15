@@ -1,8 +1,10 @@
 import threading
 import time
 
+from app.core.busca.status import Status
+
 class MostraStatusConsole(threading.Thread):
-    def __init__(self, status=None):
+    def __init__(self, status: Status=None):
         super().__init__()
         self.status = status
         self.stop = False
@@ -36,4 +38,4 @@ class MostraStatusConsole(threading.Thread):
         print("Status:")
         print(f"\t{self.status.nro_visitados} nodos visitados, nodos em aberto={self.status.tam_abertos}")
         print(f"\tProfundidade atual={self.status.profundidade_max}")
-        print(f"\tTempo decorrido={self.status.get_tempo_decorrido()}")
+        # print(f"\tTempo decorrido={self.status.get_tempo_decorrido()}")

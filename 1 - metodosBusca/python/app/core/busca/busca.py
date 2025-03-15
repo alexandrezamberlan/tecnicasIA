@@ -1,5 +1,8 @@
 from abc import ABC, abstractmethod
 from collections import defaultdict
+
+from .estado import Estado
+from .mostra_status_console import MostraStatusConsole
 from .status import Status
 from .nodo import Nodo
 
@@ -28,7 +31,7 @@ class Busca(ABC):
             self.status.set_mostra(self.mstatus)
         return self.status
 
-    def set_mostra(self, mostra_status_console):
+    def set_mostra(self, mostra_status_console: MostraStatusConsole):
         self.mstatus = mostra_status_console
         self.mstatus.set_status(self.status)
         self.status.set_mostra(self.mstatus)
@@ -37,10 +40,10 @@ class Busca(ABC):
         return "Algoritmo de busca geral"
 
     @abstractmethod
-    def busca(self, inicial):
+    def busca(self, inicial:Estado)->Nodo:
         pass
 
-    def set_parar(self, b):
+    def set_parar(self, b: bool):
         self.parar = b
 
     def para(self):
@@ -53,17 +56,17 @@ class Busca(ABC):
     def usar_fechados(self, b):
         self.usar_fechado = b
 
-    def sucessores(self, pai):
+    def sucessores(self, pai:Nodo)->list[Nodo]:
         return self.so_novos(pai.estado.sucessores(), pai)
 
-    def antecessores(self, pai):
+    def antecessores(self, pai:Nodo)->list[Nodo]:
         try:
             return self.so_novos(pai.estado.antecessores(), pai)
         except AttributeError:
             print(f"O estado {pai.estado} nao implementa antecessores!")
             return []
 
-    def so_novos(self, estados, pai):
+    def so_novos(self, estados:list[Estado], pai:Nodo)->list[Nodo]:
         suc_nodo = []
         for e in estados:
             filho = Nodo(e, pai)

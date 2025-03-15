@@ -12,6 +12,7 @@ from .estado import Estado
 from .heuristica import Heuristica
 from .busca_iterativo import BuscaIterativo
 from .aleatorio import Aleatorio
+from .stack import Stack
 
 __all__ = [
     "AEstrela",
@@ -29,4 +30,5 @@ __all__ = [
     "Estado",
     "Heuristica",
     "BuscaIterativo",
+    "Stack"
 ]

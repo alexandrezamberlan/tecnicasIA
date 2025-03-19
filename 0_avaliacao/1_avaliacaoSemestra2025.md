@@ -2,8 +2,8 @@
 
 ## Métodos de Busca
 
-### Envio
-O trabalho deve ser disponibilizado no GitHub pessoal do aluno ou da dupla e o link do repositório do trabalho deve ser enviado para alexz@ufn.edu.br.
+### Envio e data de entrega
+O trabalho deve ser disponibilizado no GitHub pessoal do aluno ou da dupla e o link do repositório do trabalho deve ser enviado para alexz@ufn.edu.br no dia 25/03/2025 até as 18h.
 
 ### Enunciado
 

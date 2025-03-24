@@ -7,7 +7,6 @@ class BuscaProfundidade(Busca):
     def __init__(self, prof_max=40, mostra_status_console=None):
         super().__init__(mostra_status_console)
         self.prof_max = prof_max
-        self.status = Status()
 
     def set_prof_max(self, m):
         self.prof_max = m
@@ -26,7 +25,7 @@ class BuscaProfundidade(Busca):
                 return n
         
             if n.get_profundidade() < self.prof_max:
-                abertos.extendleft(reversed(self.sucessores(n)))
+                abertos.extendleft(self.sucessores(n))
                 
         self.status.termina(False)
         return None

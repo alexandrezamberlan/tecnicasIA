@@ -1,24 +1,14 @@
+import random
+from util import Util
+from cromossomo import Cromossomo
 
-pai = 'alexandre'
-mae = 'simone'
+mutante = Cromossomo("alexone", "simone")
+print('antes da mutacao..', mutante)
+posicao_gene_mutante = random.randrange(len(mutante.palavra))
+novo_gene = Util.letras[ random.randrange(Util.tamanho) ]                        
+print(posicao_gene_mutante, novo_gene)
 
-tamanho_pai = len(pai)
-tamanho_mae = len(mae)
-
-primeira_metade_pai = pai[0 : int(len(pai)/2)]
-segunda_metade_pai = pai[int(len(pai) / 2) : len(pai)]
-
-primeira_metade_mae = mae[0 : int(len(mae)/2)]
-segunda_metade_mae = mae[int(len(mae) / 2) : len(mae)]
-
-filho1 = primeira_metade_pai + segunda_metade_mae
-filho2 = primeira_metade_mae + segunda_metade_pai
-
-print(filho1)
-print(filho2)
-
-
-lista = [3,5,6,7,90]
-
-lista.remove()
-
+nova_palavra = mutante.palavra[:4] + "@" + mutante.palavra[5:]
+nome_mutado = nome[:4] + "@" + nome[5:]
+# mutante.calcular_aptidao("simone")
+# print('depois da mutacao..', mutante)

@@ -118,7 +118,23 @@ class Cromossomo:
             while (len(nova_populacao) > len(populacao)):
                 nova_populacao.pop()
 
+    @staticmethod
+    def mutar(populacao, estado_final):
+        quantidade_mutantes = random.randrange(int(len(populacao)))
+        while (quantidade_mutantes > 0):
+            posicao_mutante = random.randrange( int(len(populacao)) )
+            mutante = populacao[ posicao_mutante ]
+            print("vai mutar " , mutante)
+            
+            #mudando
+            palavra_mutado = mutante.palavra
 
-        
+            caracter_mutante = mutante.palavra[random.randrange(len(mutante.palavra))]
+            caracter_sorteado = Util.letras[random.randrange(Util.tamanho)]
+            palavra_mutado = palavra_mutado.replace(caracter_mutante, caracter_sorteado)          
+            mutante = Cromossomo(palavra_mutado, estado_final)
+            
+            populacao[posicao_mutante] = mutante
+            quantidade_mutantes -= 1
 
             

@@ -27,3 +27,9 @@ Algoritmos Genéticos
             - seleção dos mais fortes - aptidão/fitness - heurística
             - reprodução dos indivíduos
             - mutação
+
+SELEÇÃO
+    - roleta
+        
+    - torneio
+    - estocástico

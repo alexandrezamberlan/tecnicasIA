@@ -3,15 +3,13 @@ import random
 
 populacao = list()
 
-
 rota = list()
 tamanho_populacao = 100
 
 while (tamanho_populacao > 0):
     for i in range(9):
         rota.append(i)
-    
-    
+        
     #embaralhar a rota
     random.shuffle(rota)
     populacao.append(copy.deepcopy(rota))

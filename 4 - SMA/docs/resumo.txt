@@ -46,7 +46,7 @@ Vídeo no Youtube sobre modelagem de Agentes
     - https://youtu.be/L6hoY05zS0U    
 
 Site do JASON
-    - https://jason.sourceforge.net/wp/
+    - https://jason-lang.github.io/
 
 NA FERRAMENTA JASON (interpretador da linguagem AgentSpeak - baseada em Prolog)
     - .mas2j - arquivo que contém o projeto do SMA (informa o tipo de distribuição, 

@@ -61,18 +61,18 @@ public class Puzzle implements Estado, Heuristica {
      */
     @Override
     public int custo() {
-//        int nr = 0, distancia = 0;
-//        for (int i = 0; i < this.matriz.length; i++) {
-//             for (int j = 0; j < this.matriz.length; j++) {
-//                 if (this.matriz[i][j] <= nr++) {
-//                     distancia += nr - this.matriz[i][j];
-//                 } else {
-//                     distancia += this.matriz[i][j] - nr;
-//                 }
-//             }
-//         }
-//         return distancia;
-        return 1;
+        int nr = 0, distancia = 0;
+        for (int i = 0; i < this.matriz.length; i++) {
+             for (int j = 0; j < this.matriz.length; j++) {
+                 if (this.matriz[i][j] <= nr++) {
+                     distancia += nr - this.matriz[i][j];
+                 } else {
+                     distancia += this.matriz[i][j] - nr;
+                 }
+             }
+         }
+         return distancia;
+//        return 1;
     }
 
     /**

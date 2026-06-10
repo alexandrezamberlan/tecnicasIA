@@ -105,7 +105,7 @@ saidas = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 rede = Perceptron(amostras, saidas)
 rede.treinar()
 
-
+# Execução ou produção
 while (True):
 	# Entrando com amostra para teste
 	x = float(input('Valor para x: '))

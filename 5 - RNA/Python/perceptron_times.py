@@ -104,14 +104,15 @@ saidas = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 # Chamar classe e fazer treinamento
 rede = Perceptron(amostras, saidas)
 rede.treinar()
- 
-# Entrando com amostra para teste
-x = 0
-y = 0
-print('Ponto: ', x , ' , ', y)
-rede.teste([x,y])
-#sys.exit("fim de teste")
 
-#Os dados utilizados correspondem a pares de coordenadas (x,y) para classificação de cores: 
-# 1 é azul e -1 é vermelho. 
+
+while (True):
+	# Entrando com amostra para teste
+	x = float(input('Valor para x: '))
+	y = float(input('Valor para y: '))
+	print('Ponto: ', x , ' , ', y)
+	rede.teste([x,y])
+	
+	#Os dados utilizados correspondem a pares de coordenadas (x,y) para classificação de cores: 
+	# 1 é azul e -1 é vermelho. 
 

@@ -7,7 +7,6 @@ class BuscaProfundidade(Busca):
     def __init__(self, prof_max=40, mostra_status_console=None):
         super().__init__(mostra_status_console)
         self.prof_max = prof_max
-        self.status = Status()
 
     def set_prof_max(self, m):
         self.prof_max = m
